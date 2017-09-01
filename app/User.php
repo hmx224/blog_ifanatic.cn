@@ -117,6 +117,7 @@ class User extends Authenticatable
     public function followed($question_id)
     {
         //强制返回布尔值
+
         return !!$this->follows()->where('question_id', $question_id)->count();
     }
 
