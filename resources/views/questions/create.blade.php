@@ -32,7 +32,7 @@
 
 
                             <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-                                <label for="body">描述:</label>
+                                <label for="body">内容:<span style="color:hotpink;">(图片上传最大上传大小:10M)</span></label>
                                 <!-- 编辑器容器 -->
                                 <script id="container" name="body" type="text/plain">
                                     {!! old('body') !!}
