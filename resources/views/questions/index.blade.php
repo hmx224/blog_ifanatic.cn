@@ -34,7 +34,7 @@
                         <h2>
                             {{ config('app.name', 'ifanatic.cn') }}
                         </h2>
-                        <span>欢迎来到追逐血性的博客，分享你的所见所谓，让我们开怀聊天。</span>
+                        <span>欢迎来到爱狂热的博客，分享你的所见所闻，让我们开怀聊天。</span>
                     </div>
 
                     <div class="panel-body">
