@@ -21,6 +21,8 @@
                                             {{ $question->title }}
                                         </a>
                                     </h4>
+
+                                    <h5>{{ $question->updated_at }}</h5>
                                 </div>
                             </div>
                         @endforeach
@@ -44,17 +46,6 @@
 
                 </div>
             </div>
-
-            {{--<div class="col-md-8 col-md-offset-1">--}}
-                {{--<div class="panel panel-default">--}}
-                    {{--<div class="panel-heading">--}}
-                        {{--测试面板--}}
-                    {{--</div>--}}
-                    {{--<div class="panel-body">--}}
-                        {{--测试内容--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
         </div>
     </div>
 @endsection

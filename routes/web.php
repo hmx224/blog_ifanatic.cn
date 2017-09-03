@@ -29,3 +29,5 @@ Route::resource('questions', 'QuestionsController', ['names' => [
 ]]);
 
 Route::post('questions/{question_id}/answer', 'AnswersController@store');
+
+Route::get('log', 'LogController@index'); //日志记录

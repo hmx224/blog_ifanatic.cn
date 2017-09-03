@@ -37,7 +37,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;
+                    &nbsp;<li  class="dropdown">
+                        <a href="{{ url('log') }}">更新日志</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
