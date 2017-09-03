@@ -38,7 +38,11 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     &nbsp;<li  class="dropdown">
-                        <a href="{{ url('log') }}">更新日志</a>
+                        <a href="{{ url('log_bug') }}">BUG更新日志</a>
+                    </li>
+
+                    &nbsp;<li  class="dropdown">
+                        <a href="{{ url('log_logic') }}">业务更新日志</a>
                     </li>
                 </ul>
 
