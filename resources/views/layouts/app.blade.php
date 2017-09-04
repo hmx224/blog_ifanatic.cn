@@ -53,7 +53,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if (Auth::guest() || \App\User::find(Auth::id())->is_active ==0)
+                    @if (Auth::guest() || \App\User::find(Auth::id())->is_active == App\User::STATUS_NORMAL)
                         <li><a href="{{ route('login') }}">登录</a></li>
                         <li><a href="{{ route('register') }}">注册</a></li>
                     @else

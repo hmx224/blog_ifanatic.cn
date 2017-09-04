@@ -18,6 +18,10 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
 
+    //用户激活状态 0未激活 1已激活
+    const STATUS_ACTIVE = 1;
+    const STATUS_NORMAL = 0;
+
     /**
      * @var string
      */
@@ -124,12 +128,12 @@ class User extends Authenticatable
     //用户之间的关联
     public function followers()
     {
-        return $this->belongsToMany(self::class,'followers','follower_id','followed_id')->withTimestamps();
+        return $this->belongsToMany(self::class, 'followers', 'follower_id', 'followed_id')->withTimestamps();
     }
 
     public function followersUser()
     {
-        return $this->belongsToMany(self::class,'followers','followed_id','follower_id')->withTimestamps();
+        return $this->belongsToMany(self::class, 'followers', 'followed_id', 'follower_id')->withTimestamps();
     }
 
     public function followThisUser($user)

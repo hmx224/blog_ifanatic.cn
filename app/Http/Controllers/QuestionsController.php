@@ -39,10 +39,11 @@ class QuestionsController extends Controller
 //        $question = $this->questionRepository->byIdWithTopicsAndAnswers('5');
 //        dd(Auth::user()->owns($question)==Auth::id());
 
-
         $questions = $this->questionRepository->getQuestionSeed();
 
-        $users = User::orderBy('created_at','desc')->get();
+        $users = User::orderBy('created_at', 'asc')
+            ->where('is_active', User::STATUS_ACTIVE)
+            ->get();
 
         return view('questions.index', compact('questions', 'users'));
     }
