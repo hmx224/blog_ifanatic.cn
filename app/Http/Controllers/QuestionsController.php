@@ -49,7 +49,9 @@ class QuestionsController extends Controller
             ->where('is_active', User::STATUS_NORMAL)
             ->get();
 
-        return view('questions.index', compact('questions', 'users_active', 'users'));
+        $count = User::all()->count();
+
+        return view('questions.index', compact('questions', 'users_active', 'users', 'count'));
     }
 
     /**
