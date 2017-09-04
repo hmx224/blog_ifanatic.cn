@@ -41,11 +41,12 @@
                         </h2>
                         <span>欢迎来到爱狂热的博客，分享你的所见所闻，让我们开怀聊天。</span>
                     </div>
-
-                    <div class="panel-body">
-                        <a href="" class="btn btn-default pull-left">关于我</a>
-                        <a href="questions/create" class="btn btn-primary pull-right">写文章</a>
-                    </div>
+                    @if(Auth::check() && \App\User::find(Auth::user()->id)->is_active == \App\User::STATUS_ACTIVE)
+                        <div class="panel-body">
+                            <a href="" class="btn btn-default pull-left">关于我</a>
+                            <a href="questions/create" class="btn btn-primary pull-right">写文章</a>
+                        </div>
+                    @endif
 
                 </div>
             </div>
