@@ -41,11 +41,14 @@ class QuestionsController extends Controller
 
         $questions = $this->questionRepository->getQuestionSeed();
 
-        $users = User::orderBy('created_at', 'asc')
+        $users_active = User::orderBy('created_at', 'asc')
             ->where('is_active', User::STATUS_ACTIVE)
             ->get();
 
-        return view('questions.index', compact('questions', 'users'));
+        $users = User::orderBy('created_at', 'asc')
+            ->get();
+
+        return view('questions.index', compact('questions', 'users_active', 'users'));
     }
 
     /**
