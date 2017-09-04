@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreQuestionRequest;
 use App\Repositories\QuestionRepository;
+use App\User;
 use Auth;
 
 /**
@@ -41,7 +42,9 @@ class QuestionsController extends Controller
 
         $questions = $this->questionRepository->getQuestionSeed();
 
-        return view('questions.index', compact('questions'));
+        $users = User::orderBy('created_at','desc')->get();
+
+        return view('questions.index', compact('questions', 'users'));
     }
 
     /**

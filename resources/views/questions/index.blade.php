@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-7 col-md-offset-1">
+            <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         @foreach($questions as $question)
@@ -54,23 +54,20 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading question-follow">
-                        <h2>
-                            公告栏
-                        </h2>
-                        <span>亲爱的会员信息列表</span>
-
-                        <ul>
-                            <li>
-                                @foreach($question->user as $user)
-                                    <a href="">{{ $user }}</a>
-                                @endforeach
-                            </li>
-                        </ul>
+                        <h3>
+                            会员信息列表
+                        </h3>
                     </div>
 
                     <div class="panel-body">
-                        <a href="" class="btn btn-default pull-left">关于我</a>
-                        <a href="questions/create" class="btn btn-primary pull-right">写文章</a>
+                        <ul style="list-style: none;font-size:14px; margin:0;padding:0;">
+                            @foreach($users as $user)
+                                <li>
+                                    <a href="#" style="">{{ $user->name }}</a>
+                                    <span class="pull-right">{{ $user->created_at }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
 
                 </div>
