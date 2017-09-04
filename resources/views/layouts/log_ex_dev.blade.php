@@ -9,7 +9,7 @@
                     <div class="panel-body">
                         <div>
                             <ul style="list-style: none;font-size:16px;">
-                                <li style="font-size: x-large; color: deeppink;">---20170904---</li>
+                                <li style="font-size: x-large; color: deeppink;">20170904</li>
                                 <li>1.单独回复楼层的答案</li>
                             </ul>
                         </div>
