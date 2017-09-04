@@ -62,7 +62,12 @@ class QuestionsController extends Controller
      */
     public function store(storeQuestionRequest $request)
     {
-        $topics = $this->questionRepository->normalizeTopic($request->get('topics'));
+
+        $topics = $request->get('topics');
+
+        if ($topics) {
+            $topics = $this->questionRepository->normalizeTopic($topics);
+        }
 
         $data = [
             'title' => $request->get('title'),

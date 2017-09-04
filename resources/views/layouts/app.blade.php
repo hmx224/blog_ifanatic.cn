@@ -105,12 +105,13 @@
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 @yield('js')
-<script src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 
-<link rel="stylesheet" href="/css/select2.min.css">
+<link rel="stylesheet" href="/select2/css/select2.min.css">
 <link rel="stylesheet" href="/css/style.css">
 
-<script src="/js/select2.full.js"></script>
+<script type="text/javascript" src="/select2/js/select2.full.js"></script>
+<script type="text/javascript" src="/select2/js/zh-CN.js"></script>
 
 <script>
     //        $('#flash-overlay-modal').modal();

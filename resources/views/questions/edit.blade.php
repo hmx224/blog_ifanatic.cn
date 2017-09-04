@@ -115,7 +115,8 @@
                 templateSelection: formatTopicSelection,
                 escapeMarkup: function (markup) {
                     return markup;
-                }
+                },
+                language: "zh-CN",
             });
         });
     </script>

@@ -74,7 +74,7 @@
                 return "<div class='select2-result-repository clearfix'>" +
                 "<div class='select2-result-repository__meta'>" +
                 "<div class='select2-result-repository__title'>" +
-                topic.name ? topic.name : "Laravel" +
+                topic.name ? topic.name : "ifanatic.cn" +
                     "</div></div></div>";
             }
 
@@ -106,7 +106,8 @@
                 templateSelection: formatTopicSelection,
                 escapeMarkup: function (markup) {
                     return markup;
-                }
+                },
+                language: "zh-CN",
             });
         });
     </script>
