@@ -31,4 +31,5 @@ Route::resource('questions', 'QuestionsController', ['names' => [
 Route::post('questions/{question_id}/answer', 'AnswersController@store');
 
 Route::get('log_bug', 'LogController@logBug'); //BUG 更新日志记录
-Route::get('log_logic', 'LogController@businessLogic'); //业务逻辑 更新日志记录
+Route::get('log_logic', 'LogController@logBusinessLogic'); //业务逻辑 更新日志记录
+Route::get('log_ex_dev', 'LogController@logExtensionDevelopment'); //扩展开发 更新日志记录

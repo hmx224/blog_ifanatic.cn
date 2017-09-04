@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 //记录日志方法
 class LogController extends Controller
 {
@@ -13,9 +12,15 @@ class LogController extends Controller
     }
 
     // 业务逻辑更新日志
-    public function businessLogic()
+    public function logBusinessLogic()
     {
         return view('layouts.log_logic');
+    }
+
+    //扩展开发更新日志
+    public function logExtensionDevelopment()
+    {
+        return view('layouts.log_ex_dev');
     }
 
 

@@ -22,7 +22,10 @@
                                         </a>
                                     </h4>
 
-                                    <h5>{{ $question->updated_at }}</h5>
+                                    <h5 class="">
+                                        <span>{{ $question->updated_at }}</span>
+                                        <span class="pull-right">{{ $question->user->name }}</span>
+                                    </h5>
                                 </div>
                             </div>
                         @endforeach

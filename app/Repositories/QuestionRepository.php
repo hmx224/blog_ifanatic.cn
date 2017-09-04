@@ -26,7 +26,7 @@ class QuestionRepository
     public function byIdWithTopicsAndAnswers($id)
     {
         //一个问题关联多个话题和多个答案
-        return Question::where('id', $id)->with(['topics', 'answers'])->first();
+        return Question::where('id', $id)->with(['topics', 'answers', 'user'])->first();
     }
 
     /**

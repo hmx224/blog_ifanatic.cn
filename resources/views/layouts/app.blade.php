@@ -37,12 +37,16 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;<li  class="dropdown">
+                    <li class="dropdown">
                         <a href="{{ url('log_bug') }}">BUG更新日志</a>
                     </li>
 
-                    &nbsp;<li  class="dropdown">
+                    <li class="dropdown">
                         <a href="{{ url('log_logic') }}">业务更新日志</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="{{ url('log_ex_dev') }}">扩展开发更新日志</a>
                     </li>
                 </ul>
 
