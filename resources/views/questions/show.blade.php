@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-1">
+            <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <img width="50px" src="{{ $question->user->avatar }}" alt="{{ $question->user->name }}">
@@ -67,7 +67,8 @@
 
                 </div>
             </div>
-            <div class="col-md-8 col-md-offset-1">
+            {{--<div class="col-md-8 col-md-offset-1">--}}
+            <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         {{ $question->answers_count }} 个答案
