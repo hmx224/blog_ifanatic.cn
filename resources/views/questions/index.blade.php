@@ -54,7 +54,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading question-follow">
                         <h4>
-                            会员总数{{$count}}人
+                            会员总数<span style="color: deeppink; font-size: x-large">{{$count}} </span>人
                         </h4>
                     </div>
                     <div class="panel-heading question-follow">
