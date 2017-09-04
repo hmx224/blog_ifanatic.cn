@@ -50,7 +50,6 @@
                 </div>
             </div>
 
-
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading question-follow">
@@ -73,27 +72,27 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading question-follow">
-                        <h3>
-                            未激活会员列表
-                        </h3>
-                    </div>
+            {{--<div class="col-md-4 pull-right">--}}
+                {{--<div class="panel panel-default">--}}
+                    {{--<div class="panel-heading question-follow">--}}
+                        {{--<h3>--}}
+                            {{--未激活会员列表--}}
+                        {{--</h3>--}}
+                    {{--</div>--}}
 
-                    <div class="panel-body">
-                        <ul style="list-style: none;font-size:14px; margin:0;padding:0;">
-                            @foreach($users as $user)
-                                <li>
-                                    <a href="#" style="">{{ $user->name }}</a>
-                                    <span class="pull-right">{{ $user->created_at }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                    {{--<div class="panel-body">--}}
+                        {{--<ul style="list-style: none;font-size:14px; margin:0;padding:0;">--}}
+                            {{--@foreach($users as $user)--}}
+                                {{--<li>--}}
+                                    {{--<a href="#" style="">{{ $user->name }}</a>--}}
+                                    {{--<span class="pull-right">{{ $user->created_at }}</span>--}}
+                                {{--</li>--}}
+                            {{--@endforeach--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
 
-                </div>
-            </div>
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
     </div>
 @endsection

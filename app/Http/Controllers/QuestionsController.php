@@ -46,6 +46,7 @@ class QuestionsController extends Controller
             ->get();
 
         $users = User::orderBy('created_at', 'asc')
+            ->where('is_active', User::STATUS_NORMAL)
             ->get();
 
         return view('questions.index', compact('questions', 'users_active', 'users'));
