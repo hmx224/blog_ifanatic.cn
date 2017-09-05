@@ -27,7 +27,8 @@ class FileController extends BaseController
         $time = Carbon::now()->format('YmdHis');
 
         $relativePath = Config::get('site.upload.image_path') . '/' . $year . '/' . $month . $day . '/';
-        $uploadPath = public_path() . $this->createDirList($relativePath, 0777);
+        $relativePath = $this->createDirList($relativePath, 0777);
+        $uploadPath = public_path() . $relativePath;
         $filename = $time . mt_rand(10000, 99999) . '.' . $extension;
         $targetFile = $uploadPath . $filename;
 
@@ -54,15 +55,14 @@ class FileController extends BaseController
     public static function createDirList($path, $mode)
     {
         if (is_dir($path)) {
-            $image_folder = $path;
+            return $path;
         } else {
             $re = mkdir($path, $mode, true);
             chmod($path, $mode);
             if (!$re) {
                 exit('发生未知错误,请稍后重试!');
             }
-            $image_folder = $path;
+            return $path;
         }
-        return $image_folder;
     }
 }
