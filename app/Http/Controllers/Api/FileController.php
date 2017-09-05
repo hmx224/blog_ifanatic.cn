@@ -27,7 +27,7 @@ class FileController extends BaseController
         $time = Carbon::now()->format('YmdHis');
 
         $relativePath = Config::get('site.upload.image_path') . '/' . $year . '/' . $month . $day . '/';
-        $uploadPath = public_path() . $this->createDirList($relativePath, 777);
+        $uploadPath = public_path() . $this->createDirList($relativePath, 0777);
         $filename = $time . mt_rand(10000, 99999) . '.' . $extension;
         $targetFile = $uploadPath . $filename;
 
