@@ -95,56 +95,17 @@
             var layedit = layui.layedit
                 , $ = layui.jquery;
 
-            {{--var upload = layui.upload;--}}
-
-            {{--//执行实例--}}
-            {{--var uploadInst = upload.render({--}}
-                {{--elem: '#image_file' //绑定元素--}}
-                {{--,url: '{{ url('api/files/upload') }}' //上传接口--}}
-                {{--,method: 'post'--}}
-                {{--,done: function(res){--}}
-                    {{--//上传完毕回调--}}
-                    {{--console.log(res);--}}
-                {{--}--}}
-                {{--,error: function(){--}}
-                    {{--//请求异常回调--}}
-                {{--}--}}
-            {{--});--}}
-
-            //向服务端提交请求 TODO 源码写的有漏洞，需要用upload
-//            layedit.set({
-//                uploadImage: {
-                    {{--url: "{{ url('api/files/upload') }}", //接口url--}}
-//                    type: "post", //默认post
-//                    image: function (range) {
-//                        var that = this;
-//                        layui.use('upload', function (upload) {
-//                            var uploadImage = set.uploadImage || {};
-//                            upload.render({
-//                                url: uploadImage.url
-//                                , method: uploadImage.type
-//                                , elem: "image_file"
-//                                , done: function (res) {
-//                                    if (res.code == 0) {
-//                                        res.data = res.data || {};
-//                                        insertInline.call(iframeWin, 'img', {
-//                                            src: res.data.src
-//                                            , alt: res.data.title
-//                                        }, range);
-//                                    } else {
-//                                        layer.msg(res.msg || '上传失败');
-//                                    }
-//                                }
-//                            });
-//                        });
-//                    }
-//                }
-//            });
-
+            //向服务端提交请求  后台回调格式有问题，修复
+            layedit.set({
+                uploadImage: {
+                    url: "{{ url('api/files/upload') }}", //接口url
+                    type: "post"//默认post
+                }
+            });
 
             //构建一个默认的编辑器
             layedit.build('content', {
-                height: 180, //设置编辑器高度
+                height: 240, //设置编辑器高度
                 tool: [
                     'strong' //加粗
                     , 'italic' //斜体
@@ -157,7 +118,7 @@
                     , 'link' //超链接
                     , 'unlink' //清除链接
                     , 'face' //表情
-//                    , 'image' //插入图片
+                    , 'image' //插入图片
 //                    , 'help' //帮助
                 ]
             });

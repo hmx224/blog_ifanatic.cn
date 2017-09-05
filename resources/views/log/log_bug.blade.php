@@ -21,6 +21,8 @@
                                     用户发布文章选标签已经改为中文提示.
                                 </li>
                                 <li>2.解决会员没有激活就能发文章的bug。</li>
+                                <li style="font-size: x-large; color: deeppink;">20170905</li>
+                                <li>1.留言板可以添加图片了，此bug@哪吒给解决的，好样的。</li>
                             </ul>
                         </div>
 

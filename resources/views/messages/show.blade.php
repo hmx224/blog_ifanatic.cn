@@ -67,7 +67,7 @@
 
                 //构建一个默认的编辑器
                 layedit.build('content', {
-                    height: 80, //设置编辑器高度
+                    height: 280, //设置编辑器高度
                     hideTool: [
                         'strong' //加粗
                         , 'italic' //斜体

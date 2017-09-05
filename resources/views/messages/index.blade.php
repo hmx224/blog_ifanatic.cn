@@ -40,6 +40,9 @@
 
             <div class="col-md-4">
                 <div class="panel panel-default">
+                    @if(Auth::guest())
+                        <div style="text-align:center; font-size: large;color: deeppink;">温馨提示,请先登录发布留言！</div>
+                    @endif
                     <div class="panel-heading question-follow">
                         <h2>
                             {{ config('app.name', 'ifanatic.cn') }}
@@ -48,10 +51,14 @@
                                     style="font-size: 18px; color: deeppink;">好留言</span>被站长收录有奖励哦!</span>
                     </div>
 
-                    <div class="panel-body">
-                        <a href="" class="btn btn-default pull-left">关于作者</a>
-                        <a href="messages/create" class="btn btn-primary pull-right">写留言</a>
-                    </div>
+                    @if(Auth::check())
+                        <div class="panel-body">
+                            <a href="" class="btn btn-default pull-left">关于作者</a>
+                            <a href="messages/create" class="btn btn-primary pull-right">写留言</a>
+                        </div>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-success btn-block">登录写留言</a>
+                    @endif
                 </div>
             </div>
 

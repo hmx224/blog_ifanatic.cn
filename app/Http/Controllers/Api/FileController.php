@@ -35,11 +35,14 @@ class FileController extends BaseController
 
         $url = Config::get('site.upload.url_prefix') . $relativePath . $filename;
 
-
+        //layui返回格式
         return Response::json([
-            'code' => 200,
+            'code' => 0,
             'msg' => '图片上传成功',
-            'data' => get_url($url),
+            'data' => [
+                'src' =>get_url($url),
+                'title'=>''
+            ]
         ]);
     }
 }

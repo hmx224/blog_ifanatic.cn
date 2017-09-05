@@ -38,7 +38,6 @@ Route::get('log_ex_dev', 'LogController@logExtensionDevelopment'); //扩展开�
 
 //留言板操作
 Route::get('messages', 'MessagesController@index');
-Route::post('messages/create', 'MessagesController@create');
 Route::resource('messages', 'MessagesController', ['names' => [
     'create' => 'messages.create',
     'show' => 'messages.show'
