@@ -13,7 +13,7 @@ class StoreQuestionRequest extends FormRequest
      */
     public function authorize()
     {
-        //TODO 验证who有权限，暂定都可以
+        //验证who有权限，暂定都可以
         return true;
     }
 
@@ -25,7 +25,7 @@ class StoreQuestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:6|max:191',
+            'title' => 'required|min:2|max:191',
             'body' => 'required|min:26'
         ];
     }
@@ -34,7 +34,7 @@ class StoreQuestionRequest extends FormRequest
     {
         return [
             'title.required' => '标题不能为空',
-            'title.min' => '标题不能少于6个字符',
+            'title.min' => '标题不能少于2个字符',
             'title.max' => '标题不能超过191个字符',
             'body.required' => '内容不能为空',
             'body.min' => '内容不能少于26个字符'
