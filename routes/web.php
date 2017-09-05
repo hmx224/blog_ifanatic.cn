@@ -37,7 +37,7 @@ Route::get('log_logic', 'LogController@logBusinessLogic'); //业务逻辑 更新
 Route::get('log_ex_dev', 'LogController@logExtensionDevelopment'); //扩展开发 更新日志记录
 
 //留言板操作
-Route::get('messages/index', 'MessagesController@index');
+Route::get('messages', 'MessagesController@index');
 Route::post('messages/create', 'MessagesController@create');
 Route::resource('messages', 'MessagesController', ['names' => [
     'create' => 'messages.create',

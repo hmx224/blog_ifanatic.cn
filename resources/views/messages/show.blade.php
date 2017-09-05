@@ -34,23 +34,23 @@
                 </div>
             </div>
 
-            <div class="col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading question-follow">
-                        <h2>
-                            {{ $message->comments_count }}
-                        </h2>
-                        <span>评论数</span>
-                    </div>
+            {{--<div class="col-md-3">--}}
+                {{--<div class="panel panel-default">--}}
+                    {{--<div class="panel-heading question-follow">--}}
+                        {{--<h2>--}}
+                            {{--{{ $message->comments_count }}--}}
+                        {{--</h2>--}}
+                        {{--<span>评论数</span>--}}
+                    {{--</div>--}}
 
-                    <div class="panel-body">
-                        <question-follow-button question="{{$message->id}}"
-                                                user="{{ Auth::id() }}"></question-follow-button>
-                        <a href="#editor" class="btn btn-primary pull-right">撰写答案</a>
-                    </div>
+                    {{--<div class="panel-body">--}}
+                        {{--<question-follow-button question="{{$message->id}}"--}}
+                                                {{--user="{{ Auth::id() }}"></question-follow-button>--}}
+                        {{--<a href="#editor" class="btn btn-primary pull-right">撰写答案</a>--}}
+                    {{--</div>--}}
 
-                </div>
-            </div>
+                {{--</div>--}}
+            {{--</div>--}}
 
         </div>
     </div>

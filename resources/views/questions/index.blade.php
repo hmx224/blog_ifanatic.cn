@@ -104,9 +104,9 @@
         {{--<legend>显示完整功能</legend>--}}
         {{--</fieldset>--}}
 
-        <div id="question_page"></div>
+        {{--<div id="question_page"></div>--}}
 
-        <ul id="question_page_list"></ul>
+        {{--<ul id="question_page_list"></ul>--}}
     </div>
 @endsection
 
