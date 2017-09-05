@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreQuestionRequest;
 use App\Repositories\QuestionRepository;
-use App\User;
 use Auth;
+use Request;
 
 /**
  * Class QuestionsController
@@ -36,22 +36,18 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-//        $question = $this->questionRepository->byIdWithTopicsAndAnswers('5');
-//        dd(Auth::user()->owns($question)==Auth::id());
-
         $questions = $this->questionRepository->getQuestionSeed();
 
-        $users_active = User::orderBy('created_at', 'asc')
-            ->where('is_active', User::STATUS_ACTIVE)
-            ->get();
+        $users_active = $this->questionRepository->usersActive();
 
-        $users = User::orderBy('created_at', 'asc')
-            ->where('is_active', User::STATUS_NORMAL)
-            ->get();
+        $users_not_active = $this->questionRepository->usersNotActive();
 
-        $count = User::all()->count();
+        $users_count = $this->questionRepository->usersCount();
 
-        return view('questions.index', compact('questions', 'users_active', 'users', 'count'));
+        $questions_count = $this->questionRepository->questionsCount();
+
+        return view('questions.index',
+            compact('questions', 'users_active', 'users_not_active', 'users_count', 'questions_count'));
     }
 
     /**
@@ -193,5 +189,11 @@ class QuestionsController extends Controller
 
             return $newTopic->id;
         })->toArray();
+    }
+
+    //分页操作
+    public function pageAjax()
+    {
+        $data = Request::all();
     }
 }

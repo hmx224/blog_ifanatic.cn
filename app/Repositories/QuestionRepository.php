@@ -11,6 +11,7 @@ namespace App\Repositories;
 
 use App\Question;
 use App\Topic;
+use App\User;
 
 /**
  * Class QuestionRepository
@@ -28,6 +29,34 @@ class QuestionRepository
         //一个问题关联多个话题和多个答案
         return Question::where('id', $id)->with(['topics', 'answers', 'user'])->first();
     }
+
+    //问题的总数
+    public function questionsCount()
+    {
+        return Question::published()->get()->count();
+    }
+
+
+    //用户的总数
+    public function usersCount()
+    {
+        return User::all()->count();
+    }
+
+    public function usersActive()
+    {
+        return User::orderBy('created_at', 'asc')
+            ->where('is_active', User::STATUS_ACTIVE)
+            ->get();
+    }
+
+    public function usersNotActive()
+    {
+        return User::orderBy('created_at', 'asc')
+            ->where('is_active', User::STATUS_NORMAL)
+            ->get();
+    }
+
 
     /**
      * @param array $attribute

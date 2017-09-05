@@ -12,6 +12,8 @@
                             <li>1.文章首页面增加更新时间标识</li>
                             <li style="font-size: x-large; color: deeppink;">20170904</li>
                             <li>1.文章首页面增加会员名称标识</li>
+                            <li style="font-size: x-large; color: deeppink;">20170905</li>
+                            <li>1.增加留言板模块，留言板模块支持表情发送，暂时不支持传图片，和对留言的回复</li>
                         </ul>
                     </div>
                 </div>

@@ -19,8 +19,10 @@ class User extends Authenticatable
     use Notifiable, HasApiTokens;
 
     //用户激活状态 0未激活 1已激活
-    const STATUS_ACTIVE = 1;
     const STATUS_NORMAL = 0;
+    const STATUS_ACTIVE = 1;
+
+    const DEFAULT_MANAGER = 1;
 
     /**
      * @var string
@@ -140,6 +142,7 @@ class User extends Authenticatable
     {
         return $this->followers()->toggle($user);
     }
+
 
 
 }

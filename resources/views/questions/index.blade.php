@@ -6,32 +6,44 @@
             <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        @foreach($questions as $question)
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="">
-                                        <img width="50px" src="{{ $question->user->avatar }}"
-                                             alt="{{ $question->user->name }}">
-                                    </a>
-                                </div>
-
-                                <div class="media-body">
-                                    <h4 class="media-heading">
-                                        <a href="/questions/{{ $question->id }}">
-                                            {{ $question->title }}
+                        @if($questions_count !=0)
+                            @foreach($questions as $question)
+                                <div class="media question_page">
+                                    <div class="media-left">
+                                        <a href="">
+                                            <img class="img-circle" width="50px" height="50px"
+                                                 src="{{ $question->user->avatar }}"
+                                                 alt="{{ $question->user->name }}">
                                         </a>
-                                    </h4>
+                                    </div>
 
-                                    <h5 class="">
-                                        <span>{{ $question->updated_at }}</span>
-                                        <span class="pull-right">{{ $question->user->name }}</span>
-                                    </h5>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            <a href="/questions/{{ $question->id }}">
+                                                {{ $question->title }}
+                                            </a>
+                                        </h4>
+
+                                        <h5 class="">
+                                            <span>{{ $question->updated_at }}</span>
+                                            <span class="pull-right">{{ $question->user->name }}</span>
+                                        </h5>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <div style="font-size: large; color: deeppink;">暂时没有文章记录</div>
+                        @endif
                     </div>
                 </div>
             </div>
+
+            @if(Auth::check() && \App\User::find(Auth::user()->id)->is_active == \App\User::STATUS_ACTIVE)
+                <div class="col-md-4">
+                    <a href="questions/create" class="btn btn-primary btn-block btn-lg">写文章</a>
+                    <div class="panel-heading"></div>
+                </div>
+            @endif
 
             <div class="col-md-4">
                 <div class="panel panel-default">
@@ -41,13 +53,6 @@
                         </h2>
                         <span>欢迎来到爱狂热的博客，分享你的所见所闻，让我们开怀聊天。</span>
                     </div>
-                    @if(Auth::check() && \App\User::find(Auth::user()->id)->is_active == \App\User::STATUS_ACTIVE)
-                        <div class="panel-body">
-                            <a href="" class="btn btn-default pull-left">关于我</a>
-                            <a href="questions/create" class="btn btn-primary pull-right">写文章</a>
-                        </div>
-                    @endif
-
                 </div>
             </div>
 
@@ -55,7 +60,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading question-follow">
                         <h4>
-                            会员总数<span style="color: deeppink; font-size: x-large">{{$count}} </span>人
+                            会员总数<span style="color: deeppink; font-size: x-large">{{$users_count}} </span>人
                         </h4>
                     </div>
                     <div class="panel-heading question-follow">
@@ -82,7 +87,7 @@
                     </div>
                     <div class="panel-body">
                         <ul style="list-style: none;font-size:14px; margin:0;padding:0;">
-                            @foreach($users as $user)
+                            @foreach($users_not_active as $user)
                                 <li>
                                     <a href="#" style="">{{ $user->name }}</a>
                                     <span class="pull-right">{{ $user->created_at }}</span>
@@ -95,5 +100,76 @@
             </div>
 
         </div>
+        {{--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">--}}
+        {{--<legend>显示完整功能</legend>--}}
+        {{--</fieldset>--}}
+
+        <div id="question_page"></div>
+
+        <ul id="question_page_list"></ul>
     </div>
 @endsection
+
+<link rel="stylesheet" href="/layui/css/layui.css" media="all">
+<script src="/layui/layui.js" charset="utf-8"></script>
+
+<script>
+    var page_num = 10;
+    var curr_page = 1;
+    var total_page;
+    layui.use(['laypage', 'layer'], function () {
+        var laypage = layui.laypage, layer = layui.layer;
+
+        $.ajax({
+            type: 'post',
+            cache: false,
+            dataType: 'json',
+            async: false, //同步ajax
+            data: {
+                '_token': '{{ csrf_token() }}',
+                'curr_page': curr_page,
+            },
+            url: 'questions/page_ajax',
+            success: function (data) {
+//                if (data != "") {
+//                    $("#pager").pager({
+//                        pagenumber: pagenumber,
+//                        pagecount: data.split("$$")[1],
+//                        buttonClickCallback: PageClick
+//                    });
+//                    $("#anhtml").html(data.split("$$")[0]);
+//
+//                }
+            }
+        });
+
+        //完整功能
+        laypage.render({
+            elem: 'question_page',
+            count: page_num,
+            layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+            jump: function (obj) {
+                console.log(obj)
+            }
+        });
+
+        //调用分页
+        laypage.render({
+            elem: 'question_page_list',
+            count: page_num,
+            curr: curr || 1, //当前页
+            jump: function (obj) {
+                //模拟渲染
+                document.getElementById('biuuu_city_list').innerHTML = function () {
+                    var arr = [],
+                        thisData = data.concat().splice(obj.curr * obj.limit - obj.limit, obj.limit);
+                    layui.each(thisData, function (index, item) {
+                        arr.push('<li>' + item + '</li>');
+                    });
+                    return arr.join('');
+                }();
+            }
+        });
+
+    });
+</script>

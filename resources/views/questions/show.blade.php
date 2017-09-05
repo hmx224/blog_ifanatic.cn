@@ -9,7 +9,8 @@
             <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <img width="50px" src="{{ $question->user->avatar }}" alt="{{ $question->user->name }}">
+                        <img class="img-circle" width="50px" height="50px"
+                             src="{{ $question->user->avatar }}" alt="{{ $question->user->name }}">
                         <a href="">{{ $question->user->name }}</a>
 
                         @foreach($question->topics as $topic)
@@ -79,7 +80,8 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="">
-                                        <img width="36" src="{{ $answer->user->avatar }}"
+                                        <img class="img-circle" width="36px" height="36px"
+                                             src="{{ $answer->user->avatar }}"
                                              alt="{{ $answer->user->name }}">
                                     </a>
                                 </div>
@@ -132,7 +134,8 @@
                         <div class="media">
                             <div class="media-left">
                                 <a href="">
-                                    <img width="36" src="{{ $question->user->avatar }}"
+                                    <img class="img-circle" width="36px" height="36px"
+                                         src="{{ $question->user->avatar }}"
                                          alt="{{ $question->user->name }}">
                                 </a>
                             </div>
@@ -145,7 +148,7 @@
                                 </h4>
                             </div>
 
-                            <div class="user-statics" >
+                            <div class="user-statics">
                                 <div class="statics-item text-center">
                                     <div class="statics-text">问题</div>
                                     <div class="statics-count">{{ $question->user->questions_count }}</div>
