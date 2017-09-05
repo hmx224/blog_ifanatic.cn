@@ -27,7 +27,7 @@ class FileController extends BaseController
         $time = Carbon::now()->format('YmdHis');
 
         $relativePath = Config::get('site.upload.image_path') . '/' . $year . '/' . $month . $day . '/';
-        $uploadPath = public_path() . $relativePath;
+        $uploadPath = public_path() . $this->createDirList($relativePath, 777);
         $filename = $time . mt_rand(10000, 99999) . '.' . $extension;
         $targetFile = $uploadPath . $filename;
 
@@ -40,9 +40,29 @@ class FileController extends BaseController
             'code' => 0,
             'msg' => '图片上传成功',
             'data' => [
-                'src' =>get_url($url),
-                'title'=>''
+                'src' => get_url($url),
+                'title' => ''
             ]
         ]);
+    }
+
+    /**
+     * @param $path '创建的路径'
+     * @param $mode '文件夹的权限'
+     * @return mixed '允许多层目录'
+     */
+    public static function createDirList($path, $mode)
+    {
+        if (is_dir($path)) {
+            $image_folder = $path;
+        } else {
+            $re = mkdir($path, $mode, true);
+            chmod($path, $mode);
+            if (!$re) {
+                exit('发生未知错误,请稍后重试!');
+            }
+            $image_folder = $path;
+        }
+        return $image_folder;
     }
 }
