@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use Carbon\Carbon;
-use Config;
 use Request;
 use Response;
 
@@ -26,20 +25,17 @@ class FileController extends BaseController
         $day = Carbon::now()->format('d');
         $time = Carbon::now()->format('YmdHis');
 
-        dd(Config::get('site.upload.image_path'));
-        $relativePath = Config::get('site.upload.image_path') . '/' . $year . '/' . $month . $day . '/';
+        //Config 的引用有问题，先用config
+        $relativePath = config('site.upload.image_path') . '/' . $year . '/' . $month . $day . '/';
         $uploadPath = public_path() . $relativePath;
 
-        dd($uploadPath); //C:\xamppp\www\ifanatic-app\public/uploads/images/2017/0906/"
-
-//        "/opt/lampp/www/blog_ifanatic.cn/public/2017/0906/"
-
+//        dd($uploadPath); //C:\xamppp\www\ifanatic-app\public/uploads/images/2017/0906/"
         $filename = $time . mt_rand(10000, 99999) . '.' . $extension;
         $targetFile = $uploadPath . $filename;
 
         $file->move($uploadPath, $targetFile);
 
-        $url = Config::get('site.upload.url_prefix') . $relativePath . $filename;
+        $url = config('site.upload.url_prefix') . $relativePath . $filename;
 
         //dd($url);"/uploads/images/2017/0906/2017090609122541168.jpg"
         //layui返回格式
