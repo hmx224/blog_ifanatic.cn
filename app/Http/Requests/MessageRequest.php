@@ -24,7 +24,7 @@ class MessageRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:6',
+            'title' => 'required|min:2',
             'content' => 'required|min:12'
         ];
     }
@@ -33,7 +33,7 @@ class MessageRequest extends FormRequest
     {
         return [
             'title.required' => '标题不能为空',
-            'title.min' => '内容不能少于6个字符',
+            'title.min' => '内容不能少于2个字符',
             'content.required' => '内容不能为空',
             'content.min' => '内容不能少于12个字符',
         ];

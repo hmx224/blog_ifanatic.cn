@@ -29,7 +29,6 @@
                                 <button class="button is-naked delete-button">删除</button>
                             </form>
                         @endif
-
                     </div>
                 </div>
             </div>
