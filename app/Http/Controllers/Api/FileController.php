@@ -26,8 +26,11 @@ class FileController extends BaseController
         $time = Carbon::now()->format('YmdHis');
 
         //Config 的引用有问题，先用config
-        dd(config('site.upload.image_path'));
-        $relativePath = config('site.upload.image_path') . '/' . $year . '/' . $month . $day . '/';
+
+//        dd(config('site.upload.image_path'));
+        $image_path = '/uploads/images';
+
+        $relativePath = $image_path . '/' . $year . '/' . $month . $day . '/';
         $uploadPath = public_path() . $relativePath;
 
 //        dd($uploadPath); //C:\xamppp\www\ifanatic-app\public/uploads/images/2017/0906/"
