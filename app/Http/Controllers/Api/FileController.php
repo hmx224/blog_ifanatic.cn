@@ -26,10 +26,13 @@ class FileController extends BaseController
         $day = Carbon::now()->format('d');
         $time = Carbon::now()->format('YmdHis');
 
+        dd(Config::get('site.upload.image_path'));
         $relativePath = Config::get('site.upload.image_path') . '/' . $year . '/' . $month . $day . '/';
         $uploadPath = public_path() . $relativePath;
 
         dd($uploadPath); //C:\xamppp\www\ifanatic-app\public/uploads/images/2017/0906/"
+
+//        "/opt/lampp/www/blog_ifanatic.cn/public/2017/0906/"
 
         $filename = $time . mt_rand(10000, 99999) . '.' . $extension;
         $targetFile = $uploadPath . $filename;
