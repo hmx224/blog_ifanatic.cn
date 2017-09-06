@@ -25,23 +25,24 @@ class FileController extends BaseController
         $day = Carbon::now()->format('d');
         $time = Carbon::now()->format('YmdHis');
 
-        //Config 的引用有问题，先用config
-
-//        dd(config('site.upload.image_path'));
+        //使用Config就use Config,用法： Config::key()，这里用config
         $image_path = '/uploads/images';
 
-        $relativePath = $image_path . '/' . $year . '/' . $month . $day . '/';
+        $relativePath = config('site.upload.image_path', $image_path) . '/' . $year . '/' . $month . $day . '/';
+
         $uploadPath = public_path() . $relativePath;
 
-//        dd($uploadPath); //C:\xamppp\www\ifanatic-app\public/uploads/images/2017/0906/"
         $filename = $time . mt_rand(10000, 99999) . '.' . $extension;
+
         $targetFile = $uploadPath . $filename;
 
         $file->move($uploadPath, $targetFile);
 
         $url = config('site.upload.url_prefix') . $relativePath . $filename;
 
-        //dd($url);"/uploads/images/2017/0906/2017090609122541168.jpg"
+        \Log::info('url_prefix', [config('site.upload.url_prefix')]);
+        \Log::info('image_path', [config('site.upload.image_path')]);
+
         //layui返回格式
         return Response::json([
             'code' => 0,
