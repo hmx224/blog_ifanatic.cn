@@ -26,6 +26,7 @@ class FileController extends BaseController
         $time = Carbon::now()->format('YmdHis');
 
         //Config 的引用有问题，先用config
+        dd(config('site.upload.image_path'));
         $relativePath = config('site.upload.image_path') . '/' . $year . '/' . $month . $day . '/';
         $uploadPath = public_path() . $relativePath;
 
