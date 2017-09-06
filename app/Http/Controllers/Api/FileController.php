@@ -20,6 +20,18 @@ class FileController extends BaseController
             return $this->responseFail('不允许上传此类型文件');
         }
 
+        $file_size = $file->getClientSize();
+
+        $imageMaxSize = config('site.upload.imageMaxSize');
+
+        if ($file_size > $imageMaxSize) {
+            return Response::json([
+                'code' => 500,
+                'msg' => '图片上传不能超过2M',
+            ]);
+        }
+
+
         $year = Carbon::now()->format('Y');
         $month = Carbon::now()->format('m');
         $day = Carbon::now()->format('d');

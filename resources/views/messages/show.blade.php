@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <img class="img-circle" width="50px" height="50px"
@@ -16,10 +16,11 @@
                         {{ $message->title }}
                     </div>
 
+                    {{--<div class="panel-body content">--}}
                     <textarea class="layui-textarea" id="content" name="content" style="display: none">
                         {!! $message->content !!}
                     </textarea>
-
+                    {{--</div>--}}
                     <div class="actions">
                         @if(Auth::check() && Auth::user()->owns($message))
                             <span class="edit"><a href="/messages/{{ $message->id }}/edit">编辑</a></span>
@@ -34,21 +35,21 @@
             </div>
 
             {{--<div class="col-md-3">--}}
-                {{--<div class="panel panel-default">--}}
-                    {{--<div class="panel-heading question-follow">--}}
-                        {{--<h2>--}}
-                            {{--{{ $message->comments_count }}--}}
-                        {{--</h2>--}}
-                        {{--<span>评论数</span>--}}
-                    {{--</div>--}}
+            {{--<div class="panel panel-default">--}}
+            {{--<div class="panel-heading question-follow">--}}
+            {{--<h2>--}}
+            {{--{{ $message->comments_count }}--}}
+            {{--</h2>--}}
+            {{--<span>评论数</span>--}}
+            {{--</div>--}}
 
-                    {{--<div class="panel-body">--}}
-                        {{--<question-follow-button question="{{$message->id}}"--}}
-                                                {{--user="{{ Auth::id() }}"></question-follow-button>--}}
-                        {{--<a href="#editor" class="btn btn-primary pull-right">撰写答案</a>--}}
-                    {{--</div>--}}
+            {{--<div class="panel-body">--}}
+            {{--<question-follow-button question="{{$message->id}}"--}}
+            {{--user="{{ Auth::id() }}"></question-follow-button>--}}
+            {{--<a href="#editor" class="btn btn-primary pull-right">撰写答案</a>--}}
+            {{--</div>--}}
 
-                {{--</div>--}}
+            {{--</div>--}}
             {{--</div>--}}
 
         </div>
@@ -66,7 +67,7 @@
 
                 //构建一个默认的编辑器
                 layedit.build('content', {
-                    height: 280, //设置编辑器高度
+                    height: 300, //设置编辑器高度
                     hideTool: [
                         'strong' //加粗
                         , 'italic' //斜体

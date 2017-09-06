@@ -34,5 +34,6 @@ return [
         'audio_path' => '/uploads/audios',
         'image_path' => '/uploads/images',
         'other_path' => '/uploads/others',
+        'imageMaxSize' => 2 * 1024 * 1024, /* 上传大小限制，单位B */
     ],
 ];
