@@ -85,6 +85,8 @@ class QuestionsController extends Controller
 
         $question->topics()->attach($topics);
 
+        flash('新增成功', 'success');
+
         return redirect()->route('question.show', compact('question'));
 
     }
@@ -147,6 +149,8 @@ class QuestionsController extends Controller
         //sync 同步方法
         $question->topics()->sync($topics);
 
+        flash('更新成功', 'success');
+
         return redirect()->route('question.show', compact('question'));
     }
 
@@ -163,7 +167,10 @@ class QuestionsController extends Controller
 
         //判断该问题是否属于当前用户
         if (Auth::user()->owns($question)) {
-            $question->delete();
+            $question->is_disabled = 'T';
+            $question->save();
+
+            flash('更新成功', 'success');
 
             return redirect('/');
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
 // 用户关注问题
 
-class UserQuestion extends Model
+class UserQuestion extends BaseModel
 {
     protected $table = 'user_question';
 

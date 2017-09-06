@@ -42,6 +42,7 @@ Route::resource('messages', 'MessagesController', ['names' => [
     'create' => 'messages.create',
     'show' => 'messages.show'
 ]]);
-
+//用户信息
+Route::get('user/info','UserController@info');
 
 

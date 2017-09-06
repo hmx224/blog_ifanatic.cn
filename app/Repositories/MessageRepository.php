@@ -9,7 +9,7 @@
 
 namespace App\Repositories;
 
-use App\Message;
+use App\Model\Message;
 
 /**
  * Class QuestionRepository

@@ -28,6 +28,11 @@ class HomeController extends Controller
     public function index()
     {
         $user = $this->user->byId(Auth::id());
-        return view('home', compact('user'));
+
+        $email_address = explode('@', $user->email);
+
+        $mark_email = $email_address[1];
+
+        return view('home', compact('user', 'mark_email'));
     }
 }

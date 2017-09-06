@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,6 +17,24 @@ use Naux\Mail\SendCloudTemplate;
 class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
+
+    const  EMAIL_TYPE = [
+        'qq' => 'qq.com',
+        '126' => '126.com',
+        '163' => '163.com',
+        'sina' => 'sina.com',
+        'hotmail' => 'hotmail.com',
+        'gmail' => 'gmail.com',
+    ];
+
+    const EMAIL_TYPE_URL = [
+        'qq' => 'https://mail.qq.com',
+        '126' => 'http://mail.126.com',
+        '163' => 'http://mail.163.com',
+        'sina' => 'http://mail.sina.com.cn',
+        'hotmail' => 'https://login.live.com',
+        'gmail' => 'https://accounts.google.com',
+    ];
 
     //用户激活状态 0未激活 1已激活
     const STATUS_NORMAL = 0;
@@ -142,7 +160,6 @@ class User extends Authenticatable
     {
         return $this->followers()->toggle($user);
     }
-
 
 
 }

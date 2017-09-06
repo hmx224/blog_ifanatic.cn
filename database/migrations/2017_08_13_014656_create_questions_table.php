@@ -21,9 +21,11 @@ class CreateQuestionsTable extends Migration
             $table->integer('comments_count')->default(0);
             $table->integer('followers_count')->default(1);
             $table->integer('answers_count')->default(0);
-            $table->string('close_count',8)->default('F');
-            $table->string('is_hidden',8)->default('F');
+            $table->string('close_comment',8)->default('F')->comment('是否关闭评论');
+            $table->string('is_hidden',8)->default('F')->comment('是否隐藏');
             $table->timestamps();
+
+
         });
     }
 

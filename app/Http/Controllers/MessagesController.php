@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MessageRequest;
-use App\Message;
+use App\Model\Message;
+use App\Model\User;
 use App\Repositories\MessageRepository;
-use App\User;
 use Auth;
 
 class MessagesController extends Controller
@@ -28,7 +28,7 @@ class MessagesController extends Controller
 
         $count = $this->message->count();
 
-        return view('messages.index', compact('messages','count'));
+        return view('messages.index', compact('messages', 'count'));
     }
 
     //展示发表留言页面
@@ -89,7 +89,7 @@ class MessagesController extends Controller
         //判断该问题是否属于当前用户
         if (Auth::user()->owns($message)) {
 
-            $message->is_disabled = Message::DISABLED;
+            $message->is_hidden = Message::DISABLED;
             $message->save();
 
             return redirect('messages');

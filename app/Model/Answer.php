@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Answer extends Model
+class Answer extends BaseModel
 {
     protected $table = 'answers';
 

@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            @if(Auth::check() && \App\User::find(Auth::user()->id)->is_active == \App\User::STATUS_ACTIVE)
+            @if(Auth::check() && \App\Model\User::find(Auth::user()->id)->is_active == \App\Model\User::STATUS_ACTIVE)
                 <div class="col-md-4">
                     <a href="questions/create" class="btn btn-primary btn-block btn-lg">写文章</a>
                     <div class="panel-heading"></div>
@@ -98,8 +98,30 @@
 
                 </div>
             </div>
+            <!--友情链接-->
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading question-follow">
+                        <h3>友情链接</h3>
+                        <span><a href="http://www.humengxu.com">小胡发掘网</a></span>
+                    </div>
+                </div>
+            </div>
+            <!--支付宝打赏二维码-->
+            {{--<div class="col-md-4">--}}
+            {{--<div class="panel panel-default">--}}
+            {{--<div class="panel-heading question-follow">--}}
+            {{--<span>欢迎支付宝打赏</span>--}}
+            {{--<h2>--}}
+            {{--<img   width="240px" height="240px" src="/images/zhifu/xiaohu-alipay.png" alt="小胡支付宝">--}}
+            {{--</h2>--}}
+
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
 
         </div>
+
         {{--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">--}}
         {{--<legend>显示完整功能</legend>--}}
         {{--</fieldset>--}}

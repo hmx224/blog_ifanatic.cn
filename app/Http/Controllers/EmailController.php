@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Model\User;
 use Illuminate\Support\Facades\Auth;
 
 class EmailController extends Controller
@@ -27,6 +27,7 @@ class EmailController extends Controller
 
         flash('邮箱验证成功', 'danger');
 
-        return redirect('/home');
+        //跳转到首页面
+        return redirect('/questions');
     }
 }

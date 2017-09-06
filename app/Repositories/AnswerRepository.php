@@ -9,7 +9,7 @@
 
 namespace App\Repositories;
 
-use App\Answer;
+use App\Model\Answer;
 
 /**
  * Class AnswerRepository

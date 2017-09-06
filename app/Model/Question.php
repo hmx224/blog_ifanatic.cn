@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Question extends Model
+class Question extends BaseModel
 {
     protected $table = 'questions';
 
@@ -16,7 +16,8 @@ class Question extends Model
         'followers_count',
         'answers_count',
         'close_count',
-        'is_hidden'
+        'is_hidden',
+        'is_disabled'
     ];
 
 

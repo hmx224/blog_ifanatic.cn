@@ -40,7 +40,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-                @if (Auth::guest() || \App\User::find(Auth::id())->is_active == App\User::STATUS_NORMAL)
+                @if (Auth::guest() || App\Model\User::find(Auth::id())->is_active == App\Model\User::STATUS_NORMAL)
                     <li><a href="{{ route('login') }}">登录</a></li>
                     <li><a href="{{ route('register') }}">注册</a></li>
                 @else
@@ -52,7 +52,10 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+
                             <li>
+                                <a href="/user/info">个人资料</a>
+
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

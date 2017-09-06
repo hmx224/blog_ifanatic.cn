@@ -9,9 +9,9 @@
 
 namespace App\Repositories;
 
-use App\Question;
-use App\Topic;
-use App\User;
+use App\Model\Question;
+use App\Model\Topic;
+use App\Model\User;
 
 /**
  * Class QuestionRepository

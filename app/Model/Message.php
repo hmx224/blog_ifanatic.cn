@@ -1,15 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Message extends Model
+class Message extends BaseModel
 {
     protected $table = 'messages';
 
-    const DISABLED = "T"; //关闭
-    const ENABLED = "F";  //启用
+
 
     protected $fillable = [
         'user_id',
