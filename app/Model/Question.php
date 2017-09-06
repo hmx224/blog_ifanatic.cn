@@ -17,7 +17,6 @@ class Question extends BaseModel
         'answers_count',
         'close_count',
         'is_hidden',
-        'is_disabled'
     ];
 
 
