@@ -25,6 +25,9 @@ class FileController extends BaseController
         $day = Carbon::now()->format('d');
         $time = Carbon::now()->format('YmdHis');
 
+        \Log::info('自定义image_path之前1', [config('site.upload.image_path')]);
+        \Log::info('自定义image_path之前2', [config('site["upload"]["image_path"]')]);
+
         //使用Config就use Config,用法： Config::key()，这里用config
         $image_path = '/uploads/images';
 
@@ -41,7 +44,7 @@ class FileController extends BaseController
         $url = config('site.upload.url_prefix') . $relativePath . $filename;
 
         \Log::info('url_prefix', [config('site.upload.url_prefix')]);
-        \Log::info('image_path', [config('site.upload.image_path')]);
+        \Log::info('自定义image_path之后', [config('site.upload.image_path')]);
 
         //layui返回格式
         return Response::json([
