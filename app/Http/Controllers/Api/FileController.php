@@ -28,6 +28,9 @@ class FileController extends BaseController
 
         $relativePath = Config::get('site.upload.image_path') . '/' . $year . '/' . $month . $day . '/';
         $uploadPath = public_path() . $relativePath;
+
+        dd($uploadPath); //C:\xamppp\www\ifanatic-app\public/uploads/images/2017/0906/"
+
         $filename = $time . mt_rand(10000, 99999) . '.' . $extension;
         $targetFile = $uploadPath . $filename;
 
@@ -35,6 +38,7 @@ class FileController extends BaseController
 
         $url = Config::get('site.upload.url_prefix') . $relativePath . $filename;
 
+        //dd($url);"/uploads/images/2017/0906/2017090609122541168.jpg"
         //layui返回格式
         return Response::json([
             'code' => 0,
