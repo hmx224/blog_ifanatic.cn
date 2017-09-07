@@ -93,8 +93,9 @@
 
             $(".select2").select2({
                 tags: true,
-                placeholder: '选择相关话题',
+                placeholder: '选择相关话题,最大6个字符，回车键提交',
                 minimumInputLength: 2,
+                maximumInputLength: 6,
                 ajax: {
                     url: '/api/topics',
                     dataType: 'json',

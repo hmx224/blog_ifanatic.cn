@@ -23,6 +23,10 @@
                                 <li>2.解决会员没有激活就能发文章的bug。</li>
                                 <li style="font-size: x-large; color: deeppink;">20170905</li>
                                 <li>1.留言板可以添加图片了，此bug@哪吒给解决的，好样的。</li>
+                                <li style="font-size: x-large; color: deeppink;">20170907</li>
+                                <li>1.标签过长，影响样式,代码中做限制6个字符。</li>
+                                <li>2.标签跳转链接没做不存在，后期任务，现在暂时去掉链接</li>
+                                <li>3.邮箱注册Gmail的时候，邮件会跑到垃圾邮件中，可能是google邮箱做了安全措施。也算是小问题。</li>
                             </ul>
                         </div>
 
