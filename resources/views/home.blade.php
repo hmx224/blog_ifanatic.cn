@@ -7,6 +7,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">欢迎来到爱狂热</div>
 
+                    @if(Auth::guest())
+                        <div class="panel-heading" style="color: deeppink; font-size: large;">注: 没有收到邮件，可以去垃圾邮件查看下。
+                        </div>
+                    @endif
+
                     <div class="panel-body">
                         @if($user->is_active == 0)
                             @if($mark_email == App\Model\User::EMAIL_TYPE['qq'])
