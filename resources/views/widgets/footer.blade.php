@@ -1,31 +1,28 @@
-{{--<div class="col-md-8 col-md-offset-2">--}}
-{{--<div class="panel panel-default">--}}
-{{--<div class="panel-body">--}}
-{{--<div class="col-md-5">--}}
-{{--<div class="tab">--}}
-{{--<ul>--}}
-{{--<li>标题111</li>--}}
-{{--</ul>--}}
-{{--<ul>--}}
-{{--<li>222</li>--}}
-{{--<li>222</li>--}}
-{{--<li>222</li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="col-md-4">--}}
-{{--<ul>--}}
-{{--<li>222222</li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--<div class="col-md-3">--}}
-{{--<ul>--}}
-{{--<li>333333333333</li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
+<div class="col-md-7 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-4">
+                <div class="tab">
+                    <ul>
+                        <li>最新留言人</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tab">
+                    <ul>
+                        <li>标签列表</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li>精选文章</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="navbar-inner navbar-content-center">
