@@ -56,6 +56,16 @@
                 </div>
             </div>
 
+            <!--友情链接-->
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading question-follow">
+                        <h3>友情链接</h3>
+                        <span><a href="http://www.humengxu.com">小胡发掘网</a></span>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading question-follow">
@@ -98,15 +108,7 @@
 
                 </div>
             </div>
-            <!--友情链接-->
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading question-follow">
-                        <h3>友情链接</h3>
-                        <span><a href="http://www.humengxu.com">小胡发掘网</a></span>
-                    </div>
-                </div>
-            </div>
+
             <!--支付宝打赏二维码-->
             {{--<div class="col-md-4">--}}
             {{--<div class="panel panel-default">--}}
