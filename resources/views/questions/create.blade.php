@@ -84,7 +84,7 @@
 
             $(".select2").select2({
                 tags: true,
-                placeholder: '选择相关话题,最大6个字符，回车键提交',
+                placeholder: '搜索选择或自定义相关话题,最大6个字符，回车键或者下拉框选中话题',
                 minimumInputLength: 2,
                 maximumInputLength: 6,
                 ajax: {
