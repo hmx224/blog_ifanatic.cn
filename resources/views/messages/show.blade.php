@@ -16,11 +16,11 @@
                         {{ $message->title }}
                     </div>
 
-                    <div class="panel-body content">
-                        {{--<textarea class="layui-textarea" id="content" name="content" style="display: none">--}}
+                    {{--<div class="panel-body content">--}}
+                    <textarea class="layui-textarea" id="content" name="content" style="display: none">
                         {!! $message->content !!}
-                        {{--</textarea>--}}
-                    </div>
+                    </textarea>
+                    {{--</div>--}}
                     <div class="actions">
                         @if(Auth::check() && Auth::user()->owns($message))
                             <span class="edit"><a href="/messages/{{ $message->id }}/edit">编辑</a></span>
