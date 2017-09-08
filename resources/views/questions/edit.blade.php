@@ -60,6 +60,7 @@
             </div>
         </div>
     </div>
+
 @section('js')
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
@@ -121,9 +122,5 @@
             });
         });
     </script>
-
-
-
-
 @endsection
 @endsection

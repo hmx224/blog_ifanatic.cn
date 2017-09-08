@@ -44054,12 +44054,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['user'],
+    props: ['user', 'user_api'],
     mounted: function mounted() {
         var _this = this;
 
-        axios.get('/api/user/followers/' + this.user).then(function (response) {
+        axios.post('/api/user/followers', { 'user': this.user, 'user_api': this.user_api }).then(function (response) {
             _this.followed = response.data.followed;
+        });
+
+        axios.post('/api/user/followers_count', { 'user': this.user, 'user_api': this.user_api }).then(function (response) {
+            _this.followers_count = response.data.followers_count;
         });
     },
     data: function data() {
@@ -44077,8 +44081,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         follow: function follow() {
             var _this2 = this;
 
-            axios.post('/api/user/follow', { 'user': this.user }).then(function (response) {
+            axios.post('/api/user/follow', { 'user': this.user, 'user_api': this.user_api }).then(function (response) {
                 _this2.followed = response.data.followed;
+            });
+
+            axios.post('/api/user/followers_count', { 'user': this.user, 'user_api': this.user_api }).then(function (response) {
+                _this2.followers_count = response.data.followers_count;
             });
         }
     }

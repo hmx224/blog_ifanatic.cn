@@ -145,17 +145,20 @@ class User extends Authenticatable
         return !!$this->follows()->where('question_id', $question_id)->count();
     }
 
+
     //用户之间的关联
     public function followers()
     {
         return $this->belongsToMany(self::class, 'followers', 'follower_id', 'followed_id')->withTimestamps();
     }
 
+    //用户关注对应的关系
     public function followersUser()
     {
         return $this->belongsToMany(self::class, 'followers', 'followed_id', 'follower_id')->withTimestamps();
     }
 
+    //关注此用户，取消关注此用户
     public function followThisUser($user)
     {
         return $this->followers()->toggle($user);

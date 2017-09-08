@@ -26,8 +26,8 @@ class CreateUsersTable extends Migration
             $table->integer('comments_count')->default(0);
             $table->integer('favorites_count')->default(0);
             $table->integer('likes_count')->default(0);
-            $table->integer('followers_count')->default(0);
-            $table->integer('followings_count')->default(0);
+            $table->integer('followers_count')->default(0)->comment('关注数');
+            $table->integer('followings_count')->default(0)->comment('跟随者数量,发起关注数');
             $table->string('setting')->nullable();
             $table->rememberToken();
             $table->timestamps();

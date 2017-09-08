@@ -9,10 +9,14 @@
 
 <script>
     export default {
-        props: ['user'],
+        props: ['user', 'user_api'],
         mounted() {
-            axios.get('/api/user/followers/' + this.user).then(response => {
+            axios.post('/api/user/followers',{'user': this.user, 'user_api': this.user_api}).then(response => {
                 this.followed = response.data.followed
+            })
+
+            axios.post('/api/user/followers_count', {'user': this.user, 'user_api': this.user_api}).then(response => {
+                this.followers_count = response.data.followers_count
             })
         },
         data() {
@@ -27,8 +31,12 @@
         },
         methods: {
             follow() {
-                axios.post('/api/user/follow', {'user': this.user}).then(response => {
+                axios.post('/api/user/follow', {'user': this.user, 'user_api': this.user_api}).then(response => {
                     this.followed = response.data.followed
+                });
+
+                axios.post('/api/user/followers_count', {'user': this.user, 'user_api': this.user_api}).then(response => {
+                    this.followers_count = response.data.followers_count
                 })
             }
         }

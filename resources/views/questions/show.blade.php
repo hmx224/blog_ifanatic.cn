@@ -43,7 +43,7 @@
 
             <div class="col-md-3">
                 <div class="panel panel-default">
-                    <div class="panel-heading question-follow">
+                    <div class="question-follow">
                         <h2>
                             {{ $question->followers_count }}
                         </h2>
@@ -51,19 +51,24 @@
                     </div>
 
                     <div class="panel-body">
-                        {{--@if(Auth::check())--}}
-                        {{--<a href="/question/{{$question->id}}/follow"--}}
-                        {{--class="btn btn-default {{ Auth::user()->followed($question->id) ?'btn-success':''}}">--}}
-                        {{--{{ Auth::user()->followed($question->id) ?'已关注':'关注该问题'}}--}}
-                        {{--</a>--}}
-                        {{--@else--}}
-                        {{--<a href="/login" class="btn btn-default">关注问题</a>--}}
-                        {{--@endif--}}
+                        @if(Auth::check())
 
+                            {{--@if(Auth::check())--}}
+                            {{--<a href="/question/{{$question->id}}/follow"--}}
+                            {{--class="btn btn-default {{ Auth::user()->followed($question->id) ?'btn-success':''}}">--}}
+                            {{--{{ Auth::user()->followed($question->id) ?'已关注':'关注该问题'}}--}}
+                            {{--</a>--}}
+                            {{--@else--}}
+                            {{--<a href="/login" class="btn btn-default">关注问题</a>--}}
+                            {{--@endif--}}
 
-                        <question-follow-button question="{{$question->id}}"
-                                                user="{{ Auth::id() }}"></question-follow-button>
-                        <a href="#editor" class="btn btn-primary pull-right">撰写答案</a>
+                            <question-follow-button question="{{$question->id}}"
+                                                    user="{{ Auth::id() }}"></question-follow-button>
+                            <a href="#editor" class="btn btn-primary pull-right">撰写答案</a>
+
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-success btn-block">登录关注问题，并撰写答案</a>
+                        @endif
                     </div>
 
                 </div>
@@ -159,13 +164,22 @@
                                 </div>
                                 <div class="statics-item text-center">
                                     <div class="statics-text">关注者</div>
-                                    <div class="statics-count">{{ $question->user->followers_count }}</div>
+                                    <div class="followers_count">{{ $question->user->followers_count }}</div>
                                 </div>
                             </div>
                         </div>
 
-                        <user-follow-button user="{{$question->user_id}}"></user-follow-button>
-                        <a href="#editor" class="btn btn-default pull-right">发送私信</a>
+
+                        <div class="panel-body">
+                            @if(Auth::check())
+                                <user-follow-button
+                                        user="{{$question->user_id}}" user_api="{{ Auth::id()}}"></user-follow-button>
+                                <a href="#editor" class="btn btn-default pull-right">发送私信</a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-success btn-block">登录关注他,并发送私信</a>
+                            @endif
+                        </div>
+
                     </div>
 
                 </div>
@@ -194,5 +208,38 @@
             });
         </script>
     @endif
+
+    {{--<script>--}}
+        {{--$.ajax({--}}
+            {{--type: 'post',--}}
+            {{--cache: false,--}}
+            {{--dataType: 'json',--}}
+            {{--async: false, //同步ajax--}}
+            {{--data: {--}}
+                {{--'_token': '{{ csrf_token() }}',--}}
+                {{--'user': '{{ $question->user_id }}',--}}
+                {{--'user_api': '{{ Auth::id() }}'--}}
+            {{--},--}}
+            {{--url: '{{ url('api/user/followers_count') }}',--}}
+            {{--success: function (data) {--}}
+                {{--console.log(data);--}}
+
+                {{--var followers_count = data.followers_count;--}}
+                {{--console.log(followers_count)--}}
+
+                {{--$('.followers_count').text(followers_count);--}}
+                {{--if (data != "") {--}}
+                    {{--$("#pager").pager({--}}
+                        {{--pagenumber: pagenumber,--}}
+                        {{--pagecount: data.split("$$")[1],--}}
+                        {{--buttonClickCallback: PageClick--}}
+                    {{--});--}}
+                    {{--$("#anhtml").html(data.split("$$")[0]);--}}
+
+                {{--}--}}
+            {{--}--}}
+        {{--})--}}
+    {{--</script>--}}
+
 @endsection
 @endsection

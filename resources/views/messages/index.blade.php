@@ -40,9 +40,9 @@
 
             <div class="col-md-4">
                 <div class="panel panel-default">
-                    @if(Auth::guest())
-                        <div style="text-align:center; font-size: large;color: deeppink;">温馨提示,请先登录发布留言！</div>
-                    @endif
+                    {{--@if(Auth::guest())--}}
+                        {{--<div style="text-align:center; font-size: large;color: deeppink;">温馨提示,请先登录发布留言！</div>--}}
+                    {{--@endif--}}
                     <div class="panel-heading question-follow">
                         <h2>
                             {{ config('app.name', 'ifanatic.cn') }}

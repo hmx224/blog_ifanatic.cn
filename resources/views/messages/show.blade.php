@@ -55,7 +55,7 @@
         </div>
     </div>
 
-
+@endsection
 @section('js')
     <link rel="stylesheet" href="/layui/css/layui.css" media="all">
     <script src="/layui/layui.js" charset="utf-8"></script>
@@ -88,4 +88,4 @@
         </script>
     @endif
 @endsection
-@endsection
+

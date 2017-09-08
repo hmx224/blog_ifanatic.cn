@@ -19,14 +19,14 @@ class QuestionFollowController extends Controller
         $this->question = $question;
     }
 
-    //
+    //用户关注问题
     public function follow($question_id)
     {
         Auth::user()->followThis($question_id);
 
         return back();
     }
-
+    //问题是否被关注
     public function follower(Request $request)
     {
         if (user('api')->followed($request->get('question'))) {
@@ -34,7 +34,7 @@ class QuestionFollowController extends Controller
         }
         return response()->json(['followed' => false]);
     }
-
+    //关注问题
     public function followThisQuestion(Request $request)
     {
         $question = $this->question->byId($request->get('question'));
