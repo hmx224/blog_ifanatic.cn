@@ -45,6 +45,9 @@ class FollowersController extends Controller
         //当前登录用户的信息
         $userApi = $this->user->byId(request('user_api'));
         //关注
+
+        \Log::debug('当前用户信息', [$userApi]);
+
         $followed = $userApi->followThisUser($userToFollow->id);
 
         //用户发起一个attach请求
