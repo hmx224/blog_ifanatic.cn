@@ -160,7 +160,7 @@ class User extends Authenticatable
     //点赞关联
     public function votes()
     {
-        return $this->belongsToMany(answer::class, 'votes')->withTimestamps();
+        return $this->belongsToMany(Answer::class, 'votes')->withTimestamps();
     }
 
     //点赞的操作
