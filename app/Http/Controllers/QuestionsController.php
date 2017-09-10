@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreQuestionRequest;
+use App\Model\Question;
+use App\Model\Topic;
 use App\Repositories\QuestionRepository;
 use Auth;
 use Request;
@@ -167,7 +169,7 @@ class QuestionsController extends Controller
 
         //判断该问题是否属于当前用户
         if (Auth::user()->owns($question)) {
-            $question->is_disabled = 'T';
+            $question->is_disabled = Question::DISABLED;
             $question->save();
 
             flash('更新成功', 'success');

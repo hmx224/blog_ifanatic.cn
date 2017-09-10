@@ -10,23 +10,23 @@ use Auth;
 
 class MessagesController extends Controller
 {
-    protected $message;
+    protected $messageRepository;
 
     /**
      * MessagesController constructor.
      * @param $message
      */
-    public function __construct(MessageRepository $message)
+    public function __construct(MessageRepository $messageRepository)
     {
-        $this->message = $message;
+        $this->messageRepository = $messageRepository;
     }
 
     //留言板操作
     public function index()
     {
-        $messages = $this->message->getMessageSeed();
+        $messages = $this->messageRepository->getMessageSeed();
 
-        $count = $this->message->count();
+        $count = $this->messageRepository->count();
 
         return view('messages.index', compact('messages', 'count'));
     }
@@ -47,7 +47,7 @@ class MessagesController extends Controller
             'manager_id' => User::DEFAULT_MANAGER
         ];
 
-        $message = $this->message->create($data);
+        $message = $this->messageRepository->create($data);
 
         return redirect()->route('messages.show', compact('message'));
     }
@@ -55,13 +55,13 @@ class MessagesController extends Controller
     //展示页面
     public function show($id)
     {
-        $message = $this->message->byIdWithUser($id);
+        $message = $this->messageRepository->byIdWithUser($id);
         return view('messages.show', compact('message'));
     }
 
     public function edit($id)
     {
-        $message = $this->message->byId($id);
+        $message = $this->messageRepository->byId($id);
 
         if (Auth::user()->owns($message)) {
             return view('messages.edit', compact('message'));
@@ -72,7 +72,7 @@ class MessagesController extends Controller
 
     public function update(MessageRequest $request, $id)
     {
-        $message = $this->message->byId($id);
+        $message = $this->messageRepository->byId($id);
 
         $message->update([
             'title' => $request->get('title'),
@@ -84,7 +84,7 @@ class MessagesController extends Controller
 
     public function destroy($id)
     {
-        $message = $this->message->byId($id);
+        $message = $this->messageRepository->byId($id);
 
         //判断该问题是否属于当前用户
         if (Auth::user()->owns($message)) {

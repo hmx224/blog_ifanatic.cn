@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mailer\UserMailer;
 use App\Model\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Mail;
@@ -71,6 +72,7 @@ class RegisterController extends Controller
             'avatar' => '/images/avatars/default.jpg',
             'confirmation_token' => str_random(45),
             'password' => bcrypt($data['password']),
+            'api_token' =>str_random(120)
         ]);
 
         $this->sendVerifyEmailTo($user);
@@ -79,20 +81,10 @@ class RegisterController extends Controller
 
     }
 
+    //用户注册发邮件
     public function sendVerifyEmailTo($user)
     {
-        $data = [
-            'url' => route('email.verify', ['token' => $user->confirmation_token]),
-            'name' => $user->name
-        ];
-
-        $template = new SendCloudTemplate('ifanatic_app_register', $data);
-
-        Mail::raw($template, function ($message) use ($user) {
-            $message->from('3046526371@qq.com', 'ifanatic.cn');
-
-            $message->to($user->email);
-        });
+        (new UserMailer())->userRegister($user);
     }
 
 }

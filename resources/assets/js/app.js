@@ -10,11 +10,8 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 //TODO ADD vue-resource
-// window.VueResource = require('vue-resource');
+// import VueResource from 'vue-resource';
 // Vue.use(VueResource);
-
-import VueResource from 'vue-resource';
-Vue.use(VueResource);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -25,6 +22,7 @@ Vue.use(VueResource);
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('question-follow-button', require('./components/QuestionFollowButton.vue'));
 Vue.component('user-follow-button', require('./components/UserFollowButton.vue'));
+Vue.component('user-vote-button', require('./components/UserVoteButton.vue'));
 
 Vue.component(
     'passport-clients',

@@ -16,15 +16,15 @@ class AnswersController extends Controller
     /**
      * @var AnswerRepository
      */
-    protected $answer;
+    protected $answerRepository;
 
     /**
      * AnswersController constructor.
-     * @param $answer
+     * @param $answerRepository
      */
-    public function __construct(AnswerRepository $answer)
+    public function __construct(AnswerRepository $answerRepository)
     {
-        $this->answer = $answer;
+        $this->answerRepository = $answerRepository;
     }
 
 
@@ -35,7 +35,7 @@ class AnswersController extends Controller
      */
     public function store(StoreAnswerRequest $request, $question)
     {
-        $answer = $this->answer->create([
+        $answer = $this->answerRepository->create([
             'question_id' => $question,
             'user_id' => Auth::id(),
             'body' => $request->get('body'),

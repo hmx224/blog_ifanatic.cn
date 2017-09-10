@@ -4,7 +4,7 @@ namespace App\Model;
 
 use App\BaseModel;
 
-// 用户关注问题
+// 用户问题的关系表
 
 class UserQuestion extends BaseModel
 {

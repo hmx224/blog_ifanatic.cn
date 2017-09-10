@@ -9,10 +9,14 @@
 
 <script>
     export default {
-        props: ['question', 'user'],
+        //鉴于安全性,就去掉user,使用api获取用户信息
+//        props: ['question', 'user'],
+        props: ['question'],
         mounted() {
-//            this.$http.post('/api/question/follower', {'question': this.question, 'user': this.user}).then(response => {
-            axios.post('/api/question/follower', {'question': this.question, 'user': this.user}).then(response => {
+            //laravel5.3写法
+//            this.$http.post('/api/question/follower', {'question': this.question}).then(response => {
+            //laravel5.4
+            axios.post('/api/question/follower', {'question': this.question}).then(response => {
                 this.followed = response.data.followed
             })
         },
@@ -28,8 +32,11 @@
         },
         methods: {
             follow() {
-//                this.$http.post('/api/question/follow', {'question': this.question,'user':this.user}).then(response => {
-                axios.post('/api/question/follow', {'question': this.question,'user':this.user}).then(response => {
+                //laravel5.3写法
+//                this.$http.post('/api/question/follow', {'question': this.question}).then(response => {
+                //laravel5.4
+                axios.post('/api/question/follow', {'question': this.question}).then(response => {
+//                    console.log(response.data);
                     this.followed = response.data.followed
                 })
             }

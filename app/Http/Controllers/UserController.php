@@ -8,20 +8,20 @@ use Auth;
 class UserController extends Controller
 {
 
-    protected $user;
+    protected $userRepository;
 
     /**
      * UserController constructor.
-     * @param $user
+     * @param $userRepository
      */
-    public function __construct(UserRepository $user)
+    public function __construct(UserRepository $userRepository)
     {
-        $this->user = $user;
+        $this->userRepository = $userRepository;
     }
 
     public function info()
     {
-        $user = $this->user->byId(Auth::id());
+        $user = $this->userRepository->byId(Auth::id());
 
         return view('users.info', compact('user'));
     }

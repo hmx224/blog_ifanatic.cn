@@ -83,6 +83,11 @@
 
                         @foreach($question->answers as $answer)
                             <div class="media">
+                                <div class="media-right">
+                                    <user-vote-button answer="{{ $answer->id }}" count="{{ $answer->votes_count }}"></user-vote-button>
+                                </div>
+
+
                                 <div class="media-left">
                                     <a href="">
                                         <img class="img-circle" width="36px" height="36px"
@@ -171,10 +176,14 @@
 
 
                         <div class="panel-body">
-                            @if(Auth::check())
-                                <user-follow-button
-                                        user="{{$question->user_id}}" user_api="{{ Auth::id()}}"></user-follow-button>
-                                <a href="#editor" class="btn btn-default pull-right">发送私信</a>
+                        @if(Auth::check())
+                            <!--解决自己关注自己问题-->
+                                @if(Auth::user()->id != $question->user->id)
+                                    <user-follow-button
+                                            user="{{$question->user_id}}"
+                                            user_api="{{ Auth::id()}}"></user-follow-button>
+                                    <a href="#editor" class="btn btn-default pull-right">发送私信</a>
+                                @endif
                             @else
                                 <a href="{{ route('login') }}" class="btn btn-success btn-block">登录关注他,并发送私信</a>
                             @endif
@@ -186,7 +195,7 @@
             </div>
         </div>
     </div>
-
+@endsection
 
 @section('js')
     @if(Auth::check())
@@ -209,37 +218,45 @@
         </script>
     @endif
 
-    {{--<script>--}}
+    <script>
         {{--$.ajax({--}}
-            {{--type: 'post',--}}
-            {{--cache: false,--}}
-            {{--dataType: 'json',--}}
-            {{--async: false, //同步ajax--}}
-            {{--data: {--}}
-                {{--'_token': '{{ csrf_token() }}',--}}
-                {{--'user': '{{ $question->user_id }}',--}}
-                {{--'user_api': '{{ Auth::id() }}'--}}
-            {{--},--}}
-            {{--url: '{{ url('api/user/followers_count') }}',--}}
-            {{--success: function (data) {--}}
-                {{--console.log(data);--}}
+        {{--type: 'post',--}}
+        {{--cache: false,--}}
+        {{--dataType: 'json',--}}
+        {{--async: false, //同步ajax--}}
+        {{--data: {--}}
+        {{--'_token': '{{ csrf_token() }}',--}}
+        {{--'user': '{{ $question->user_id }}',--}}
+        {{--'user_api': '{{ Auth::id() }}'--}}
+        {{--},--}}
+        {{--url: '{{ url('api/user/followers_count') }}',--}}
+        {{--success: function (data) {--}}
+        {{--console.log(data);--}}
 
-                {{--var followers_count = data.followers_count;--}}
-                {{--console.log(followers_count)--}}
+        {{--var followers_count = data.followers_count;--}}
+        {{--console.log(followers_count)--}}
 
-                {{--$('.followers_count').text(followers_count);--}}
-                {{--if (data != "") {--}}
-                    {{--$("#pager").pager({--}}
-                        {{--pagenumber: pagenumber,--}}
-                        {{--pagecount: data.split("$$")[1],--}}
-                        {{--buttonClickCallback: PageClick--}}
-                    {{--});--}}
-                    {{--$("#anhtml").html(data.split("$$")[0]);--}}
+        {{--$('.followers_count').text(followers_count);--}}
+        {{--if (data != "") {--}}
+        {{--$("#pager").pager({--}}
+        {{--pagenumber: pagenumber,--}}
+        {{--pagecount: data.split("$$")[1],--}}
+        {{--buttonClickCallback: PageClick--}}
+        {{--});--}}
+        {{--$("#anhtml").html(data.split("$$")[0]);--}}
 
-                {{--}--}}
-            {{--}--}}
+        {{--}--}}
+        {{--}--}}
         {{--})--}}
-    {{--</script>--}}
+        //        new Vue({
+        //            el:"#checknum",
+        //            methods:{
+        //                watchnum:function (text) {
+        //
+        //                }
+        //            }
+        //        })
+    </script>
 
 @endsection
-@endsection
+

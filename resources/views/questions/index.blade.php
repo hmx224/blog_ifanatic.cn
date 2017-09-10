@@ -12,21 +12,21 @@
                                     <div class="media-left">
                                         <a href="">
                                             <img class="img-circle" width="50px" height="50px"
-                                                 src="{{ $question->user->avatar }}"
-                                                 alt="{{ $question->user->name }}">
+                                                 src="{{ isset($question->user->avatar) ? $question->user->avatar: ''}}"
+                                                 alt="{{ isset($question->user->name) ? $question->user->name: '' }}">
                                         </a>
                                     </div>
 
                                     <div class="media-body">
                                         <h4 class="media-heading">
                                             <a href="/questions/{{ $question->id }}">
-                                                {{ $question->title }}
+                                                {{ isset($question->title)?$question->title:"" }}
                                             </a>
                                         </h4>
 
                                         <h5 class="">
-                                            <span>{{ $question->updated_at }}</span>
-                                            <span class="pull-right">{{ $question->user->name }}</span>
+                                            <span>{{ isset($question->updated_at)?$question->updated_at:"" }}</span>
+                                            <span class="pull-right">{{  isset($question->user->name)?$question->user->name:"" }}</span>
                                         </h5>
                                     </div>
                                 </div>
@@ -131,69 +131,75 @@
         {{--<div id="question_page"></div>--}}
 
         {{--<ul id="question_page_list"></ul>--}}
+
+        {{--<passport-clients></passport-clients>--}}
+        {{--<passport-authorized-clients></passport-authorized-clients>--}}
+        {{--<passport-personal-access-tokens></passport-personal-access-tokens>--}}
     </div>
+
+
 @endsection
 
 <link rel="stylesheet" href="/layui/css/layui.css" media="all">
 <script src="/layui/layui.js" charset="utf-8"></script>
 
-<script>
-    var page_num = 10;
-    var curr_page = 1;
-    var total_page;
-    layui.use(['laypage', 'layer'], function () {
-        var laypage = layui.laypage, layer = layui.layer;
+{{--<script>--}}
+    {{--var page_num = 10;--}}
+    {{--var curr_page = 1;--}}
+    {{--var total_page;--}}
+    {{--layui.use(['laypage', 'layer'], function () {--}}
+        {{--var laypage = layui.laypage, layer = layui.layer;--}}
 
-        $.ajax({
-            type: 'post',
-            cache: false,
-            dataType: 'json',
-            async: false, //同步ajax
-            data: {
-                '_token': '{{ csrf_token() }}',
-                'curr_page': curr_page,
-            },
-            url: 'questions/page_ajax',
-            success: function (data) {
-//                if (data != "") {
-//                    $("#pager").pager({
-//                        pagenumber: pagenumber,
-//                        pagecount: data.split("$$")[1],
-//                        buttonClickCallback: PageClick
-//                    });
-//                    $("#anhtml").html(data.split("$$")[0]);
-//
-//                }
-            }
-        });
+        {{--$.ajax({--}}
+            {{--type: 'post',--}}
+            {{--cache: false,--}}
+            {{--dataType: 'json',--}}
+            {{--async: false, //同步ajax--}}
+            {{--data: {--}}
+                {{--'_token': '{{ csrf_token() }}',--}}
+                {{--'curr_page': curr_page,--}}
+            {{--},--}}
+            {{--url: 'questions/page_ajax',--}}
+            {{--success: function (data) {--}}
+{{--//                if (data != "") {--}}
+{{--//                    $("#pager").pager({--}}
+{{--//                        pagenumber: pagenumber,--}}
+{{--//                        pagecount: data.split("$$")[1],--}}
+{{--//                        buttonClickCallback: PageClick--}}
+{{--//                    });--}}
+{{--//                    $("#anhtml").html(data.split("$$")[0]);--}}
+{{--//--}}
+{{--//                }--}}
+            {{--}--}}
+        {{--});--}}
 
-        //完整功能
-        laypage.render({
-            elem: 'question_page',
-            count: page_num,
-            layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
-            jump: function (obj) {
-                console.log(obj)
-            }
-        });
+        {{--//完整功能--}}
+        {{--laypage.render({--}}
+            {{--elem: 'question_page',--}}
+            {{--count: page_num,--}}
+            {{--layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],--}}
+            {{--jump: function (obj) {--}}
+                {{--console.log(obj)--}}
+            {{--}--}}
+        {{--});--}}
 
-        //调用分页
-        laypage.render({
-            elem: 'question_page_list',
-            count: page_num,
-            curr: curr || 1, //当前页
-            jump: function (obj) {
-                //模拟渲染
-                document.getElementById('biuuu_city_list').innerHTML = function () {
-                    var arr = [],
-                        thisData = data.concat().splice(obj.curr * obj.limit - obj.limit, obj.limit);
-                    layui.each(thisData, function (index, item) {
-                        arr.push('<li>' + item + '</li>');
-                    });
-                    return arr.join('');
-                }();
-            }
-        });
+        {{--//调用分页--}}
+        {{--laypage.render({--}}
+            {{--elem: 'question_page_list',--}}
+            {{--count: page_num,--}}
+            {{--curr: curr || 1, //当前页--}}
+            {{--jump: function (obj) {--}}
+                {{--//模拟渲染--}}
+                {{--document.getElementById('biuuu_city_list').innerHTML = function () {--}}
+                    {{--var arr = [],--}}
+                        {{--thisData = data.concat().splice(obj.curr * obj.limit - obj.limit, obj.limit);--}}
+                    {{--layui.each(thisData, function (index, item) {--}}
+                        {{--arr.push('<li>' + item + '</li>');--}}
+                    {{--});--}}
+                    {{--return arr.join('');--}}
+                {{--}();--}}
+            {{--}--}}
+        {{--});--}}
 
-    });
-</script>
+    {{--});--}}
+{{--</script>--}}

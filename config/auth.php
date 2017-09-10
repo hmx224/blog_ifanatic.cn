@@ -42,8 +42,8 @@ return [
         ],
 
         'api' => [
-//            'driver' => 'token',
-            'driver' => 'passport',
+            'driver' => 'token',
+//            'driver' => 'passport', //三方库校验
             'provider' => 'users',
         ],
     ],

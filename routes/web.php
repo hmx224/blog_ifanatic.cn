@@ -45,4 +45,7 @@ Route::resource('messages', 'MessagesController', ['names' => [
 //用户信息
 Route::get('user/info','UserController@info');
 
+//消息管理
+Route::get('notifications','NotificationsController@index');
+
 

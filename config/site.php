@@ -36,4 +36,6 @@ return [
         'other_path' => '/uploads/others',
         'imageMaxSize' => 2 * 1024 * 1024, /* 上传大小限制，单位B */
     ],
+    //用户发送人邮箱
+    'server_admin_email' =>  env('SERVER_ADMIN_EMAIL', 'default'),
 ];

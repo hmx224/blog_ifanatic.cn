@@ -2,12 +2,11 @@
 
 namespace App\Model;
 
+use App\Mailer\UserMailer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Mail;
 use Laravel\Passport\HasApiTokens;
-use Naux\Mail\SendCloudTemplate;
 
 
 /**
@@ -57,7 +56,8 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar',
-        'confirmation_token'
+        'confirmation_token',
+        'api_token'
     ];
 
     /**
@@ -80,25 +80,17 @@ class User extends Authenticatable
 
     /**
      * @param string $token
+     * 用户忘记密码邮件通知
      */
     public function sendPasswordResetNotification($token)
     {
-        $data = ['url' => url('password/reset', $token)];
-
-        $template = new SendCloudTemplate('ifanatic_app_password_reset', $data);
-
-        Mail::raw($template, function ($message) {
-            $message->from('3046526371@qq.com', 'ifanatic.cn');
-
-            $message->to($this->email);
-        });
+        (new UserMailer())->passwordReset($token, $this->email);
     }
-
-    //判断问题的作者是否是登录的用户，进行编辑操作。
 
     /**
      * @param Model $model
      * @return bool
+     * 判断问题的作者是否是登录的用户，进行编辑操作。
      */
     public function owns(Model $model)
     {
@@ -162,6 +154,26 @@ class User extends Authenticatable
     public function followThisUser($user)
     {
         return $this->followers()->toggle($user);
+    }
+
+
+    //点赞关联
+    public function votes()
+    {
+        return $this->belongsToMany(answer::class, 'votes')->withTimestamps();
+    }
+
+    //点赞的操作
+    public function voteFor($answer)
+    {
+        return $this->votes()->toggle($answer);
+    }
+
+    //是否已经点赞
+    public function hasVotedFor($answer)
+    {
+        return !!$this->votes()->where('answer_id', $answer)->count();
+
     }
 
 

@@ -9,9 +9,13 @@
 
 <script>
     export default {
-        props: ['user', 'user_api'],
+        //使用api接口替换
+//        props: ['user', 'user_api'],
+        props: ['user'],
         mounted() {
-            axios.post('/api/user/followers',{'user': this.user, 'user_api': this.user_api}).then(response => {
+            //使用api接口替换
+//            axios.post('/api/user/followers',{'user': this.user, 'user_api': this.user_api}).then(response => {
+            axios.post('/api/user/followers', {'user': this.user}).then(response => {
                 this.followed = response.data.followed
             })
 
@@ -31,7 +35,9 @@
         },
         methods: {
             follow() {
-                axios.post('/api/user/follow', {'user': this.user, 'user_api': this.user_api}).then(response => {
+                //使用api接口替换
+//                axios.post('/api/user/follow', {'user': this.user, 'user_api': this.user_api}).then(response => {
+                axios.post('/api/user/follow', {'user': this.user}).then(response => {
                     this.followed = response.data.followed
                 });
 //

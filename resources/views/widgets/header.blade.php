@@ -35,6 +35,9 @@
                 <li class="dropdown">
                     <a href="{{ url('messages') }}">留言板</a>
                 </li>
+                <li class="dropdown">
+                    <a href="{{ url('notifications') }}">通知</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

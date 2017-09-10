@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
+@include('vendor.ueditor.assets')
+
 @section('content')
-    @include('vendor.ueditor.assets')
+
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -60,6 +62,7 @@
             </div>
         </div>
     </div>
+@endsection
 
 @section('js')
     <!-- 实例化编辑器 -->
@@ -123,4 +126,5 @@
         });
     </script>
 @endsection
-@endsection
+
+
