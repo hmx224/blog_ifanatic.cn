@@ -18,19 +18,20 @@
         },
         data() {
             return {
-                voted: false
+                voted: false,
+                answer_count:this.count
             }
         },
         computed: {
             text() {
-                return this.count
+                return this.answer_count
             }
         },
         methods: {
             vote() {
                 axios.post('/api/answer/vote', {'answer': this.answer}).then(response => {
                     this.voted = response.data.voted;
-                    response.data.voted ? this.count ++ : this.count --
+                    response.data.voted ? this.answer_count ++ : this.answer_count --
                 });
             }
         }
