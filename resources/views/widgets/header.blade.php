@@ -35,9 +35,12 @@
                 <li class="dropdown">
                     <a href="{{ url('messages') }}">留言板</a>
                 </li>
-                <li class="dropdown">
-                    <a href="{{ url('notifications') }}">通知</a>
-                </li>
+
+                @if(Auth::check())
+                    <li class="dropdown">
+                        <a href="{{ url('notifications') }}">通知</a>
+                    </li>
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
