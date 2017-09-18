@@ -8,6 +8,9 @@ class LogController extends Controller
     //  bug更新日志
     public function logBug()
     {
+        $data ='hmx123456';
+        $pass = bcrypt($data);
+//        dd($pass);
         return view('log.log_bug');
     }
 

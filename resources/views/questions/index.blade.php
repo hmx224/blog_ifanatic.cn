@@ -35,6 +35,7 @@
                             <div style="font-size: large; color: deeppink;">暂时没有文章记录</div>
                         @endif
                     </div>
+                    <div class='pull-right'>{!! $questions->links() !!}</div>
                 </div>
             </div>
 
@@ -109,6 +110,7 @@
                 </div>
             </div>
 
+
             <!--支付宝打赏二维码-->
             {{--<div class="col-md-4">--}}
             {{--<div class="panel panel-default">--}}
@@ -124,14 +126,16 @@
 
         </div>
 
-        {{--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">--}}
-        {{--<legend>显示完整功能</legend>--}}
-        {{--</fieldset>--}}
 
-        {{--<div id="question_page"></div>--}}
+    {{--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">--}}
+    {{--<legend>显示完整功能</legend>--}}
+    {{--</fieldset>--}}
 
-        {{--<ul id="question_page_list"></ul>--}}
+    {{--<div id="question_page"></div>--}}
 
+    {{--<ul id="question_page_list"></ul>--}}
+
+    <!--测试passport的vue组件-->
         {{--<passport-clients></passport-clients>--}}
         {{--<passport-authorized-clients></passport-authorized-clients>--}}
         {{--<passport-personal-access-tokens></passport-personal-access-tokens>--}}
@@ -144,23 +148,23 @@
 <script src="/layui/layui.js" charset="utf-8"></script>
 
 {{--<script>--}}
-    {{--var page_num = 10;--}}
-    {{--var curr_page = 1;--}}
-    {{--var total_page;--}}
-    {{--layui.use(['laypage', 'layer'], function () {--}}
-        {{--var laypage = layui.laypage, layer = layui.layer;--}}
+{{--var page_num = 10;--}}
+{{--var curr_page = 1;--}}
+{{--var total_page;--}}
+{{--layui.use(['laypage', 'layer'], function () {--}}
+{{--var laypage = layui.laypage, layer = layui.layer;--}}
 
-        {{--$.ajax({--}}
-            {{--type: 'post',--}}
-            {{--cache: false,--}}
-            {{--dataType: 'json',--}}
-            {{--async: false, //同步ajax--}}
-            {{--data: {--}}
-                {{--'_token': '{{ csrf_token() }}',--}}
-                {{--'curr_page': curr_page,--}}
-            {{--},--}}
-            {{--url: 'questions/page_ajax',--}}
-            {{--success: function (data) {--}}
+{{--$.ajax({--}}
+{{--type: 'post',--}}
+{{--cache: false,--}}
+{{--dataType: 'json',--}}
+{{--async: false, //同步ajax--}}
+{{--data: {--}}
+{{--'_token': '{{ csrf_token() }}',--}}
+{{--'curr_page': curr_page,--}}
+{{--},--}}
+{{--url: 'questions/page_ajax',--}}
+{{--success: function (data) {--}}
 {{--//                if (data != "") {--}}
 {{--//                    $("#pager").pager({--}}
 {{--//                        pagenumber: pagenumber,--}}
@@ -170,36 +174,36 @@
 {{--//                    $("#anhtml").html(data.split("$$")[0]);--}}
 {{--//--}}
 {{--//                }--}}
-            {{--}--}}
-        {{--});--}}
+{{--}--}}
+{{--});--}}
 
-        {{--//完整功能--}}
-        {{--laypage.render({--}}
-            {{--elem: 'question_page',--}}
-            {{--count: page_num,--}}
-            {{--layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],--}}
-            {{--jump: function (obj) {--}}
-                {{--console.log(obj)--}}
-            {{--}--}}
-        {{--});--}}
+{{--//完整功能--}}
+{{--laypage.render({--}}
+{{--elem: 'question_page',--}}
+{{--count: page_num,--}}
+{{--layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],--}}
+{{--jump: function (obj) {--}}
+{{--console.log(obj)--}}
+{{--}--}}
+{{--});--}}
 
-        {{--//调用分页--}}
-        {{--laypage.render({--}}
-            {{--elem: 'question_page_list',--}}
-            {{--count: page_num,--}}
-            {{--curr: curr || 1, //当前页--}}
-            {{--jump: function (obj) {--}}
-                {{--//模拟渲染--}}
-                {{--document.getElementById('biuuu_city_list').innerHTML = function () {--}}
-                    {{--var arr = [],--}}
-                        {{--thisData = data.concat().splice(obj.curr * obj.limit - obj.limit, obj.limit);--}}
-                    {{--layui.each(thisData, function (index, item) {--}}
-                        {{--arr.push('<li>' + item + '</li>');--}}
-                    {{--});--}}
-                    {{--return arr.join('');--}}
-                {{--}();--}}
-            {{--}--}}
-        {{--});--}}
+{{--//调用分页--}}
+{{--laypage.render({--}}
+{{--elem: 'question_page_list',--}}
+{{--count: page_num,--}}
+{{--curr: curr || 1, //当前页--}}
+{{--jump: function (obj) {--}}
+{{--//模拟渲染--}}
+{{--document.getElementById('biuuu_city_list').innerHTML = function () {--}}
+{{--var arr = [],--}}
+{{--thisData = data.concat().splice(obj.curr * obj.limit - obj.limit, obj.limit);--}}
+{{--layui.each(thisData, function (index, item) {--}}
+{{--arr.push('<li>' + item + '</li>');--}}
+{{--});--}}
+{{--return arr.join('');--}}
+{{--}();--}}
+{{--}--}}
+{{--});--}}
 
-    {{--});--}}
+{{--});--}}
 {{--</script>--}}

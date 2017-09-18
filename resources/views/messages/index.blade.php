@@ -35,13 +35,14 @@
                             <div style="font-size: large; color: deeppink;">暂时没有留言记录</div>
                         @endif
                     </div>
+                    <div class='pull-right'>{!! $messages->links() !!}</div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="panel panel-default">
                     {{--@if(Auth::guest())--}}
-                        {{--<div style="text-align:center; font-size: large;color: deeppink;">温馨提示,请先登录发布留言！</div>--}}
+                    {{--<div style="text-align:center; font-size: large;color: deeppink;">温馨提示,请先登录发布留言！</div>--}}
                     {{--@endif--}}
                     <div class="panel-heading question-follow">
                         <h2>

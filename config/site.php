@@ -38,4 +38,7 @@ return [
     ],
     //用户发送人邮箱
     'server_admin_email' =>  env('SERVER_ADMIN_EMAIL', 'default'),
+
+    //分页数
+    'page_size' =>env('PAGE_SIZE',15),
 ];

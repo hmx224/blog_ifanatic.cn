@@ -95,6 +95,8 @@ class QuestionRepository
 
     public function getQuestionSeed()
     {
-        return Question::published()->latest('updated_at')->with('user')->get();
+        //加上分页效果
+        $page = config('site.page_size');
+        return Question::published()->latest('updated_at')->with('user')->paginate($page);
     }
 }

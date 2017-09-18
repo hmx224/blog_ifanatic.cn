@@ -28699,7 +28699,7 @@ if (typeof jQuery === 'undefined') {
   // ============================================================
 
   function transitionEnd() {
-    var el = document.createElement('bootstrap')
+    var el = document.createElement('plugins')
 
     var transEndEventNames = {
       WebkitTransition : 'webkitTransitionEnd',

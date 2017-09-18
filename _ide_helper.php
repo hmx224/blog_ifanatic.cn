@@ -26,7 +26,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Run the given array of bootstrap classes.
+         * Run the given array of plugins classes.
          *
          * @param array $bootstrappers
          * @return void 
@@ -123,9 +123,9 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the path to the bootstrap directory.
+         * Get the path to the plugins directory.
          *
-         * @param string $path Optionally, a path to append to the bootstrap path
+         * @param string $path Optionally, a path to append to the plugins path
          * @return string 
          * @static 
          */ 

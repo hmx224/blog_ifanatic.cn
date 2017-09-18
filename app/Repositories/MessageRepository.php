@@ -49,6 +49,7 @@ class MessageRepository
 
     public function getMessageSeed()
     {
-        return Message::published()->latest('updated_at')->with('user')->get();
+        $page = config('site.page_size');
+        return Message::published()->latest('updated_at')->with('user')->paginate($page);
     }
 }
