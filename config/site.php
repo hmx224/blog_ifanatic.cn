@@ -40,5 +40,5 @@ return [
     'server_admin_email' =>  env('SERVER_ADMIN_EMAIL', 'default'),
 
     //分页数
-    'page_size' =>env('PAGE_SIZE',15),
+    'page_size' =>env('PAGE_SIZE',10),
 ];
