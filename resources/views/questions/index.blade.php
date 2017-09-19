@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="panel panel-default">
+                <div class="panel panel-default ">
                     <div class="panel-heading">
                         @if($questions_count !=0)
                             @foreach($questions as $question)
@@ -18,12 +18,15 @@
                                     </div>
 
                                     <div class="media-body">
-                                        <h4 class="media-heading">
-                                            <a href="/questions/{{ $question->id }}">
+                                        <h4 class="media-heading" style="font-family: 华文中宋">
+                                            <span style="font-weight: 500; font-size: 1.3em;">
                                                 {{ isset($question->title)?$question->title:"" }}
-                                            </a>
+                                            </span>
+                                            <hr>
+                                            <span style="display: block">{{ mb_substr(preg_replace("/<[^>]+>/", '', $question->body),0,64,'utf-8') }}
+                                                <a href="/questions/{{ $question->id }}">...阅读全文</a>
+                                            </span>
                                         </h4>
-
                                         <h5 class="">
                                             <span>{{ isset($question->updated_at)?$question->updated_at:"" }}</span>
                                             <span class="pull-right">{{  isset($question->user->name)?$question->user->name:"" }}</span>
@@ -31,11 +34,14 @@
                                     </div>
                                 </div>
                             @endforeach
+                            <div style="height: 60px;">
+                                <span class='pull-right'>{!! $questions->links() !!}</span>
+                            </div>
+
                         @else
                             <div style="font-size: large; color: deeppink;">暂时没有文章记录</div>
                         @endif
                     </div>
-                    <div class='pull-right'>{!! $questions->links() !!}</div>
                 </div>
             </div>
 
@@ -125,6 +131,7 @@
             {{--</div>--}}
 
         </div>
+    </div>
 
 
     {{--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">--}}
@@ -136,11 +143,9 @@
     {{--<ul id="question_page_list"></ul>--}}
 
     <!--测试passport的vue组件-->
-        {{--<passport-clients></passport-clients>--}}
-        {{--<passport-authorized-clients></passport-authorized-clients>--}}
-        {{--<passport-personal-access-tokens></passport-personal-access-tokens>--}}
-    </div>
-
+    {{--<passport-clients></passport-clients>--}}
+    {{--<passport-authorized-clients></passport-authorized-clients>--}}
+    {{--<passport-personal-access-tokens></passport-personal-access-tokens>--}}
 
 @endsection
 

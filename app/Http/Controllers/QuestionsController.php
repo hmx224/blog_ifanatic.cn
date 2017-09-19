@@ -48,8 +48,6 @@ class QuestionsController extends Controller
 
         $questions_count = $this->questionRepository->questionsCount();
 
-
-
         return view('questions.index',
             compact('questions', 'users_active', 'users_not_active', 'users_count', 'questions_count'));
     }

@@ -18,12 +18,16 @@
                                     </div>
 
                                     <div class="media-body">
-                                        <h4 class="media-heading">
-                                            <a href="/messages/{{ $message->id }}">
-                                                {{ $message->title }}
-                                            </a>
+                                        <h4 class="media-heading" style="font-family: 华文中宋">
+                                            <span style="font-weight: 300; font-size: 1.3em;">
+                                                {{ isset($message->title)?$message->title:"" }}
+                                            </span>
+                                            <hr>
+                                            <span style="display: block;">{{ mb_substr(preg_replace("/<[^>]+>/", '', $message->body),0,64,'utf-8') }}
+                                                <a href="/messages/{{ $message->id }}">...阅读全文</a>
+                                            </span>
                                         </h4>
-
+                                        <br>
                                         <h5 class="">
                                             <span>{{ $message->updated_at }}</span>
                                             <span class="pull-right">{{ $message->user->name }}</span>
