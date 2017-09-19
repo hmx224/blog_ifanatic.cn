@@ -57,8 +57,8 @@
 
 @endsection
 @section('js')
-    <link rel="stylesheet" href="/layui/css/layui.css" media="all">
-    <script src="/layui/layui.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/plugins/layui/2.1.2/css/layui.css" media="all">
+    <script src="/plugins/layui/2.1.2/layui.js" charset="utf-8"></script>
     @if(Auth::check())
         <script>
             layui.use('layedit', function () {
