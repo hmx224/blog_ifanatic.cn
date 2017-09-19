@@ -23,7 +23,7 @@
                                                 {{ isset($question->title)?$question->title:"" }}
                                             </span>
                                             <hr>
-                                            <span style="display: block">{{ mb_substr(preg_replace("/<[^>]+>/", '', $question->body),0,64,'utf-8') }}
+                                            <span style="display: block">{{ trim(mb_substr(preg_replace("/<[^>]+>/", '', $question->body),0,64,'utf-8')) }}
                                                 <a href="/questions/{{ $question->id }}">...阅读全文</a>
                                             </span>
                                         </h4>
