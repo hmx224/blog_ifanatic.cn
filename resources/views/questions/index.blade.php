@@ -27,7 +27,7 @@
                                                 <a href="/questions/{{ $question->id }}">...阅读全文</a>
                                             </span>
                                         </h4>
-                                        <h5 class="">
+                                        <h5 class="" style="max-width: 600px">
                                             <span>{{ isset($question->updated_at)?$question->updated_at:"" }}</span>
                                             <span class="pull-right">{{  isset($question->user->name)?$question->user->name:"" }}</span>
                                         </h5>

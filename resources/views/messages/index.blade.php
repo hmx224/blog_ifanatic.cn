@@ -28,7 +28,7 @@
                                             </span>
                                         </h4>
                                         <br>
-                                        <h5 class="">
+                                        <h5 class="" style="max-width: 600px">
                                             <span>{{ $message->updated_at }}</span>
                                             <span class="pull-right">{{ $message->user->name }}</span>
                                         </h5>
