@@ -169,10 +169,10 @@ class QuestionsController extends Controller
 
         //判断该问题是否属于当前用户
         if (Auth::user()->owns($question)) {
-            $question->is_disabled = Question::DISABLED;
+            $question->is_hidden = Question::DISABLED; //标识删除
             $question->save();
 
-            flash('更新成功', 'success');
+            flash('删除成功', 'success');
 
             return redirect('/');
 

@@ -12,7 +12,7 @@
                                 <li style="font-size: x-large; color: deeppink;">20170904</li>
                                 <li>1.单独回复楼层的答案</li>
                                 <li style="text-decoration: line-through">2.增加留言板功能,留言板使用layui的模板</li>
-                                <li>3.文章首页在增加分页展示</li>
+                                <li style="text-decoration: line-through">3.文章首页在增加分页展示</li>
                                 <li style="text-decoration: line-through">4.用户之间的互相关注</li>
                                 <li style="text-decoration: line-through">5.关注用户以邮件的方式通知</li>
                                 <li style="text-decoration: line-through">6.对答案的点赞</li>
