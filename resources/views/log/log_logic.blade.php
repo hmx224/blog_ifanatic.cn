@@ -16,6 +16,9 @@
                             <li>1.增加留言板模块，留言板模块支持表情发送，暂时不支持传图片，和对留言的回复</li>
                             <li style="font-size: x-large; color: deeppink;">20170908</li>
                             <li>1.增加用户之间的互相关注，关注数</li>
+
+                            <li style="font-size: x-large; color: deeppink;">20170919</li>
+                            <li>1.首页面和留言板页面做大的更改,增加了分页效果</li>
                         </ul>
                     </div>
                 </div>
