@@ -7,6 +7,7 @@ use Request;
 use Response;
 
 //TODO 接口可用，前端需要修改
+
 class FileController extends BaseController
 {
     const ALLOW_EXTENSIONS = ['gif', 'jpeg', 'jpg', 'png', 'mp4', 'mpg', 'mpeg', 'avi', 'wav', 'mp3', 'amr', 'caf'];
@@ -27,7 +28,7 @@ class FileController extends BaseController
         if ($file_size > $imageMaxSize) {
             return Response::json([
                 'code' => 500,
-                'msg' => '图片上传不能超过2M',
+                'msg' => '图片上传不能超过5M',
             ]);
         }
 

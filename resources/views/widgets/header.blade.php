@@ -62,6 +62,8 @@
                             <li>
                                 <a href="/user/info">个人资料</a>
 
+                                <a href="/user/edit">修改头像</a>
+
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

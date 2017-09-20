@@ -44,6 +44,9 @@ Route::resource('messages', 'MessagesController', ['names' => [
 ]]);
 //用户信息
 Route::get('user/info','UserController@info');
+Route::get('user/edit','UserController@edit');
+Route::post('user/update/{id}','UserController@update');
+Route::resource('users','UserController');
 
 //消息管理
 Route::get('notifications','NotificationsController@index');
