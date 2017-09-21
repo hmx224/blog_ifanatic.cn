@@ -45,7 +45,7 @@
                                     <input type="text" name="captcha" class="form-control">
 
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3" style="cursor:pointer;">
                                     <a id="refresh-captcha">
                                         <img src="{{ captcha_src() }}"
                                              alt="验证码"
