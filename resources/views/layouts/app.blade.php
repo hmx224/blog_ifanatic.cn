@@ -23,14 +23,14 @@
     <!--layui-->
 
     <!--Bootstrap-->
-    {{--<link href="/plugins/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--}}
-    {{--<script src="/plugins/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
+{{--<link href="/plugins/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--}}
+{{--<script src="/plugins/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
 
-    <!--X-editable-->
-    {{--<link href="/plugins/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">--}}
-    {{--<script src="/plugins/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>--}}
+<!--X-editable-->
+{{--<link href="/plugins/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">--}}
+{{--<script src="/plugins/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>--}}
 
-    <!--Moment.js-->
+<!--Moment.js-->
     <script src="/plugins/moment.js/2.15.1/moment.min.js"></script>
     <script src="/plugins/moment.js/2.15.1/moment-with-locales.min.js"></script>
     <script src="/plugins/moment.js/2.15.1/locales.js"></script>
@@ -73,6 +73,13 @@
     $('#flash-overlay-modal').modal();
 </script>
 
+<script>
+    $('#captcha').on('click', function () {
+        let captcha = $(this);
+        let url = '/captcha/' + captcha.attr('data-captcha-config') + '/?' + Math.random();
+        captcha.attr('src', url);
+    })
 
+</script>
 </body>
 </html>

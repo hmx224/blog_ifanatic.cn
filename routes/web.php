@@ -16,6 +16,11 @@
 //});
 
 Route::get('/', 'QuestionsController@index');
+//Route::get('/captcha/{random}', 'CaptchaController@captcha');
+
+Route::get('/captcha/{config?}',function(\Mews\Captcha\Captcha $captcha,$config='default'){
+        return $captcha->create($config);
+});
 
 Auth::routes();
 

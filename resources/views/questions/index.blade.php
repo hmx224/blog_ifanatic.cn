@@ -34,6 +34,12 @@
                                     </div>
                                 </div>
                             @endforeach
+                                <div class="share-social">
+                                    <div class="social-share share-component" data-weibo-title="不吹不黑，又拍云存储真的比七牛云好很多。本视频将使用我自己写的 package: https://github.com/JellyBool/flysystem-upyun 来实现上传图片，删除图片等功能。"
+                                         data-image="https://dn-laravist.qbox.me/skill-laravel.jpg">
+                                    </div>
+                                </div>
+
                             <div style="height: 60px;">
                                 <span class='pull-right'>{!! $questions->links() !!}</span>
                             </div>

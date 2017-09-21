@@ -6,9 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mailer\UserMailer;
 use App\Model\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use Naux\Mail\SendCloudTemplate;
 
 class RegisterController extends Controller
 {
@@ -55,6 +53,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'captcha' => 'required|captcha',
         ]);
     }
 
@@ -72,7 +71,7 @@ class RegisterController extends Controller
             'avatar' => '/images/avatars/default.jpg',
             'confirmation_token' => str_random(45),
             'password' => bcrypt($data['password']),
-            'api_token' =>str_random(120)
+            'api_token' => str_random(120)
         ]);
 
         $this->sendVerifyEmailTo($user);
