@@ -21,6 +21,12 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li class="dropdown">
+                    <a href="{{ url('questions/create') }}">写文章</a>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ url('messages/create') }}">写留言</a>
+                </li>
+                <li class="dropdown">
                     <a href="{{ url('log_bug') }}">BUG更新日志</a>
                 </li>
 
