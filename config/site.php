@@ -34,7 +34,7 @@ return [
         'audio_path' => '/uploads/audios',
         'image_path' => '/uploads/images',
         'other_path' => '/uploads/others',
-        'imageMaxSize' => 5 * 1024 * 1024, /* 上传大小限制，单位B */
+        'imageMaxSize' => 2 * 1024 * 1024, /* 上传大小限制，单位B */
     ],
     //用户发送人邮箱
     'server_admin_email' =>  env('SERVER_ADMIN_EMAIL', 'default'),

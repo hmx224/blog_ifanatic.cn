@@ -74,6 +74,7 @@
 </script>
 
 <script>
+    //验证码
     $('#captcha').on('click', function () {
         let captcha = $(this);
         let url = '/captcha/' + captcha.attr('data-captcha-config') + '/?' + Math.random();

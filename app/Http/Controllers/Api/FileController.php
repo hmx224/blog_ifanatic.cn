@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Carbon\Carbon;
+use Monolog\Handler\IFTTTHandler;
 use Request;
 use Response;
 
@@ -25,10 +26,17 @@ class FileController extends BaseController
 
         $imageMaxSize = config('site.upload.imageMaxSize');
 
+        if (empty($file_size)){
+            return Response::json([
+                'code' => 404,
+                'msg' => '上传失败',
+            ]);
+        }
+
         if ($file_size > $imageMaxSize) {
             return Response::json([
                 'code' => 500,
-                'msg' => '图片上传不能超过5M',
+                'msg' => '图片上传不能超过2M',
             ]);
         }
 

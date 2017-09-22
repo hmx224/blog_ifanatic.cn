@@ -38,12 +38,16 @@ class UserController extends Controller
     {
         $user = $this->userRepository->byId($id);
 
-        $data = [
-            'avatar' => $request->get('avatar')
-        ];
+        $avatar = $request->get('avatar');
+
+        if ($avatar == null){
+            flash('更新头像失败', 'danger');
+            return redirect()->route('users.edit', compact('user'));
+        }
+
+        $data = ['avatar' => $avatar];
 
         $user->update($data);
-
 
         flash('更新头像成功', 'success');
 

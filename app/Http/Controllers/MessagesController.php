@@ -24,6 +24,7 @@ class MessagesController extends Controller
     //留言板操作
     public function index()
     {
+//        dd(bcrypt('123456'));
         $messages = $this->messageRepository->getMessageSeed();
 
         $count = $this->messageRepository->count();

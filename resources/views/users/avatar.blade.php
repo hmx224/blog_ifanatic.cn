@@ -16,7 +16,7 @@
                                    class="form-control" placeholder="会员头像">
 
                             <div class="form-group">
-                                <label for="avatar" class="col-sm-2 control-label">会员头像<br/><span style="color:deeppink;">(注:图片大小不超过5M)</span></label>
+                                <label for="avatar" class="col-sm-2 control-label">会员头像<br/><span style="color:deeppink;">(注:图片大小不超过2M)</span></label>
                                 <div class="col-sm-2">
                                     <img class="img-circle" id="avatar_url" width="100px" height="100px;"
                                          src="{{ $user->avatar }}"
@@ -77,6 +77,7 @@
                         $('#avatar_img').css('height', '100'); //图片链接（base64）
                     });
                 }
+
                 , done: function (res) {
                     console.log(res)
                     console.log(res.data)
@@ -89,6 +90,7 @@
                     $('#avatar').val(res.data.src);
 
                 }
+
                 , error: function () {
                     //演示失败状态，并实现重传
                     var demoText = $('#demoText');
