@@ -18,8 +18,8 @@
 Route::get('/', 'QuestionsController@index');
 //Route::get('/captcha/{random}', 'CaptchaController@captcha');
 
-Route::get('/captcha/{config?}',function(\Mews\Captcha\Captcha $captcha,$config='default'){
-        return $captcha->create($config);
+Route::get('/captcha/{config?}', function (\Mews\Captcha\Captcha $captcha, $config = 'default') {
+    return $captcha->create($config);
 });
 
 Auth::routes();
@@ -48,12 +48,15 @@ Route::resource('messages', 'MessagesController', ['names' => [
     'show' => 'messages.show'
 ]]);
 //用户信息
-Route::get('user/info','UserController@info');
-Route::get('user/edit','UserController@edit');
-Route::post('user/update/{id}','UserController@update');
-Route::resource('users','UserController');
+Route::get('users/info', 'UserController@info');
+Route::get('users/change_avatar_form', ['as' => 'users.change_avatar_form', 'uses' => 'UserController@changeAvatarForm']);
+Route::get('users/change_password_form', ['as' => 'users.change_password_form', 'uses' => 'UserController@changePasswordForm']);
+
+Route::post('users/{user_id}', 'UserController@update');
+Route::post('users/change_avatar/{id}', 'UserController@changeAvatar');
+Route::resource('users', 'UserController');
 
 //消息管理
-Route::get('notifications','NotificationsController@index');
+Route::get('notifications', 'NotificationsController@index');
 
 

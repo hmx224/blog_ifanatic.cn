@@ -21,6 +21,8 @@
                             <li>1.首页面和留言板页面做大的更改,增加了分页效果</li>
                             <li style="font-size: x-large; color: deeppink;">20170921</li>
                             <li>1.用户登录,注册增加验证码</li>
+                            <li style="font-size: x-large; color: deeppink;">20170922</li>
+                            <li>1.用户修改密码,提示框优化</li>
                         </ul>
                     </div>
                 </div>

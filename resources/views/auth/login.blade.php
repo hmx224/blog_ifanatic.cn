@@ -7,6 +7,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">登录</div>
                     <div class="panel-body">
+
+
                         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
 

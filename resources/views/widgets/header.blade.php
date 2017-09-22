@@ -66,9 +66,11 @@
                         <ul class="dropdown-menu" role="menu">
 
                             <li>
-                                <a href="/user/info">个人资料</a>
+                                <a href="/users/info">个人资料</a>
 
-                                <a href="/user/edit">修改头像</a>
+                                <a href="/users/change_avatar_form">修改头像</a>
+
+                                <a href="/users/change_password_form">修改密码</a>
 
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

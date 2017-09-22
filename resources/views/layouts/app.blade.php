@@ -31,13 +31,13 @@
 {{--<script src="/plugins/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>--}}
 
 <!--Moment.js-->
-    <script src="/plugins/moment.js/2.15.1/moment.min.js"></script>
-    <script src="/plugins/moment.js/2.15.1/moment-with-locales.min.js"></script>
-    <script src="/plugins/moment.js/2.15.1/locales.js"></script>
+    {{--<script src="/plugins/moment.js/2.15.1/moment.min.js"></script>--}}
+    {{--<script src="/plugins/moment.js/2.15.1/moment-with-locales.min.js"></script>--}}
+    {{--<script src="/plugins/moment.js/2.15.1/locales.js"></script>--}}
 
-    <!--Bootstrap-DatetimePicker-->
-    <link href="/plugins/bootstrap-datetimepicker/4.17.42/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <script src="/plugins/bootstrap-datetimepicker/4.17.42/js/bootstrap-datetimepicker.min.js"></script>
+    {{--<!--Bootstrap-DatetimePicker-->--}}
+    {{--<link href="/plugins/bootstrap-datetimepicker/4.17.42/css/bootstrap-datetimepicker.min.css" rel="stylesheet">--}}
+    {{--<script src="/plugins/bootstrap-datetimepicker/4.17.42/js/bootstrap-datetimepicker.min.js"></script>--}}
 
 </head>
 <body>
@@ -45,6 +45,7 @@
     @include('widgets.header')
 
     <div class="container">
+
         @include('flash::message')
 
         @if (session()->has('flash_notification.message'))
@@ -68,6 +69,10 @@
 <link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
 <script type="text/javascript" src="/plugins/select2/js/select2.full.js"></script>
 <script type="text/javascript" src="/plugins/select2/js/zh-CN.js"></script>
+
+<script>
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 
 <script>
     $('#flash-overlay-modal').modal();

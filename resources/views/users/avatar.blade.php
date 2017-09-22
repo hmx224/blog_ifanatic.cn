@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">修改头像</div>
                     <div class="panel-body">
-                        <form action="/user/update/{{ $user->id }}" method="POST">
+                            <form action="/users/change_avatar/{{ $user->id }}" method="POST">
 
                             {!! csrf_field() !!}
 

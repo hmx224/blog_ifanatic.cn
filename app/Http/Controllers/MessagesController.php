@@ -50,6 +50,7 @@ class MessagesController extends Controller
 
         $message = $this->messageRepository->create($data);
 
+        flash('留言成功！', 'success');
         return redirect()->route('messages.show', compact('message'));
     }
 
@@ -79,7 +80,7 @@ class MessagesController extends Controller
             'title' => $request->get('title'),
             'content' => $request->get('content')
         ]);
-
+        flash('修改成功！', 'success');
         return redirect()->route('messages.show', compact('message'));
     }
 
@@ -96,6 +97,8 @@ class MessagesController extends Controller
             return redirect('messages');
 
         }
+        flash('删除成功！', 'success');
+
         abort('403', 'Forbidden'); // return back();
     }
 
