@@ -79,14 +79,11 @@
                 }
 
                 , done: function (res) {
-                    console.log(res)
-                    console.log(res.data)
                     //如果上传失败
                     if (res.code > 0) {
                         return layer.msg('上传失败');
                     }
                     //上传成功
-
                     $('#avatar').val(res.data.src);
 
                 }
