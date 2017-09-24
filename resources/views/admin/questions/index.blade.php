@@ -107,16 +107,16 @@
                 <thead>
                 <tr>
                     <th lay-data="{field:'id', width:80, sort: true}">ID</th>
-                    <th lay-data="{field:'title', width:240}">标题</th>
-                    <th lay-data="{field:'body', width:450}">内容</th>
+                    <th lay-data="{field:'title', width:200}">标题</th>
+                    <th lay-data="{field:'body', width:400}">内容</th>
                     <th lay-data="{field:'user_name', width:120}">会员名</th>
                     <th lay-data="{field:'comments_count', width:80}">评论数</th>
                     <th lay-data="{field:'followers_count', width:80, sort: true}">关注数</th>
                     <th lay-data="{field:'answers_count', width:80, sort: true}">评论数</th>
                     <th lay-data="{field:'close_comment', width:120}">是否关闭评论</th>
                     <th lay-data="{field:'is_hidden', width:100}">是否隐藏</th>
-                    <th lay-data="{field:'created_at', width:135, sort: true}">创建时间</th>
-                    <th lay-data="{field:'updated_at', width:135, sort: true}">更新时间</th>
+                    <th lay-data="{field:'created_at', width:200, sort: true}">创建时间</th>
+                    <th lay-data="{field:'updated_at', width:200, sort: true}">更新时间</th>
                 </tr>
                 </thead>
             </table>
