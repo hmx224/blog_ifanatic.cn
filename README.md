@@ -18,7 +18,13 @@
 
 ### 7.设置sendCloud邮件服务的用户名和密码 
 ####  SEND_CLOUD_USER=
+
 ####  SEND_CLOUD_KEY=
+
+##后台使用验证码
+gregwar/captcha
+##前端使用验证码
+mews/captcha
 
 
 

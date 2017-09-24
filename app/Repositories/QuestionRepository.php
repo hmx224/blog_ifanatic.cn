@@ -99,4 +99,12 @@ class QuestionRepository
         $page = config('site.page_size');
         return Question::published()->latest('updated_at')->with('user')->paginate($page);
     }
+
+    public function getAllData($offset, $limit)
+    {
+        return Question::with('user')
+            ->skip($offset)
+            ->limit($limit)
+            ->get();
+    }
 }

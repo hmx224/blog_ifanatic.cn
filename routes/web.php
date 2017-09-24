@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes 前端路由
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -11,9 +11,6 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 Route::get('/', 'QuestionsController@index');
 //Route::get('/captcha/{random}', 'CaptchaController@captcha');
@@ -58,5 +55,8 @@ Route::resource('users', 'UserController');
 
 //消息管理
 Route::get('notifications', 'NotificationsController@index');
+
+
+require_once(__DIR__ . '/admin.php');
 
 

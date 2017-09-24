@@ -7,7 +7,7 @@
 
         @include('widgets.header')
 
-        @include('widgets.menu')
+        @include('admin.widgets.menu')
 
         @yield('css')
 
