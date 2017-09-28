@@ -27,7 +27,7 @@
                                 <li>15.让游客去发布文章，自动给创建账号</li>
                                 <li>16.第三方登录注册功能追加</li>
                                 <li>17.收藏功能</li>
-                                <li>17.收藏功能</li>
+                                <li style="text-decoration: line-through">18.配置安全域名</li>
                             </ul>
                         </div>
                     </div>
