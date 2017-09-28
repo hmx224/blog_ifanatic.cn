@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //转换世家你格式
+        Carbon::setLocale('zh');
+        //字段限制长度
         Schema::defaultStringLength(191);
         //监听sql
         $log_config = env('LOG_SAVE', 'false');

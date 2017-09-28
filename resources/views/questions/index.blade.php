@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -23,6 +21,7 @@
                                         <h4 class="media-heading" style="font-family: 华文中宋">
                                             <span style="font-weight: 500; font-size: 1.3em;">
                                                 {{ isset($question->title)?$question->title:"" }}
+                                               <span class="pull-right" style="font-size: 20px;">发布于{{ $question->created_at->diffForHumans() }}</span>
                                             </span>
                                             <hr>
                                             <span style="display: block">{{ trim(mb_substr(preg_replace("/<[^>]+>/", '', $question->body),0,64,'utf-8')) }}
