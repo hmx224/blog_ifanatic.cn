@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -34,11 +36,12 @@
                                     </div>
                                 </div>
                             @endforeach
-                                <div class="share-social">
-                                    <div class="social-share share-component" data-weibo-title="不吹不黑，又拍云存储真的比七牛云好很多。本视频将使用我自己写的 package: https://github.com/JellyBool/flysystem-upyun 来实现上传图片，删除图片等功能。"
-                                         data-image="https://dn-laravist.qbox.me/skill-laravel.jpg">
-                                    </div>
+                            <div class="share-social">
+                                <div class="social-share share-component"
+                                     data-weibo-title="不吹不黑，又拍云存储真的比七牛云好很多。本视频将使用我自己写的 package: https://github.com/JellyBool/flysystem-upyun 来实现上传图片，删除图片等功能。"
+                                     data-image="https://dn-laravist.qbox.me/skill-laravel.jpg">
                                 </div>
+                            </div>
 
                             <div style="height: 60px;">
                                 <span class='pull-right'>{!! $questions->links() !!}</span>
@@ -122,7 +125,6 @@
                 </div>
             </div>
 
-
             <!--支付宝打赏二维码-->
             {{--<div class="col-md-4">--}}
             {{--<div class="panel panel-default">--}}
@@ -140,6 +142,13 @@
     </div>
 
 
+
+    {{--<div class="scroll-back-to-top-wrapper">--}}
+    {{--<span class="scroll-back-to-top-inner">--}}
+    {{--<i class="fa fa-2x fa-arrow-up"></i>--}}
+    {{--</span>--}}
+    {{--</div>--}}
+
     {{--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">--}}
     {{--<legend>显示完整功能</legend>--}}
     {{--</fieldset>--}}
@@ -155,8 +164,82 @@
 
 @endsection
 
+
 <link rel="stylesheet" href="/plugins/layui/2.1.2/css/layui.css" media="all">
 <script src="/plugins/layui/2.1.2/layui.js" charset="utf-8"></script>
+
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.use(['carousel', 'form'], function () {
+        var carousel = layui.carousel
+            , form = layui.form;
+
+        //常规轮播
+        carousel.render({
+            elem: '#test1'
+            , arrow: 'always'
+        });
+
+        //改变下时间间隔、动画类型、高度
+        carousel.render({
+            elem: '#test2'
+            , interval: 1800
+            , anim: 'fade'
+            , height: '120px'
+        });
+
+        //设定各种参数
+        var ins3 = carousel.render({
+            elem: '#test3'
+        });
+        //图片轮播
+        carousel.render({
+            elem: '#test10'
+            , width: '100%'
+            , height: '440px'
+            , interval: 3000
+        });
+
+        //事件
+        carousel.on('change(test4)', function (res) {
+            console.log(res)
+        });
+
+        var $ = layui.$, active = {
+            set: function (othis) {
+                var THIS = 'layui-bg-normal'
+                    , key = othis.data('key')
+                    , options = {};
+
+                othis.css('background-color', '#5FB878').siblings().removeAttr('style');
+                options[key] = othis.data('value');
+                ins3.reload(options);
+            }
+        };
+
+        //监听开关
+        form.on('switch(autoplay)', function () {
+            ins3.reload({
+                autoplay: this.checked
+            });
+        });
+
+        $('.demoSet').on('keyup', function () {
+            var value = this.value
+                , options = {};
+            if (!/^\d+$/.test(value)) return;
+
+            options[this.name] = value;
+            ins3.reload(options);
+        });
+
+        //其它示例
+        $('.demoTest .layui-btn').on('click', function () {
+            var othis = $(this), type = othis.data('type');
+            active[type] ? active[type].call(this, othis) : '';
+        });
+    });
+</script>
 
 {{--<script>--}}
 {{--var page_num = 10;--}}

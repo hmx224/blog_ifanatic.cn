@@ -53,7 +53,10 @@
                             {{ config('app.name', 'ifanatic.cn') }}
                         </h2>
                         <span>欢迎来到爱狂热的博客,留下你的提议,<span
-                                    style="font-size: 18px; color: deeppink;">好留言</span>被站长收录有奖励哦!</span>
+                                    style="font-size: 18px; color: deeppink;">好留言</span>被站长收录有奖励哦!
+                        </span>
+
+                        <p style="color: deeppink;">注：没有登录的会员，不能查看所有的留言信息</p>
                     </div>
 
                     @if(Auth::check())

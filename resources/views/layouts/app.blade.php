@@ -19,10 +19,15 @@
     <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 
     <link rel="stylesheet" href="/css/style.css">
+    <!--scroll-back-to-top.css-->
+    <link rel="stylesheet" href="/css/scroll-back-to-top.css">
+    <!--scroll-back-to-top.js-->
+    <script type="text/javascript" src="/js/scroll-back-to-top.js"></script>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/plugins/font-awesome/4.7.0/css/font-awesome.css">
     <!--layui-->
 
-    <!--Bootstrap-->
 {{--<link href="/plugins/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--}}
 {{--<script src="/plugins/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
 

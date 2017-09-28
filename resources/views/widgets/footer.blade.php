@@ -24,11 +24,10 @@
     </div>
 </div>
 
-<div id="fixedTools" class="hidden-xs hidden-sm hidden" style="border: none">
-    <a id="backtop" class="border-bottom elevator">
-        <i class="fa fa-angle-up"></i>
-        <span>回到顶部</span>
-    </a>
+<div class="scroll-back-to-top-wrapper">
+    <span class="scroll-back-to-top-inner">
+            <i class="fa fa-2x fa-arrow-up"></i>
+    </span>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -43,37 +42,4 @@
         </div>
     </div>
 </nav>
-
-<script>
-    var bLazy = new Blazy({
-        // Options
-    });
-    $(document).ready(function() {
-        $('pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-        });
-    });
-    (function(){
-        var typing = $('#site-description');
-        typing.typed(
-            {
-                replaceBaseText: true,
-                strings: [
-                    "For Laravel Artist"
-                ],
-                showCursor: false,
-                typeSpeed: 80,
-                backSpeed: 80,
-                backDelay: 400
-            }
-        );
-        $('#backtop').on('click',function() {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 500);
-        });
-        $(document).scroll(function(){$(this).scrollTop()>720?$("#fixedTools").removeClass("hidden"):$("#fixedTools").addClass("hidden")});
-        $('.Article-List.Article-Post p:has(img)').addClass('Post--image');
-    })();
-</script>
 
