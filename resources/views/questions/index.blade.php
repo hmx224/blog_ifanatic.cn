@@ -21,7 +21,8 @@
                                         <h4 class="media-heading" style="font-family: 华文中宋">
                                             <span style="font-weight: 500; font-size: 1.3em;">
                                                 {{ isset($question->title)?$question->title:"" }}
-                                               <span class="pull-right" style="font-size: 20px;">发布于{{ $question->created_at->diffForHumans() }}</span>
+                                                <span class="pull-right"
+                                                      style="font-size: 20px;">发布于{{ $question->created_at->diffForHumans() }}</span>
                                             </span>
                                             <hr>
                                             <span style="display: block">{{ trim(mb_substr(preg_replace("/<[^>]+>/", '', $question->body),0,64,'utf-8')) }}
@@ -35,12 +36,6 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <div class="share-social">
-                                <div class="social-share share-component"
-                                     data-weibo-title="不吹不黑，又拍云存储真的比七牛云好很多。本视频将使用我自己写的 package: https://github.com/JellyBool/flysystem-upyun 来实现上传图片，删除图片等功能。"
-                                     data-image="https://dn-laravist.qbox.me/skill-laravel.jpg">
-                                </div>
-                            </div>
 
                             <div style="height: 60px;">
                                 <span class='pull-right'>{!! $questions->links() !!}</span>
@@ -53,7 +48,7 @@
                 </div>
             </div>
 
-            @if(Auth::check() && \App\Model\User::find(Auth::user()->id)->is_active == \App\Model\User::STATUS_ACTIVE)
+            @if(Auth::check() && \App\Models\User::find(Auth::user()->id)->is_active == \App\Models\User::STATUS_ACTIVE)
                 <div class="col-md-4">
                     <a href="questions/create" class="btn btn-primary btn-block btn-lg">写文章</a>
                     <div class="panel-heading"></div>
@@ -76,7 +71,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading question-follow">
                         <h3>友情链接</h3>
-                        <span><a href="http://www.humengxu.com">小胡发掘网</a></span>
+                        <div style="text-align: left;">
+                            <p><a href="http://www.humengxu.com">小胡发掘网</a></p>
+                            <p><a href="http://lib.csdn.net/">csdn知识库</a></p>
+                            <p><a href="http://phpxiong.cn/">phpxiong</a></p>
+                            <p><a href="http://www.cnblogs.com/landeanfen/p/5005367.html">bootstrap功能-导出excel,行内编辑...</a></p>
+                            <p><a href="http://blog.csdn.net/jingtianyiyi/article/details/76208880">bootstrap合并单元格</a></p>
+                        </div>
+
                     </div>
                 </div>
             </div>

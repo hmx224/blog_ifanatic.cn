@@ -7,6 +7,8 @@
 
 require('./bootstrap');
 
+
+
 window.Vue = require('vue');
 
 //TODO ADD vue-resource
@@ -23,6 +25,8 @@ Vue.component('example', require('./components/Example.vue'));
 Vue.component('question-follow-button', require('./components/QuestionFollowButton.vue'));
 Vue.component('user-follow-button', require('./components/UserFollowButton.vue'));
 Vue.component('user-vote-button', require('./components/UserVoteButton.vue'));
+Vue.component('send-letter', require('./components/SendLetter.vue'));
+Vue.component('comments', require('./components/Comments.vue'));
 
 Vue.component(
     'passport-clients',

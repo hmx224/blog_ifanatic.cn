@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: zsgy
+ * User: xiaohu
  * Date: 2017/8/14
  * Time: 15:04
  */
@@ -9,9 +9,9 @@
 
 namespace App\Repositories;
 
-use App\Model\Question;
-use App\Model\Topic;
-use App\Model\User;
+use App\Models\Question;
+use App\Models\Topic;
+use App\Models\User;
 
 /**
  * Class QuestionRepository

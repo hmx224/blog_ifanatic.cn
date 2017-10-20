@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreQuestionRequest;
-use App\Model\Question;
-use App\Model\Topic;
+use App\Models\Question;
+use App\Models\Topic;
 use App\Repositories\QuestionRepository;
 use Auth;
 use Request;

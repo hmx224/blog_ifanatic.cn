@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use App\Mailer\UserMailer;
 use Illuminate\Database\Eloquent\Model;
@@ -53,6 +53,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'nick_name',
+        'is_active',
         'email',
         'password',
         'avatar',
@@ -174,6 +176,12 @@ class User extends Authenticatable
     {
         return !!$this->votes()->where('answer_id', $answer)->count();
 
+    }
+
+    //私信关系
+    public function letters()
+    {
+        return $this->hasMany(Letter::class, 'to_user_id');
     }
 
 

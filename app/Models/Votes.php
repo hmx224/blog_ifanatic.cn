@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\BaseModel;
 
 class Votes extends BaseModel

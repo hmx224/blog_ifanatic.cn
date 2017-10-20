@@ -10,7 +10,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <img class="img-circle" width="50px" height="50px"
-                             src="{{ $question->user->avatar }}" alt="{{ $question->user->name }}">
+                             src="{{ $question->user->avatar?$question->user->avatar:'' }}"
+                             alt="{{ $question->user->name }}">
                         <a href="">{{ $question->user->name }}</a>
 
                         @foreach($question->topics as $topic)
@@ -36,6 +37,11 @@
                                 <button class="button is-naked delete-button">删除</button>
                             </form>
                         @endif
+
+                        <comments type="question"
+                                  model="{{ $question->id }}"
+                                  count="{{ $question->comments()->count() }}">
+                        </comments>
 
                     </div>
                 </div>
@@ -84,7 +90,8 @@
                         @foreach($question->answers as $answer)
                             <div class="media">
                                 <div class="media-right">
-                                    <user-vote-button answer="{{ $answer->id }}" count="{{ $answer->votes_count }}"></user-vote-button>
+                                    <user-vote-button answer="{{ $answer->id }}"
+                                                      count="{{ $answer->votes_count }}"></user-vote-button>
                                 </div>
 
 
@@ -105,6 +112,11 @@
 
                                     {!! $answer->body !!}
                                 </div>
+
+                                <comments type="answer"
+                                          model="{{ $answer->id }}"
+                                          count="{{ $answer->comments()->count() }}">
+                                </comments>
                             </div>
                         @endforeach
 
@@ -182,7 +194,7 @@
                                     <user-follow-button
                                             user="{{$question->user_id}}"
                                             user_api="{{ Auth::id()}}"></user-follow-button>
-                                    <a href="#editor" class="btn btn-default pull-right">发送私信</a>
+                                    <send-letter user="{{$question->user_id}}"></send-letter>
                                 @endif
                             @else
                                 <a href="{{ route('login') }}" class="btn btn-success btn-block">登录关注他,并发送私信</a>

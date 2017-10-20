@@ -15,6 +15,11 @@
 Route::get('/', 'QuestionsController@index');
 //Route::get('/captcha/{random}', 'CaptchaController@captcha');
 
+//githubLogin
+Route::get('github/login', 'ExtendLoginController@github');
+Route::get('githubLogin', 'ExtendLoginController@githubLogin');
+
+
 Route::get('/captcha/{config?}', function (\Mews\Captcha\Captcha $captcha, $config = 'default') {
     return $captcha->create($config);
 });

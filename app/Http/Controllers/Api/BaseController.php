@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Response;
-use Request;
 
 /**
  * @SWG\Swagger(
@@ -63,7 +62,7 @@ class BaseController extends Controller
      */
     public function responseError($message, $status_code = 404)
     {
-        \Log::debug('Error IP: ' . get_client_ip() . ', '. $message);
+        \Log::debug('Error IP: ' . get_client_ip() . ', ' . $message);
         return $this->response([
             'code' => $status_code,
             'msg' => $message,

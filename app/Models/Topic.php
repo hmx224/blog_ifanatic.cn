@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use App\BaseModel;
 
@@ -19,7 +19,7 @@ class Topic extends BaseModel
     {
         //操作created_at和updated_at字段
 
-        return $this->belonsToMany(Topic::class)->withTimestamps();
+        return $this->belongsToMany(Question::class)->withTimestamps();
 
     }
 }

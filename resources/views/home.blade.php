@@ -14,40 +14,40 @@
 
                     <div class="panel-body">
                         @if($user->is_active == 0)
-                            @if($mark_email == App\Model\User::EMAIL_TYPE['qq'])
+                            @if($mark_email == App\Models\User::EMAIL_TYPE['qq'])
                                 <span>尊敬的用户您需要去注册的邮箱<span>
                                 <a style="color: deeppink; font-size: x-large"
-                                   href="{{ App\Model\User::EMAIL_TYPE_URL['qq'] }}">{{ $user->email }}</a>
+                                   href="{{ App\Models\User::EMAIL_TYPE_URL['qq'] }}">{{ $user->email }}</a>
                                 </span>激活方可尽情的玩耍!</span>
 
-                            @elseif($mark_email == App\Model\User::EMAIL_TYPE['126'])
+                            @elseif($mark_email == App\Models\User::EMAIL_TYPE['126'])
                                 <span>尊敬的用户您需要去注册的邮箱<span>
                                 <a style="color: deeppink; font-size: x-large"
-                                   href="{{ App\Model\User::EMAIL_TYPE_URL['126'] }}">{{ $user->email  }}</a>
+                                   href="{{ App\Models\User::EMAIL_TYPE_URL['126'] }}">{{ $user->email  }}</a>
                                 </span>激活方可尽情的玩耍!</span>
 
-                            @elseif($mark_email == App\Model\User::EMAIL_TYPE['163'])
+                            @elseif($mark_email == App\Models\User::EMAIL_TYPE['163'])
                                 <span>尊敬的用户您需要去注册的邮箱<span>
                                      <a style="color: deeppink; font-size: x-large"
-                                        href="{{ App\Model\User::EMAIL_TYPE_URL['163'] }}">{{ $user->email }}</a>
+                                        href="{{ App\Models\User::EMAIL_TYPE_URL['163'] }}">{{ $user->email }}</a>
                                 </span>激活方可尽情的玩耍!</span>
 
-                            @elseif($mark_email == App\Model\User::EMAIL_TYPE['sina'])
+                            @elseif($mark_email == App\Models\User::EMAIL_TYPE['sina'])
                                 <span>尊敬的用户您需要去注册的邮箱<span>
                                      <a style="color: deeppink; font-size: x-large"
-                                        href="{{ App\Model\User::EMAIL_TYPE_URL['sina'] }}">{{ $user->email }}</a>
+                                        href="{{ App\Models\User::EMAIL_TYPE_URL['sina'] }}">{{ $user->email }}</a>
                                 </span>激活方可尽情的玩耍!</span>
 
-                            @elseif($mark_email == App\Model\User::EMAIL_TYPE['hotmail'])
+                            @elseif($mark_email == App\Models\User::EMAIL_TYPE['hotmail'])
                                 <span>尊敬的用户您需要去注册的邮箱<span>
                                      <a style="color: deeppink; font-size: x-large"
-                                        href="{{ App\Model\User::EMAIL_TYPE_URL['hotmail'] }}">{{ $user->email }}</a>
+                                        href="{{ App\Models\User::EMAIL_TYPE_URL['hotmail'] }}">{{ $user->email }}</a>
                                 </span>激活方可尽情的玩耍!</span>
 
-                            @elseif($mark_email == App\Model\User::EMAIL_TYPE['gmail'])
+                            @elseif($mark_email == App\Models\User::EMAIL_TYPE['gmail'])
                                 <span>尊敬的用户您需要去注册的邮箱<span>
                                      <a style="color: deeppink; font-size: x-large"
-                                        href="{{ App\Model\User::EMAIL_TYPE_URL['gmail'] }}">{{ $user->email }}</a>
+                                        href="{{ App\Models\User::EMAIL_TYPE_URL['gmail'] }}">{{ $user->email }}</a>
                                 </span>激活方可尽情的玩耍!</span>
 
                             @endif

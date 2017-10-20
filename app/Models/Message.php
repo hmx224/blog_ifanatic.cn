@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use App\BaseModel;
 
 class Message extends BaseModel
 {
     protected $table = 'messages';
-
-
 
     protected $fillable = [
         'user_id',

@@ -75,3 +75,12 @@ Route::post('user/followers_count', 'FollowersController@followersCount');
 //用户的点赞
 Route::post('answer/{id}/votes/users', 'VotesController@users')->middleware('auth:api');
 Route::post('answer/vote', 'VotesController@vote')->middleware('auth:api');
+
+//用户私信
+Route::post('letter/store', 'LettersController@store')->middleware('auth:api');
+
+//用户评论关系
+Route::get('answer/{id}/comments', 'CommentsController@answer')->middleware('auth:api');
+Route::get('question/{id}/comments', 'CommentsController@question')->middleware('auth:api');
+
+Route::post('comment', 'CommentsController@store')->middleware('auth:api');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use App\BaseModel;
 
@@ -38,6 +38,11 @@ class Question extends BaseModel
     public function answers()
     {
         return $this->hasMany(Answer::class);
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     public function scopePublished($query)

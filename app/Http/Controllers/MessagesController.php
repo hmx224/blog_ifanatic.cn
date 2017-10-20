@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MessageRequest;
-use App\Model\Message;
-use App\Model\User;
+use App\Models\Message;
+use App\Models\User;
 use App\Repositories\MessageRepository;
 use Auth;
 

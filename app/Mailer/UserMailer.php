@@ -3,7 +3,7 @@
 
 namespace App\Mailer;
 
-use App\Model\User;
+use App\Models\User;
 use Auth;
 
 class UserMailer extends Mailer
