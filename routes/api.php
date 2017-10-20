@@ -32,40 +32,6 @@ Route::middleware('auth:api')->post('/question/follower', 'QuestionFollowControl
 //用户关注问题
 Route::middleware('auth:api')->post('/question/follow', 'QuestionFollowController@followThisQuestion');
 
-
-// 问题是否被关注 将当前用户用api处理
-//Route::post('/question/follower', function (Request $request) {
-//    $user = Auth::guard('api')->user(); //api校验用户对象信息
-////    $followed = App\Model\UserQuestion::where('question_id', $request->get('question'))
-////        ->where('user_id', $request->get('user'))
-////        ->count();
-//    if ($followed) {
-//        return response()->json(['followed' => true]);
-//    }
-//    return response()->json(['followed' => false]);
-//
-//})->middleware('auth:api');
-//
-//
-////用户关注问题  TODO 待优化
-//Route::post('/question/follow', function (Request $request) {
-//    $user = Auth::guard('api')->user(); //api校验用户信息
-//
-//    $followed = App\Model\UserQuestion::where('question_id', $request->get('question'))
-//        ->where('user_id', $request->get('user'))
-//        ->first();
-//    if ($followed !== null) {
-//        $followed->delete();
-//        return response()->json(['followed' => false]);
-//    }
-//    App\Model\UserQuestion::create([
-//        'question_id' => $request->get('question'),
-//        'user_id' => $request->get('user'),
-//    ]);
-//
-//    return response()->json(['followed' => true]);
-//})->middleware('auth:api');
-
 //用户关注关系
 Route::post('user/followers', 'FollowersController@index')->middleware('auth:api');
 Route::post('user/follow', 'FollowersController@follow')->middleware('auth:api');

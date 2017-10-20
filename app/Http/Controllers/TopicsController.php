@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Topic;
-use Illuminate\Http\Request;
+use App\Repositories\TopicRepository;
+use Request;
 
 class TopicsController extends Controller
 {
-    //
-    public function index(Request $request)
+    protected $topic;
+
+    /**
+     * TopicsController constructor.
+     * @param $topic
+     */
+    public function __construct(TopicRepository $topic)
     {
-        return Topic::select(['id', 'name'])
-            ->where('name', 'like', '%' . $request->query('q') . '%')
-            ->get();
+        $this->topic = $topic;
     }
 
-
+    public function index(Request $request)
+    {
+        return $this->topic->getTopicForTagging($request);
+    }
 }

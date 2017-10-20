@@ -22,9 +22,7 @@ class VotesController extends Controller
     //判断是否点赞
     public function users($id)
     {
-        $user = Auth::guard('api')->user();
-
-        if ($user->hasVotedFor($id)) {
+        if (user('api')->hasVotedFor($id)) {
             return response()->json(['voted' => true]);
         }
 
@@ -36,7 +34,7 @@ class VotesController extends Controller
     {
         $answer = $this->answerRepository->byId(request('answer'));
 
-        $voted = Auth::guard('api')->user()->voteFor($answer);
+        $voted = user('api')->voteFor($answer);
 
         if (count($voted['attached']) > 0) {
 

@@ -1,5 +1,22 @@
 <?php
+/**
+ *  封装获取driver接口对象
+ *  user('api')
+ */
+if (!function_exists('user')) {
+    /**
+     * @param null $driver
+     * @return \Illuminate\Contracts\Auth\Authenticatable|null
+     */
+    function user($driver = null)
+    {
+        if ($driver) {
+            return app('auth')->guard($driver)->user();
+        }
 
+        return app('user')->user();
+    }
+}
 /**
  * 产生随机字符串
  *

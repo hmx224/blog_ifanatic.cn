@@ -15,17 +15,17 @@
 Route::get('/', 'QuestionsController@index');
 //Route::get('/captcha/{random}', 'CaptchaController@captcha');
 
-//githubLogin
+//第三方登录 githubLogin
 Route::get('github/login', 'ExtendLoginController@github');
 Route::get('githubLogin', 'ExtendLoginController@githubLogin');
-
-
+//验证码
 Route::get('/captcha/{config?}', function (\Mews\Captcha\Captcha $captcha, $config = 'default') {
     return $captcha->create($config);
 });
 
 Auth::routes();
 
+//邮件发送
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('email/verify/{token}', ['as' => 'email.verify', 'uses' => 'EmailController@verify']);
 
@@ -60,7 +60,6 @@ Route::resource('users', 'UserController');
 
 //消息管理
 Route::get('notifications', 'NotificationsController@index');
-
 
 require_once(__DIR__ . '/admin.php');
 

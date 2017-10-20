@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 
 class QuestionFollowController extends Controller
 {
-    protected $questionRepository;
+    protected $question;
 
-    public function __construct(QuestionRepository $questionRepository)
+    public function __construct(QuestionRepository $question)
     {
         $this->middleware('auth');
-        $this->questionRepository = $questionRepository;
+        $this->question = $question;
     }
 
     //用户关注问题
@@ -26,7 +26,7 @@ class QuestionFollowController extends Controller
     //问题是否被关注
     public function follower(Request $request)
     {
-        if (Auth::guard('api')->user()->followed($request->get('question'))) {
+        if (user('api')->followed($request->get('question'))) {
             return response()->json(['followed' => true]);
         }
 
@@ -35,11 +35,11 @@ class QuestionFollowController extends Controller
     //关注问题
     public function followThisQuestion(Request $request)
     {
-        $user = Auth::guard('api')->user();
+//        $user = Auth::guard('api')->user();
 
-        $question = $this->questionRepository->byId($request->get('question'));
+        $question = $this->question->byId($request->get('question'));
 
-        $followed = $user->followThis($question->id);
+        $followed = user('api')->followThis($question->id);
         
         //取消关注 attached 可以取到用户关注的问题id
         if (count($followed['detached']) > 0) {

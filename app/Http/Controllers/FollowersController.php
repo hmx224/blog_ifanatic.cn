@@ -45,12 +45,11 @@ class FollowersController extends Controller
         $userToFollow = $this->userRepository->byId(request('user'));
         //当前登录用户的信息 用api_token替换掉
 //        $userApi = $this->user->byId(request('user_api'));
-        $user = Auth::guard('api')->user();
         //关注
+        $user_api = user('api');
+        \Log::debug('当前用户信息', [$user_api]);
 
-        \Log::debug('当前用户信息', [$user]);
-
-        $followed = $user->followThisUser($userToFollow->id);
+        $followed = $user_api->followThisUser($userToFollow->id);
 
         //用户发起一个attach请求
         if (count($followed['attached']) > 0) {
@@ -61,13 +60,13 @@ class FollowersController extends Controller
             $userToFollow->increment('followers_count');
 
             //当前登录用户跟随者+1
-            $user->increment('followings_count');
+            $user_api->increment('followings_count');
 
             return response()->json(['followed' => true]);
         } else {
             $userToFollow->decrement('followers_count');
 
-            $user->decrement('followings_count');
+            $user_api->decrement('followings_count');
 
             return response()->json(['followed' => false]);
         }
