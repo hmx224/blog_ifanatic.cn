@@ -2,50 +2,78 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Answer;
-use App\Models\Question;
-use App\Models\Comment;
+use App\Repositories\AnswerRepository;
+use App\Repositories\CommentRepository;
+use App\Repositories\QuestionRepository;
 use Auth;
 
+/**
+ * Class CommentsController
+ * @package App\Http\Controllers
+ */
 class CommentsController extends Controller
 {
-    public function answer($id)
+    /**
+     * @var CommentRepository
+     */
+    protected $comment;
+    /**
+     * @var QuestionRepository
+     */
+    protected $question;
+    /**
+     * @var AnswerRepository
+     */
+    protected $answer;
+
+    /**
+     * CommentsController constructor.
+     * @param $commentRepository
+     */
+    public function __construct(CommentRepository $comment, QuestionRepository $question, AnswerRepository $answer)
     {
-        //加上分页效果
-        $page = config('site.page_size');
-        $answer = Answer::with('comments', 'comments.user')->where('id', $id)->first();
-        return $answer->comments;
+        $this->comment = $comment;
+        $this->question = $question;
+        $this->answer = $answer;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function question($id)
     {
-        //加上分页效果
-        $page = config('site.page_size');
-        $question = Question::with('comments', 'comments.user')->where('id', $id)->first();
-        return $question->comments->paginate($page);
+        return $this->question->getQuestionCommentsById($id);
     }
 
-    public function getModelNameFromType($type)
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function answer($id)
     {
-        return $type == 'question' ? 'App\Models\Question' : 'App\Models\Answer';
+        return $this->answer->getAnswerCommentsById($id);
     }
 
     public function store()
     {
         $model = $this->getModelNameFromType(request('type'));
 
-        $comment = Comment::create([
-
+        return $this->comment->create([
             'commentable_id' => request('model'),
             'commentable_type' => $model,
             'user_id' => Auth::guard('api')->user()->id,
             'body' => request('body')
-
         ]);
-
-        return $comment;
 
     }
 
-
+    /**
+     * @param $type
+     * @return string
+     */
+    public function getModelNameFromType($type)
+    {
+        return $type == 'question' ? 'App\Models\Question' : 'App\Models\Answer';
+    }
 }

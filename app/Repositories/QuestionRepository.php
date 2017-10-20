@@ -93,6 +93,12 @@ class QuestionRepository
         return Question::find($id);
     }
 
+    public function getQuestionCommentsById($id)
+    {
+        $question = Question::with('comments', 'comments.user')->where('id', $id)->first();
+        return $question->comments;
+    }
+
     public function getQuestionSeed()
     {
         //加上分页效果

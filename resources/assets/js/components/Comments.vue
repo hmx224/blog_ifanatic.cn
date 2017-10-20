@@ -39,11 +39,12 @@
                     <div class="modal-footer">
 
                         <textarea type="text" class="form-control" v-model="body" placeholder="开始畅聊..."></textarea>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
                         <button type="button" class="btn btn-primary" @click="store">
                             评论
                         </button>
 
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                     </div>
                 </div>
             </div>
