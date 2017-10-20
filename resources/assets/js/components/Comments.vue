@@ -1,7 +1,7 @@
 <template>
     <div>
         <button class="button is-naked delete-button"
-                style="margin: -10px 0 0 40px"
+                style="margin: 0 0 0 16px"
                 @click="showCommentForm"
                 v-text="text"
         >

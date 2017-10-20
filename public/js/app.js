@@ -43051,7 +43051,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', [_c('button', {
     staticClass: "button is-naked delete-button",
     staticStyle: {
-      "margin": "-10px 0 0 40px"
+      "margin": "0 0 0 16px"
     },
     domProps: {
       "textContent": _vm._s(_vm.text)
