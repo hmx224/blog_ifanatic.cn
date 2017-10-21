@@ -56,7 +56,7 @@
     {{--<script src="/plugins/bootstrap-datetimepicker/4.17.42/js/bootstrap-datetimepicker.min.js"></script>--}}
 
 </head>
-<body style="padding:60px;">
+<body style="padding:60px 0 60px 0">
 <div id="app">
     @include('widgets.header')
 
