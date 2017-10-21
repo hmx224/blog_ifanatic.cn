@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\TopicRepository;
-use Request;
+use Illuminate\Http\Request;
 
 class TopicsController extends Controller
 {
