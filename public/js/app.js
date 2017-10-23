@@ -42822,7 +42822,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }],
     staticClass: "form-control",
     attrs: {
-      "name": "body"
+      "name": "body",
+      "placeholder": "私密留言..."
     },
     domProps: {
       "value": (_vm.body)

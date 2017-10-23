@@ -9,7 +9,7 @@
                     <form action="/inbox/{{$dialogId}}/store" method="post">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <textarea name="body" class="form-control"></textarea>
+                            <textarea name="body" class="form-control" placeholder="私密留言..."></textarea>
                         </div>
                         <div class="form-group pull-right">
                             <button class="btn btn-success">发送私信</button>
