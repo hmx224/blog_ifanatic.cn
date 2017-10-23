@@ -7,6 +7,7 @@ use Auth;
 
 class LettersController extends Controller
 {
+    //私信存储
     protected $letter;
 
     /**
@@ -24,6 +25,7 @@ class LettersController extends Controller
             'to_user_id' => request('user'),
             'from_user_id' => user('api')->id,
             'body' => request('body'),
+            'dialog_id' => time() . Auth::id()
         ]);
 
         if ($letter) {

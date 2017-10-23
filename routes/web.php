@@ -61,6 +61,12 @@ Route::resource('users', 'UserController');
 //消息管理
 Route::get('notifications', 'NotificationsController@index');
 
+//私信相关
+Route::get('inbox','InboxController@index');
+Route::get('inbox/{dialogId}','InboxController@show');
+Route::post('inbox/{dialogId}/store','InboxController@store');
+
+
 require_once(__DIR__ . '/admin.php');
 
 

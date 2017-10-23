@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\Topic;
-use Request;
+use Illuminate\Http\Request;
 
 class TopicRepository
 {

@@ -77,3 +77,7 @@ a.topic:hover {
 .notifications.unread {
     background: #fff9ea;
 }
+
+.letters-list{
+    margin-top:60px;
+}
