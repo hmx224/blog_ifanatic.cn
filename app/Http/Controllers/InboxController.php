@@ -45,10 +45,15 @@ class InboxController extends Controller
 
         $toUserId = $letter->from_user_id === Auth::id() ? $letter->to_user_id : $letter->from_user_id;
 
+        $body = request('body');
+        if (is_null($body)) {
+            flash('请输入回复内容！', 'danger');
+            return redirect()->to($this->getRedirectUrl())->withInput();
+        }
         $newLetter = $this->letter->create([
             'from_user_id' => Auth::id(),
             'to_user_id' => $toUserId,
-            'body' => request('body'),
+            'body' => $body,
             'dialog_id' => $dialogId
         ]);
         //to_user_id 去看到通知信息

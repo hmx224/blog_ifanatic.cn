@@ -21,10 +21,15 @@ class LettersController extends Controller
 
     public function store()
     {
+        $body = request('body');
+        if (is_null($body)) {
+            flash('请输入回复内容！', 'danger');
+            return redirect()->to($this->getRedirectUrl())->withInput();
+        }
         $letter = $this->letter->create([
             'to_user_id' => request('user'),
             'from_user_id' => user('api')->id,
-            'body' => request('body'),
+            'body' => $body,
             'dialog_id' => time() . Auth::id()
         ]);
 
