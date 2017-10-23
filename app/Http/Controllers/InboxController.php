@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\NewLetterNotification;
 use App\Repositories\LetterRepository;
 use Auth;
 
@@ -44,12 +45,14 @@ class InboxController extends Controller
 
         $toUserId = $letter->from_user_id === Auth::id() ? $letter->to_user_id : $letter->from_user_id;
 
-        $this->letter->create([
+        $newLetter = $this->letter->create([
             'from_user_id' => Auth::id(),
             'to_user_id' => $toUserId,
             'body' => request('body'),
             'dialog_id' => $dialogId
         ]);
+        //to_user_id 去看到通知信息
+        $newLetter->toUser->notify(new NewLetterNotification($newLetter));
 
         return back();
     }

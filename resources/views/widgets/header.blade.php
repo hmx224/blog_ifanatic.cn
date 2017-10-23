@@ -35,6 +35,9 @@
                         <li class="dropdown">
                             <a href="{{ url('notifications') }}">通知</a>
                         </li>
+                        <li class="dropdown">
+                            <a href="{{ url('inbox') }}">私信列表</a>
+                        </li>
                     @endif
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">

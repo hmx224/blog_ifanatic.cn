@@ -60,6 +60,7 @@ Route::resource('users', 'UserController');
 
 //消息管理
 Route::get('notifications', 'NotificationsController@index');
+Route::get('notifications/{notification}', 'NotificationsController@show');
 
 //私信相关
 Route::get('inbox','InboxController@index');
