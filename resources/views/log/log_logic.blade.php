@@ -25,6 +25,9 @@
                             <li>1.用户修改密码,提示框优化</li>
                             <li style="font-size: x-large; color: deeppink;">20170928</li>
                             <li>1.增加页面中回到顶部的按钮</li>
+                            <li style="font-size: x-large; color: deeppink;">20171023</li>
+                            <li>1.私信通知功能</li>
+                            <li>2.评论组件实现</li>
                         </ul>
                     </div>
                 </div>
