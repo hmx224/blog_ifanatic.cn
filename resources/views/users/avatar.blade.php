@@ -27,7 +27,7 @@
                             <div class="col-sm-5">
                                 <div class="layui-upload">
                                     <button type="button" class="layui-btn" id="upload_avatar"><i
-                                                class="layui-icon"></i>上传图片
+                                                class="layui-icon"></i>上传头像
                                     </button>
                                     <img class="layui-upload-img img-circle" id="avatar_img">
                                     <span id="demoText"></span>
