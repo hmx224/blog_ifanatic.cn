@@ -77,6 +77,7 @@
                             <p><a href="http://phpxiong.cn/">phpxiong</a></p>
                             <p><a href="http://www.cnblogs.com/landeanfen/p/5005367.html">bootstrap功能-导出excel,行内编辑...</a></p>
                             <p><a href="http://blog.csdn.net/jingtianyiyi/article/details/76208880">bootstrap合并单元格</a></p>
+                            <p><a href="http://www.cnblogs.com/evilliu/articles/6424237.html">bootstrap数据导出</a></p>
                         </div>
 
                     </div>
