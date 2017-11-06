@@ -15,8 +15,8 @@
         <!--定义全局的变量-->
         @if(Auth::check())
             window.Ifanatic = {
-            name:"{{ Auth::user()->name }}",
-            avatar:"{{ Auth::user()->avatar }}"
+            name: "{{ Auth::user()->name }}",
+            avatar: "{{ Auth::user()->avatar }}"
         }
         @endif
     </script>
@@ -39,12 +39,12 @@
     <link rel="stylesheet" href="/plugins/font-awesome/4.7.0/css/font-awesome.css">
     <!--layui-->
 
-    {{--<link href="/plugins/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--}}
-    {{--<script src="/plugins/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
+{{--<link href="/plugins/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--}}
+{{--<script src="/plugins/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
 
 <!--X-editable-->
-    {{--<link href="/plugins/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">--}}
-    {{--<script src="/plugins/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>--}}
+{{--<link href="/plugins/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">--}}
+{{--<script src="/plugins/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>--}}
 
 <!--Moment.js-->
     {{--<script src="/plugins/moment.js/2.15.1/moment.min.js"></script>--}}

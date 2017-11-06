@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Repositories\UserRepository;
 use Auth;
 use Illuminate\Http\Request;
@@ -62,34 +63,26 @@ class UserController extends Controller
         return view('users.change_password', compact('user'));
     }
 
-    public function update(Request $request)
+    public function update(UserRequest $request)
     {
         $user = $this->userRepository->byId(Auth::id());
         if ($user == null) {
             \Session::flash('flash_warning', '无此记录');
             return redirect('/user/change_password_form');
         }
-
         $input = $request->all();
-        if ($input['name'] == null) {
-            \Session::flash('flash_warning', '姓名不能为空!');
+
+        //判断提交的旧密码是否正确
+        if (\Hash::check($input['old_password'], $user->password)) {
+            $user->password = bcrypt($input['password']);
+            $user->save();
+
+            flash('密码修改成功', 'success');
+
             return redirect('/users/change_password_form');
         }
 
-        if ($input['new'] != $input['pwdConfirm']) {
-            \Session::flash('flash_warning', '两次输入的密码不一致!');
-            return redirect('/users/change_password_form');
-        }
-
-        if ($input['new'] != null && $input['pwdConfirm'] != null) {
-            $user->password = bcrypt($input['new']);
-        }
-
-        $user->update($input);
-
-        \Session::flash('flash_success', '保存成功!');
-        return redirect('/users/change_password_form');
-
+        flash('密码修改失败', 'danger');
+        return redirect()->to($this->getRedirectUrl())->withInput();
     }
-
 }

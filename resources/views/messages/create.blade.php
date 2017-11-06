@@ -23,7 +23,8 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                                <label for="content">内容:<span style="color:hotpink;">(移动端会员,建议横屏编辑体验更好！图片最大2M)</span></label>
+                                <label for="content">内容:<span
+                                            style="color:hotpink;">(移动端会员,建议横屏编辑体验更好！图片最大2M)</span></label>
                                 <!-- LayUi -->
                                 <textarea class="layui-textarea" id="content" name="content"
                                           style="display: none">
@@ -44,6 +45,8 @@
             </div>
         </div>
     </div>
+@endsection
+
 @section('js')
     <link rel="stylesheet" href="/plugins/layui/2.1.2/css/layui.css" media="all">
     <script src="/plugins/layui/2.1.2/layui.js" charset="utf-8"></script>
@@ -124,5 +127,4 @@
             });
         });
     </script>
-@endsection
 @endsection

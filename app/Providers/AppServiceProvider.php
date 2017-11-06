@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //转换世家你格式
+        //转换时间格式
         Carbon::setLocale('zh');
         //字段限制长度
         Schema::defaultStringLength(191);

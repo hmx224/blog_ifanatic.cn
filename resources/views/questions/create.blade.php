@@ -3,7 +3,6 @@
 @include('vendor.ueditor.assets')
 
 @section('content')
-
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -56,6 +55,8 @@
 @endsection
 
 @section('js')
+    <link rel="stylesheet" href="/plugins/layui/2.1.2/css/layui.css" media="all">
+    <script src="/plugins/layui/2.1.2/layui.js" charset="utf-8"></script>
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
         var ue = UE.getEditor('container', {
