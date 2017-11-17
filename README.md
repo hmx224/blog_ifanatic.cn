@@ -21,6 +21,24 @@
 
 ####  SEND_CLOUD_KEY=
 
+### 8.配置七牛云上传信息
+    1.在.env文件中追加
+        QINIU_ACCESS_KEY=xxx
+        QINIU_SECRET_KEY=xxx
+        QINIU_BUCKET=xxx
+        QINIU_DOMAIN=xxx(这里可以使用默认的)
+    2.composer require "overtrue/laravel-filesystem-qiniu" -vvv 运行安大神的组件
+    3.config/app.php中进行配置.
+        'providers' => [
+            // Other service providers...
+            Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
+        ],
+    4.config/filesystems.php
+        'providers' => [
+            // Other service providers...
+            Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
+        ],
+
 ##后台使用验证码
 gregwar/captcha
 ##前端使用验证码
