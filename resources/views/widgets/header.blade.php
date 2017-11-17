@@ -73,9 +73,9 @@
                                 <li>
                                     <a href="/users/info">个人资料</a>
 
-                                    <a href="/users/change_avatar_form">修改头像</a>
+                                    <a href="/users/avatar">修改头像</a>
 
-                                    <a href="/users/change_password_form">修改密码</a>
+                                    <a href="/users/password">修改密码</a>
 
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

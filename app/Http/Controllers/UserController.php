@@ -11,34 +11,47 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-    protected $userRepository;
+    protected $user;
 
     /**
      * UserController constructor.
      * @param $userRepository
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $user)
     {
-        $this->userRepository = $userRepository;
+        $this->user = $user;
     }
 
     public function info()
     {
-        $user = $this->userRepository->byId(Auth::id());
+        $user = $this->user->byId(Auth::id());
 
         return view('users.info', compact('user'));
     }
 
+    public function setting()
+    {
+        $user = $this->user->byId(Auth::id());
+
+        return view('users.setting', compact('user'));
+    }
+
+    public function store(Request $request)
+    {
+        $request = $request->all();
+        dd($request);
+    }
+
     public function changeAvatarForm()
     {
-        $user = $this->userRepository->byId(Auth::id());
+        $user = $this->user->byId(Auth::id());
 
         return view('users.avatar', compact('user'));
     }
 
     public function changeAvatar(Request $request, $id)
     {
-        $user = $this->userRepository->byId($id);
+        $user = $this->user->byId($id);
 
         $avatar = $request->get('avatar');
 
@@ -58,14 +71,14 @@ class UserController extends Controller
 
     public function changePasswordForm()
     {
-        $user = $this->userRepository->byId(Auth::id());
+        $user = $this->user->byId(Auth::id());
 
         return view('users.change_password', compact('user'));
     }
 
     public function update(UserRequest $request)
     {
-        $user = $this->userRepository->byId(Auth::id());
+        $user = $this->user->byId(Auth::id());
         if ($user == null) {
             \Session::flash('flash_warning', '无此记录');
             return redirect('/user/change_password_form');

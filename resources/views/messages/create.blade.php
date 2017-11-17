@@ -47,8 +47,9 @@
     </div>
 @endsection
 
+<link rel="stylesheet" href="/plugins/layui/2.1.2/css/layui.css" media="all">
+
 @section('js')
-    <link rel="stylesheet" href="/plugins/layui/2.1.2/css/layui.css" media="all">
     <script src="/plugins/layui/2.1.2/layui.js" charset="utf-8"></script>
     <!-- 实例化编辑器 -->
     <script type="text/javascript">

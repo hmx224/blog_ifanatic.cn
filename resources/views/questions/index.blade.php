@@ -31,6 +31,7 @@
                                         </h4>
                                         <h5 class="" style="max-width: 600px">
                                             <span>{{ isset($question->updated_at)?$question->updated_at:"" }}</span>
+                                            {{--<span>点击量</span>--}}
                                             <span class="pull-right">{{  isset($question->user->name)?$question->user->name:"" }}</span>
                                         </h5>
                                     </div>
@@ -76,8 +77,10 @@
                             <p><a href="http://lib.csdn.net/">csdn知识库</a></p>
                             <p><a href="http://phpxiong.cn/">phpxiong</a></p>
                             <p><a href="http://www.cnblogs.com/landeanfen/p/5005367.html">bootstrap功能-导出excel,行内编辑...</a></p>
+                            <p><a href="http://www.cnblogs.com/landeanfen/p/5821192.html">JS组件系列——BootstrapTable 行内编辑解决方案：x-editable</a></p>
                             <p><a href="http://blog.csdn.net/jingtianyiyi/article/details/76208880">bootstrap合并单元格</a></p>
                             <p><a href="http://www.cnblogs.com/evilliu/articles/6424237.html">bootstrap数据导出</a></p>
+                            <p><a href="https://www.liaoxuefeng.com">廖雪峰</a></p>
                         </div>
 
                     </div>

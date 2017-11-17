@@ -175,6 +175,7 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
         /*
          * Application Service Providers...
          */

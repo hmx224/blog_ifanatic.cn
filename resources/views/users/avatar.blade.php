@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">修改头像</div>
                     <div class="panel-body">
-                            <form action="/users/change_avatar/{{ $user->id }}" method="POST">
+                        <form action="/users/change_avatar/{{ $user->id }}" method="POST">
 
                             {!! csrf_field() !!}
 
@@ -16,7 +16,8 @@
                                    class="form-control" placeholder="会员头像">
 
                             <div class="form-group">
-                                <label for="avatar" class="col-sm-2 control-label">会员头像<br/><span style="color:deeppink;">(注:图片大小不超过2M)</span></label>
+                                <label for="avatar" class="col-sm-2 control-label">会员头像<br/><span
+                                            style="color:deeppink;">(注:图片大小不超过2M)</span></label>
                                 <div class="col-sm-2">
                                     <img class="img-circle" id="avatar_url" width="100px" height="100px;"
                                          src="{{ $user->avatar }}"
@@ -39,7 +40,6 @@
                                 </div>
                             </div>
                         </form>
-
 
                     </div>
                 </div>
@@ -67,28 +67,31 @@
 
             //普通图片上传
             var uploadInst = upload.render({
-                elem: '#upload_avatar'
-                , url: '/api/files/upload'
-                , before: function (obj) {
+                elem: '#upload_avatar',
+                method: 'post',
+                data: {'_token': '{{csrf_token()}}', 'type': 'qiniu', 'user_id': '{{ $user->id }}'},
+                url: '/api/files/upload',
+                before: function (obj) {
+                    layer.load(); //上传loading
                     //预读本地文件示例，不支持ie8
                     obj.preview(function (index, file, result) {
-                        $('#avatar_img').attr('src', result); //图片链接（base64）
-                        $('#avatar_img').css('width', '100'); //图片链接（base64）
-                        $('#avatar_img').css('height', '100'); //图片链接（base64）
+                        $('#avatar_img').attr('src', result);
+                        $('#avatar_img').css({'width': '100px', 'height': '100px'});
                     });
-                }
+                },
 
-                , done: function (res) {
+                done: function (res) {
+                    layer.closeAll('loading'); //关闭loading
                     //如果上传失败
                     if (res.code > 0) {
                         return layer.msg('上传失败');
                     }
                     //上传成功
                     $('#avatar').val(res.data.src);
+                },
 
-                }
-
-                , error: function () {
+                error: function () {
+                    layer.closeAll('loading'); //关闭loading
                     //演示失败状态，并实现重传
                     var demoText = $('#demoText');
                     demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');

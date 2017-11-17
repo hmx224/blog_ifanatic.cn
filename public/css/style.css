@@ -78,6 +78,11 @@ a.topic:hover {
     background: #fff9ea;
 }
 
-.letters-list{
-    margin-top:60px;
+.letters-list {
+    margin-top: 60px;
+}
+
+.deeppink-large {
+    color: deeppink;
+    font-size: large;
 }

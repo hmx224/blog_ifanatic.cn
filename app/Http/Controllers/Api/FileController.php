@@ -39,7 +39,6 @@ class FileController extends BaseController
             ]);
         }
 
-
         $year = Carbon::now()->format('Y');
         $month = Carbon::now()->format('m');
         $day = Carbon::now()->format('d');
@@ -55,9 +54,15 @@ class FileController extends BaseController
 
         $targetFile = $uploadPath . $filename;
 
-        $file->move($uploadPath, $targetFile);
-
-        $url = config('site.upload.url_prefix') . $relativePath . $filename;
+        if (request::get('type') == 'qiniu') {    //存储到七牛上
+            $id = request::get('user_id');
+            $filename = config('app.env') . '/avatars/' . $id . '/' . $filename;
+            \Storage::disk('qiniu')->writeStream($filename, fopen($file->getRealPath(), 'r'));
+            $url = 'http://' . config('filesystems.disks.qiniu.domain') . '/' . $filename;
+        } else { //数据库
+            $file->move($uploadPath, $targetFile);
+            $url = config('site.upload.url_prefix') . $relativePath . $filename;
+        }
 
         //layui返回格式
         return Response::json([

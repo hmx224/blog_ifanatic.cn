@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 
     <div class="container">
@@ -11,21 +12,22 @@
                     </div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" action="/users/store" method="POST">
 
                             <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">会员名</label>
+                                <label for="name" class="col-sm-2 control-label">用户名</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="name" placeholder="用户名"
-                                           value="{{ $user->name }}">
+                                    <span class="form-control" >{{ $user->name }}</span>
+
+                                    {{--<span id="name"></span>--}}
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="password" class="col-sm-2 control-label">密码</label>
-                                <div class="col-sm-4">
-                                    <input type="password" class="form-control" id="password" placeholder="Password"
-                                           value="{{  $user->password  }}" disabled="disabled">
+                                <label for="name" class="col-sm-2 control-label">会员昵称</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name" placeholder="会员昵称用于用户展示"
+                                           value="{{ $user->nick_name }}">
                                 </div>
                             </div>
 
@@ -33,7 +35,7 @@
                                 <label for="email" class="col-sm-2 control-label">邮箱地址</label>
                                 <div class="col-sm-10">
                                     <input type="email" class="form-control" id="email" placeholder="邮箱 "
-                                           value="{{ $user->email }}" disabled="disabled">
+                                           value="{{ $user->email }}">
                                 </div>
                             </div>
 
@@ -51,7 +53,7 @@
                                 <label for="avatar" class="col-sm-2 control-label">会员激活状态</label>
                                 <div class="col-sm-5">
                                     <input type="email" class="form-control" id="email" placeholder="会员激活状态"
-                                           value="{{ $user->is_active==1 ? '是': '否' }}" disabled="disabled">
+                                           value="{{ $user->is_active==1 ? '是': '否' }}">
                                 </div>
                             </div>
 
@@ -60,7 +62,7 @@
                                 <div class="col-sm-5">
                                     <div class='input-group' id='updated_at'>
                                         <input type="text" class="form-control" placeholder="会员激活时间"
-                                               value="{{ $user->updated_at }}" disabled="disabled">
+                                               value="{{ $user->updated_at }}">
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +72,7 @@
                                 <div class="col-sm-5">
                                     <div class='input-group' id='created_at'>
                                         <input type="text" class="form-control" placeholder="会员注册时间"
-                                               value="{{ $user->created_at}}" disabled="disabled">
+                                               value="{{ $user->created_at}}">
                                     </div>
                                 </div>
                             </div>
@@ -80,8 +82,8 @@
                                 <div class="col-sm-5">
                                     <div class="layui-inline">
                                         <div class="layui-input-inline" style='width:320px;'>
-                                            <input type="text" class="layui-input" id="test5"
-                                                   placeholder="yyyy-MM-dd HH:mm:ss" disabled="disabled">
+                                            <input type="text" class="layui-input" id="full_time"
+                                                   placeholder="yyyy-MM-dd HH:mm:ss">
                                         </div>
                                     </div>
                                 </div>
@@ -92,8 +94,7 @@
                                 <div class="layui-input-inline">
                                     <div class="col-sm-5">
                                         <div class="layui-inline" style='width:320px;'>
-                                            <input type="text" class="layui-input" id="test18" placeholder="yyyy-MM-dd"
-                                                   >
+                                            <input type="text" class="layui-input" id="middle_time" placeholder="yyyy-MM-dd">
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +102,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary" disabled="disabled">更新信息</button>
+                                    <a href="/users/setting" class="btn btn-primary disabled">编辑信息</a>
                                 </div>
                             </div>
                         </form>
@@ -114,6 +115,9 @@
     </div>
 
 @endsection
+
+{{--<script src="/js/baidu_map.js"></script>--}}
+<script type="text/javascript" src="{{ config("site.baidu.map_url") }}"></script>
 
 <link rel="stylesheet" href="/plugins/layui/2.1.2/css/layui.css" media="all">
 <script src="/plugins/layui/2.1.2/layui.js" charset="utf-8"></script>
@@ -130,14 +134,14 @@
 
         //时间选择器 开启公历节日
         laydate.render({
-            elem: '#test5'
+            elem: '#full_time'
             , type: 'datetime'
             , calendar: true
         });
 
         //自定义重要日
         laydate.render({
-            elem: '#test18'
+            elem: '#middle_time'
             , mark: {
                 '0-10-14': '生日'
                 , '0-12-31': '跨年' //每年的日期
@@ -195,8 +199,89 @@
         });
 
 
-
     });
+
+    var map = new BMap.Map("allmap");
+    var geoc = new BMap.Geocoder();   //地址解析对象
+    var markersArray = [];
+    var geolocation = new BMap.Geolocation();
+    var zoomSize = 12;
+    var point = new BMap.Point(116.331398, 39.897445);
+
+    map.centerAndZoom(point, zoomSize); // 中心点
+    //选取当前位置
+    geolocation.getCurrentPosition(function (r) {
+        var mk = new BMap.Marker(r.point);
+        map.addOverlay(mk);
+        map.panTo(r.point);
+        map.enableScrollWheelZoom(true);
+    }, {enableHighAccuracy: true})
+
+    map.addEventListener("click", showInfo);
+
+    //清除标识
+    function clearOverlays() {
+        if (markersArray) {
+            for (i in markersArray) {
+                map.removeOverlay(markersArray[i])
+            }
+        }
+    }
+    //地图上标注
+    function addMarker(point) {
+        var marker = new BMap.Marker(point);
+        markersArray.push(marker);
+        clearOverlays();
+        map.addOverlay(marker);
+    }
+    //点击地图事件处理
+    function showInfo(e) {
+        geoc.getLocation(e.point, function (rs) {
+            var addComp = rs.addressComponents;
+            var address = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+
+
+            document.getElementById('address_inner').value = address;
+            document.getElementById('coordinate_inner').value = e.point.lng + "," + e.point.lat;
+
+            $('#btn_search').click(function () {
+                document.getElementById('address').value = address;
+                document.getElementById('coordinate').value = e.point.lng + "," + e.point.lat;
+            })
+        });
+
+        addMarker(e.point);
+    }
+
+    //搜索
+    function addrSearch(serachAddr) {
+        // 将地址解析结果显示在地图上,并调整地图视野
+        if (!serachAddr) {
+            serachAddr = $("#search").val();
+        }
+
+        var map = new BMap.Map("allmap");
+        map.centerAndZoom(point, zoomSize);
+
+        geolocation.getCurrentPosition(function (r) {
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                var mk = new BMap.Marker(r.point);
+                map.addOverlay(mk);
+                map.panTo(r.point);
+                map.enableScrollWheelZoom(true);
+            }
+            else {
+                alert('failed' + this.getStatus());
+            }
+        }, {enableHighAccuracy: true})
+
+        var local = new BMap.LocalSearch(map, {
+            renderOptions: {map: map}
+        });
+        local.search(serachAddr);
+
+        map.addEventListener("click", showInfo);
+    }
 </script>
 
 

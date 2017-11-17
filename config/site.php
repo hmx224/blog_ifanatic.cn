@@ -37,8 +37,13 @@ return [
         'imageMaxSize' => 2 * 1024 * 1024, /* 上传大小限制，单位B */
     ],
     //用户发送人邮箱
-    'server_admin_email' =>  env('SERVER_ADMIN_EMAIL', 'default'),
+    'server_admin_email' => env('SERVER_ADMIN_EMAIL', 'default'),
 
     //分页数
-    'page_size' =>env('PAGE_SIZE',10),
+    'page_size' => env('PAGE_SIZE', 10),
+
+    //百度地图
+    'baidu' => [
+        'map_url' => 'http://api.map.baidu.com/api?v=1.0&ak=EEEfUZq6GqQyziBnqnv81HEfYrvov9h6',
+    ],
 ];

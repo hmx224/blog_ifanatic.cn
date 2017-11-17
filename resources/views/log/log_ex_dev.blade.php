@@ -9,7 +9,7 @@
                     <div class="panel-body">
                         <div>
                             <ul style="list-style: none;font-size:16px;">
-                                <li style="font-size: x-large; color: deeppink;">20170904</li>
+                                <li class="deeppink-large">20170904</li>
                                 <li>1.单独回复楼层的答案</li>
                                 <li style="text-decoration: line-through">2.增加留言板功能,留言板使用layui的模板</li>
                                 <li style="text-decoration: line-through">3.文章首页在增加分页展示</li>

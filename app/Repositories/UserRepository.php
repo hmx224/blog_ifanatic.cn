@@ -22,4 +22,11 @@ class UserRepository
     {
         return User::find($id);
     }
+
+
+    public function create(array $attribute)
+    {
+        return User::create($attribute);
+    }
+
 }

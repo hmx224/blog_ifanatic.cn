@@ -59,7 +59,8 @@ class User extends Authenticatable
         'password',
         'avatar',
         'confirmation_token',
-        'api_token'
+        'api_token',
+        'setting'
     ];
 
     /**

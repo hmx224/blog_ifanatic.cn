@@ -50,9 +50,11 @@ Route::resource('messages', 'MessagesController', ['names' => [
     'show' => 'messages.show'
 ]]);
 //用户信息
-Route::get('users/info', 'UserController@info');
-Route::get('users/change_avatar_form', ['as' => 'users.change_avatar_form', 'uses' => 'UserController@changeAvatarForm']);
-Route::get('users/change_password_form', ['as' => 'users.change_password_form', 'uses' => 'UserController@changePasswordForm']);
+Route::get('users/info', 'UserController@info'); //个人用户信息展示
+Route::get('users/setting', 'UserController@setting'); // 编辑用户信息
+Route::post('users/store', 'UserController@store'); //保存用户信息
+Route::get('users/avatar', ['as' => 'users.change_avatar_form', 'uses' => 'UserController@changeAvatarForm']);
+Route::get('users/password', ['as' => 'users.change_password_form', 'uses' => 'UserController@changePasswordForm']);
 
 Route::post('users/{user_id}', 'UserController@update');
 Route::post('users/change_avatar/{id}', 'UserController@changeAvatar');
@@ -63,9 +65,9 @@ Route::get('notifications', 'NotificationsController@index');
 Route::get('notifications/{notification}', 'NotificationsController@show');
 
 //私信相关
-Route::get('inbox','InboxController@index');
-Route::get('inbox/{dialogId}','InboxController@show');
-Route::post('inbox/{dialogId}/store','InboxController@store');
+Route::get('inbox', 'InboxController@index');
+Route::get('inbox/{dialogId}', 'InboxController@show');
+Route::post('inbox/{dialogId}/store', 'InboxController@store');
 
 
 require_once(__DIR__ . '/admin.php');
