@@ -47,19 +47,14 @@
         </div>
     </div>
 @endsection
-
+<link rel="stylesheet" href="/plugins/layui/2.1.2/css/layui.css" media="all">
+<!--使用layer-->
+<link rel="stylesheet" href="/plugins/layer/3.0.3/layer/skin/default/layer.css" media="all">
 @section('js')
-
-    <link rel="stylesheet" href="/plugins/layui/2.1.2/css/layui.css" media="all">
     <script src="/plugins/layui/2.1.2/layui.js" charset="utf-8"></script>
 
-
-    <!--使用layer-->
-    <link rel="stylesheet" href="/plugins/layer/3.0.3/layer/skin/default/layer.css" media="all">
     <script src="/plugins/layer/3.0.3/layer/layer.js"></script>
-
     <script>
-
 
         layui.use('upload', function () {
             var $ = layui.jquery
