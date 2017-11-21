@@ -52,7 +52,9 @@ class AppServiceProvider extends ServiceProvider
                     'a+'
                 );
                 $file_info = fread($logFile, "10");
-                \Log::info('log文件里面获取的：' . $file_info . '_query.log');
+
+                \Log::info('logs文件里面获取的：' . $file_info . '_query.log');
+
                 if (empty($file_info)) {
                     \Log::info('chmod 777 ' . storage_path('logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '_query.log'));
                     exec('chmod 777 ' . storage_path('logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '_query.log'));
