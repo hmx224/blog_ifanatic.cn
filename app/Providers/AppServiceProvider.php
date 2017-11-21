@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use Log;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -44,7 +43,23 @@ class AppServiceProvider extends ServiceProvider
                 $query = vsprintf($query, $sql->bindings);
 
                 // Save the query to file
-                Log::info("SQL:", array($query));
+//                Log::info("SQL:", array($query));
+
+                // Save the query to file
+                //创建文件，并修改权限,查询sql运行写入到当天的日志中
+                $logFile = fopen(
+                    storage_path('logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '_query.log'),
+                    'a+'
+                );
+                $file_info = fread($logFile, "10");
+                \Log::info('log文件里面获取的：' . $file_info . '_query.log');
+                if (empty($file_info)) {
+                    \Log::info('chmod 777 ' . storage_path('logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '_query.log'));
+                    exec('chmod 777 ' . storage_path('logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '_query.log'));
+                }
+
+                fwrite($logFile, date('Y-m-d H:i:s') . ': ' . $query . PHP_EOL);
+                fclose($logFile);
             });
         }
     }
