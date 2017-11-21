@@ -38,7 +38,8 @@
             // Other service providers...
             Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
         ],
-
+### 9.配置页面sql查询日志
+    LOG_SAVE=true ,默认在env中不开启
 ##后台使用验证码
 gregwar/captcha
 ##前端使用验证码

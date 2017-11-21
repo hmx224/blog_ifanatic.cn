@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
         //字段限制长度
         Schema::defaultStringLength(191);
         //监听sql
-        $log_config = env('LOG_SAVE', 'false');
+        $log_config = env('LOG_SAVE');
         if ($log_config) {
             //监听sql语句并写入日志
             DB::listen(function ($sql) {
