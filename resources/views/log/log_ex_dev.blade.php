@@ -17,17 +17,17 @@
                                 <li style="text-decoration: line-through">5.关注用户以邮件的方式通知</li>
                                 <li style="text-decoration: line-through">6.对答案的点赞</li>
                                 <li style="text-decoration: line-through">7.站内信通知</li>
-                                <li>8.私信功能</li>
-                                <li>9.评论的深层优化</li>
-                                <li>10.回复私信</li>
-                                <li>11.私信已读的通知</li>
-                                <s>12.头像上传到服务器，修改头像</s>
-                                <li>13.让会员进行修改密码操作。</li>
+                                <s>8.私信功能</s>
+                                <s>9.评论的深层优化</s>
+                                <s>10.回复私信</s>
+                                <s>11.私信已读的通知</s>
+                                <s>12.头像上传到服务器，修改头像,上传到七牛服务器</s>
+                                <s>13.让会员进行修改密码操作。</s>
                                 <li>14.用户个人设置。</li>
                                 <li>15.让游客去发布文章，自动给创建账号</li>
                                 <li>16.第三方登录注册功能追加</li>
                                 <li>17.收藏功能</li>
-                                <li style="text-decoration: line-through">18.配置安全域名</li>
+                                <s>18.配置安全域名</s>
                             </ul>
                         </div>
                     </div>
