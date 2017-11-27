@@ -58,6 +58,7 @@ Route::get('users/password', ['as' => 'users.change_password_form', 'uses' => 'U
 
 Route::post('users/{user_id}', 'UserController@update');
 Route::post('users/change_avatar/{id}', 'UserController@changeAvatar');
+Route::get('users/about', 'UserController@about');
 Route::resource('users', 'UserController');
 
 //消息管理

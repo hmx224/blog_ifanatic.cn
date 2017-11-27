@@ -98,4 +98,9 @@ class UserController extends Controller
         flash('密码修改失败', 'danger');
         return redirect()->to($this->getRedirectUrl())->withInput();
     }
+
+    public function about()
+    {
+        return view('users.about');
+    }
 }

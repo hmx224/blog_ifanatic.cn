@@ -52,6 +52,10 @@
                             <li><a href="{{ url('log_ex_dev') }}">扩展开发更新日志</a></li>
                         </ul>
                     </li>
+
+                    <li class="dropdown">
+                        <a href="{{ url('users/about') }}">关于我</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
