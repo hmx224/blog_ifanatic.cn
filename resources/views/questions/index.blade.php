@@ -3,132 +3,141 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <div class="panel panel-default ">
-                    <div class="panel-heading">
-                        @if($questions_count !=0)
-                            @foreach($questions as $question)
-                                <div class="media question_page">
-                                    <div class="media-left">
-                                        <a href="">
-                                            <img class="img-circle" width="50px" height="50px"
-                                                 src="{{ isset($question->user->avatar) ? $question->user->avatar: ''}}"
-                                                 alt="{{ isset($question->user->name) ? $question->user->name: '' }}">
-                                        </a>
-                                    </div>
+            <div class="col-xs-12 col-md-8 no-space">
+                <div class="col-md-12">
+                    <div class="panel panel-default ">
+                        <div class="panel-heading">
+                            @if($questions_count !=0)
+                                @foreach($questions as $question)
+                                    <div class="media question_page">
+                                        <div class="media-left">
+                                            <a href="">
+                                                <img class="img-circle" width="50px" height="50px"
+                                                     src="{{ isset($question->user->avatar) ? $question->user->avatar: ''}}"
+                                                     alt="{{ isset($question->user->name) ? $question->user->name: '' }}">
+                                            </a>
+                                        </div>
 
-                                    <div class="media-body">
-                                        <h4 class="media-heading" style="font-family: 华文中宋">
+                                        <div class="media-body">
+                                            <h4 class="media-heading" style="font-family: 华文中宋">
                                             <span style="font-weight: 500; font-size: 1.3em;">
                                                 {{ isset($question->title)?$question->title:"" }}
                                                 <span class="pull-right"
                                                       style="font-size: 20px;">发布于{{ $question->created_at->diffForHumans() }}</span>
                                             </span>
-                                            <hr>
-                                            <span style="display: block">{{ trim(mb_substr(preg_replace("/<[^>]+>/", '', $question->body),0,64,'utf-8')) }}
-                                                <a href="/questions/{{ $question->id }}">...阅读全文</a>
+                                                <hr>
+                                                <span style="display: block">{{ trim(mb_substr(preg_replace("/<[^>]+>/", '', $question->body),0,64,'utf-8')) }}
+                                                    <a href="/questions/{{ $question->id }}">...阅读全文</a>
                                             </span>
-                                        </h4>
-                                        <h5 class="" style="max-width: 600px">
-                                            <span>{{ isset($question->updated_at)?$question->updated_at:"" }}</span>
-                                            {{--<span>点击量</span>--}}
-                                            <span class="pull-right">{{  isset($question->user->name)?$question->user->name:"" }}</span>
-                                        </h5>
+                                            </h4>
+                                            <h5 class="" style="max-width: 600px">
+                                                <span>{{ isset($question->updated_at)?$question->updated_at:"" }}</span>
+                                                {{--<span>点击量</span>--}}
+                                                <span class="pull-right">{{  isset($question->user->name)?$question->user->name:"" }}</span>
+                                            </h5>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
 
-                            <div style="height: 60px;">
-                                <span class='pull-right'>{!! $questions->links() !!}</span>
+                                <div style="height: 60px;">
+                                    <span class='pull-right'>{!! $questions->links() !!}</span>
+                                </div>
+
+                            @else
+                                <div style="font-size: large; color: deeppink;">暂时没有文章记录</div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-4">
+                @if(Auth::check() && \App\Models\User::find(Auth::user()->id)->is_active == \App\Models\User::STATUS_ACTIVE)
+                    <div class="col-md-12">
+                        <a href="questions/create" class="btn btn-primary btn-block btn-lg">写文章</a>
+                        <div class="panel-heading"></div>
+                    </div>
+                @endif
+
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading question-follow">
+                            <h2>
+                                {{ config('app.name', 'ifanatic.cn') }}
+                            </h2>
+                            <span>欢迎来到爱狂热的博客，分享你的所见所闻，让我们开怀聊天。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--友情链接-->
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading question-follow">
+                            <h3>友情链接</h3>
+                            <div style="text-align: left;">
+                                <p><a href="http://www.humengxu.com">小胡发掘网</a></p>
+                                <p><a href="http://lib.csdn.net/">csdn知识库</a></p>
+                                <p><a href="http://phpxiong.cn/">phpxiong</a></p>
+                                <p><a href="http://www.cnblogs.com/landeanfen/p/5005367.html">bootstrap功能-导出excel,行内编辑...</a>
+                                </p>
+                                <p><a href="http://www.cnblogs.com/landeanfen/p/5821192.html">JS组件系列——BootstrapTable
+                                        行内编辑解决方案：x-editable</a></p>
+                                <p>
+                                    <a href="http://blog.csdn.net/jingtianyiyi/article/details/76208880">bootstrap合并单元格</a>
+                                </p>
+                                <p><a href="http://www.cnblogs.com/evilliu/articles/6424237.html">bootstrap数据导出</a></p>
+                                <p><a href="https://www.liaoxuefeng.com">廖雪峰</a></p>
                             </div>
 
-                        @else
-                            <div style="font-size: large; color: deeppink;">暂时没有文章记录</div>
-                        @endif
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            @if(Auth::check() && \App\Models\User::find(Auth::user()->id)->is_active == \App\Models\User::STATUS_ACTIVE)
-                <div class="col-md-4">
-                    <a href="questions/create" class="btn btn-primary btn-block btn-lg">写文章</a>
-                    <div class="panel-heading"></div>
-                </div>
-            @endif
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading question-follow">
+                            <h4>
+                                会员总数<span style="color: deeppink; font-size: x-large">{{$users_count}} </span>人
+                            </h4>
+                        </div>
+                        <div class="panel-heading question-follow">
+                            <h3>
+                                激活会员列表
+                            </h3>
+                        </div>
 
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading question-follow">
-                        <h2>
-                            {{ config('app.name', 'ifanatic.cn') }}
-                        </h2>
-                        <span>欢迎来到爱狂热的博客，分享你的所见所闻，让我们开怀聊天。</span>
-                    </div>
-                </div>
-            </div>
+                        <div class="panel-body">
+                            <ul style="list-style: none;font-size:14px; margin:0;padding:0;">
+                                @foreach($users_active as $user)
+                                    <li>
+                                        <a href="#" style="">{{ $user->name }}</a>
+                                        <span class="pull-right">{{ $user->created_at }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
 
-            <!--友情链接-->
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading question-follow">
-                        <h3>友情链接</h3>
-                        <div style="text-align: left;">
-                            <p><a href="http://www.humengxu.com">小胡发掘网</a></p>
-                            <p><a href="http://lib.csdn.net/">csdn知识库</a></p>
-                            <p><a href="http://phpxiong.cn/">phpxiong</a></p>
-                            <p><a href="http://www.cnblogs.com/landeanfen/p/5005367.html">bootstrap功能-导出excel,行内编辑...</a></p>
-                            <p><a href="http://www.cnblogs.com/landeanfen/p/5821192.html">JS组件系列——BootstrapTable 行内编辑解决方案：x-editable</a></p>
-                            <p><a href="http://blog.csdn.net/jingtianyiyi/article/details/76208880">bootstrap合并单元格</a></p>
-                            <p><a href="http://www.cnblogs.com/evilliu/articles/6424237.html">bootstrap数据导出</a></p>
-                            <p><a href="https://www.liaoxuefeng.com">廖雪峰</a></p>
+                        <div class="panel-heading question-follow">
+                            <h3>
+                                未激活会员列表
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul style="list-style: none;font-size:14px; margin:0;padding:0;">
+                                @foreach($users_not_active as $user)
+                                    <li>
+                                        <a href="#" style="">{{ $user->name }}</a>
+                                        <span class="pull-right">{{ $user->created_at }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
 
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading question-follow">
-                        <h4>
-                            会员总数<span style="color: deeppink; font-size: x-large">{{$users_count}} </span>人
-                        </h4>
-                    </div>
-                    <div class="panel-heading question-follow">
-                        <h3>
-                            激活会员列表
-                        </h3>
-                    </div>
-
-                    <div class="panel-body">
-                        <ul style="list-style: none;font-size:14px; margin:0;padding:0;">
-                            @foreach($users_active as $user)
-                                <li>
-                                    <a href="#" style="">{{ $user->name }}</a>
-                                    <span class="pull-right">{{ $user->created_at }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                    <div class="panel-heading question-follow">
-                        <h3>
-                            未激活会员列表
-                        </h3>
-                    </div>
-                    <div class="panel-body">
-                        <ul style="list-style: none;font-size:14px; margin:0;padding:0;">
-                            @foreach($users_not_active as $user)
-                                <li>
-                                    <a href="#" style="">{{ $user->name }}</a>
-                                    <span class="pull-right">{{ $user->created_at }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
 
             <!--支付宝打赏二维码-->
             {{--<div class="col-md-4">--}}
