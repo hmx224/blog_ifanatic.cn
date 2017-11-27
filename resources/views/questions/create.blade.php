@@ -35,7 +35,7 @@
                             <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
                                 <label for="body">内容:<span style="color:hotpink;">(图片上传最大上传大小:10M)</span></label>
                                 <!-- 编辑器容器 -->
-                                <script id="container" name="body" type="text/plain">
+                                <script id="container" name="body" type="text/plain" >
                                     {!! old('body') !!}
                                 </script>
                                 @if ($errors->has('body'))
@@ -68,8 +68,10 @@
             autoClearEmptyNode: true,
             wordCount: false,
             imagePopup: false,
-            autotypeset: {indent: true, imageBlockLine: 'center'}
+            autotypeset: {indent: true, imageBlockLine: 'center'},
+
         });
+
         ue.ready(function () {
             ue.execCommand('serverparam', '_token', '{{ csrf_token() }}'); // 设置 CSRF token.
         });
