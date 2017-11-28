@@ -49,7 +49,7 @@ class ExtendLoginController extends Controller
             'source' => User::SOURCE_GITHUB
         ];
 
-        if (count(array($github_user_list)) > 0) {
+        if (count(array($github_user_list)) > 1) {
 
             \Auth::login($github_user_list);
 
