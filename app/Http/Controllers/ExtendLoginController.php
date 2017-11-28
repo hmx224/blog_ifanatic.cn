@@ -34,6 +34,8 @@ class ExtendLoginController extends Controller
 
         $github_user = $socialite->driver('github')->user();
 
+        \Log::debug('info','github授权信息:'.$github_user);
+
         $github_user_list = $this->user->getUserInfoBy($github_user->getUsername());
 
         $data = [
