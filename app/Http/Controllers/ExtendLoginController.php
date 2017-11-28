@@ -51,7 +51,7 @@ class ExtendLoginController extends Controller
             'source' => User::SOURCE_GITHUB
         ];
 
-        if (count(array($github_user_list)) > 0) {
+        if (count($github_user_list) > 0) {
             $data = [
                 'confirmation_token' => $github_user->getAccessToken(),
                 'api_token' => bcrypt(str_random(120))
