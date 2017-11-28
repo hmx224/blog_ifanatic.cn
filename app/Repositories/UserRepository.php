@@ -34,9 +34,5 @@ class UserRepository
         return User::where('name', $name)->first();
     }
 
-    public function createGitHub(array $attribute)
-    {
-        return User::create($attribute);
-    }
 
 }

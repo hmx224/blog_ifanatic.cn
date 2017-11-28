@@ -34,7 +34,7 @@ class ExtendLoginController extends Controller
 
         $github_user = $socialite->driver('github')->user();
 
-        \Log::debug('info', 'github授权信息:' . [$github_user]);
+        \Log::info('github授权信息:', [$github_user]);
 
         $github_user_list = $this->user->getUserInfoBy($github_user->getUsername());
 
@@ -51,12 +51,17 @@ class ExtendLoginController extends Controller
             'source' => User::SOURCE_GITHUB
         ];
 
-        if (count(array($github_user_list)) > 1) {
+        if (count(array($github_user_list)) > 0) {
+            $data = [
+                'confirmation_token' => $github_user->getAccessToken(),
+                'api_token' => bcrypt(str_random(120))
+            ];
 
+            $github_user_list->update($data);
             \Auth::login($github_user_list);
 
         } else {
-            $github_user = $this->user->createGitHub($data);
+            $github_user = $this->user->create($data);
 
             \Auth::login($github_user);
         }
