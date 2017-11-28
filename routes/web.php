@@ -16,8 +16,17 @@ Route::get('/', 'QuestionsController@index');
 //Route::get('/captcha/{random}', 'CaptchaController@captcha');
 
 //第三方登录 githubLogin
-Route::get('github/login', 'ExtendLoginController@github');
-Route::get('githubLogin', 'ExtendLoginController@githubLogin');
+Route::get('github/login', 'ExtendLoginController@github');  //github login_url
+Route::get('githubLogin', 'ExtendLoginController@githubLogin'); //callback
+
+Route::get('weibo/login', 'ExtendLoginController@weibo');  //weibo login_url
+Route::get('weiboLogin', 'ExtendLoginController@weiboLogin'); //callback
+
+Route::get('weixin/login', 'ExtendLoginController@weixin');  //weixin login_url
+Route::get('weixinLogin', 'ExtendLoginController@weixinLogin'); //callback
+
+Route::get('qq/login', 'ExtendLoginController@qq');  //qq login_url
+Route::get('qqLogin', 'ExtendLoginController@qqLogin'); //callback
 //验证码
 Route::get('/captcha/{config?}', function (\Mews\Captcha\Captcha $captcha, $config = 'default') {
     return $captcha->create($config);

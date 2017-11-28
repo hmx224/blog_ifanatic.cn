@@ -89,6 +89,20 @@
                                         忘记密码?
                                     </a>
                                 </div>
+
+                                <div class="col-md-8 col-md-offset-4">
+                                    第三方登录方式:
+                                    <strong><a href="{{ url('github/login') }}" target="_blank" title="GitHub授权登录"><i
+                                                    class="fa fa-github fa-2x" aria-hidden="true"></i> </a></strong>
+                                    <strong><a href="{{url('weibo/login')}}"
+                                               target="_blank"><i class="fa fa-weibo fa-2x" aria-hidden="true"></i> </a></strong>
+                                    <strong><a href="{{url('weixin/login')}}" target="_blank"><i
+                                                    class="fa fa-weixin fa-2x"></i>
+                                        </a></strong>
+                                    <strong><a href="{{url('qq/login')}}" target="_blank"><i
+                                                    class="fa fa-qq fa-2x"></i>
+                                        </a></strong>
+                                </div>
                             </div>
                         </form>
                     </div>

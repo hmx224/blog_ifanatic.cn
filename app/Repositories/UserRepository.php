@@ -29,4 +29,14 @@ class UserRepository
         return User::create($attribute);
     }
 
+    public function getUserInfoBy($name)
+    {
+        return User::where('name', $name)->first();
+    }
+
+    public function createGitHub(array $attribute)
+    {
+        return User::createGitHub($attribute);
+    }
+
 }

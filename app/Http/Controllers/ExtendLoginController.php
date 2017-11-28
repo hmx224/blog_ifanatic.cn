@@ -3,24 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Repositories\UserRepository;
 use Overtrue\Socialite\SocialiteManager;
 
 
 class ExtendLoginController extends Controller
 {
+    protected $user;
 
-    protected $config = [
-        'github' => [
-            'client_id' => '77b7e13b20562605d670',
-            'client_secret' => '2a735dc2ae3cf8d53ba58e1298ae2bcebbc57d50',
-            'redirect' => 'https://www.ifanatic.cn/githubLogin',  //local
-        ],
-    ];
+    /**
+     * ExtendLoginController constructor.
+     * @param $user
+     */
+    public function __construct(UserRepository $user)
+    {
+        $this->user = $user;
+    }
 
     public function github()
     {
-
-        $socialite = new SocialiteManager($this->config);
+        $socialite = new SocialiteManager(config('services'));
 
         return $socialite->driver('github')->redirect();
 
@@ -28,25 +30,60 @@ class ExtendLoginController extends Controller
 
     public function githubLogin()
     {
-        $socialite = new SocialiteManager($this->config);
+        $socialite = new SocialiteManager(config('services'));
 
-        $githubUser = $socialite->driver('github')->user();
+        $github_user = $socialite->driver('github')->user();
 
-        dd($githubUser);
+        $github_user_list = $this->user->getUserInfoBy($github_user->getUsername());
 
-        User::create([
-            'name' => $githubUser->getUsername(),
-            'nick_name' => $githubUser->getNickname(),
-            'email' => $githubUser->getEmail(),
-            'avatar' => $githubUser->getAvatar(),
-            'password' => bcrypt(str_random(64)),
+        $data = [
+            'name' => $github_user->getUsername(),
+            'nick_name' => $github_user->getNickname(),
+            'email' => $github_user->getEmail(),
+            'avatar' => $github_user->getAvatar(),
+            'password' => bcrypt('123456'),
             'is_active' => User::STATUS_ACTIVE,
             'remember_token' => bcrypt(str_random(64)),
-            'confirmation_token' => bcrypt(str_random(64)),
+            'confirmation_token' => $github_user->getAccessToken(),
             'api_token' => bcrypt(str_random(120)),
-        ]);
+            'source' => User::SOURCE_GITHUB
+        ];
+
+        if (count(array($github_user_list)) > 0) {
+
+            \Auth::login($github_user_list);
+
+        } else {
+            $github_user = $this->user->createGitHub($data);
+
+            \Auth::login($github_user);
+        }
+
 
         return redirect('/');
+    }
+
+    public function weibo()
+    {
+        $socialite = new SocialiteManager(config('services'));
+
+        return $socialite->driver('github')->redirect();
+
+    }
+
+    public function weiboLogin()
+    {
+
+    }
+
+    public function weixinLogin()
+    {
+
+    }
+
+    public function qqLogin()
+    {
+
     }
 
 

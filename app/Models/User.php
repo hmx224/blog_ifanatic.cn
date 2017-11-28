@@ -60,7 +60,25 @@ class User extends Authenticatable
         'avatar',
         'confirmation_token',
         'api_token',
-        'setting'
+        'setting',
+        'remember_token',
+        'source'
+    ];
+
+    const SOURCE_PHONE = 1;
+    const SOURCE_WEIBO = 2;
+    const SOURCE_WEIXIN = 3;
+    const SOURCE_QQ = 4;
+    const SOURCE_EMAIL = 5;
+    const SOURCE_GITHUB = 6;
+
+    const SOURCE = [
+        1 => '手机号',
+        2 => '微博',
+        3 => '微信',
+        4 => 'QQ',
+        5 => '邮箱',
+        6 => 'GitHub'
     ];
 
     /**
@@ -72,6 +90,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function sourceName()
+    {
+        return array_key_exists($this->source, static::SOURCE) ? static::SOURCE[$this->source] : '';
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
