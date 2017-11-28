@@ -42,6 +42,10 @@
     LOG_SAVE=true ,默认在env中不开启
 ### 10. 配置.env
     将APP_NAME=ifanatic.cn  改成爱狂热
+### 11. 配置github
+    GITHUB_CLIENT_ID=xxx(github key)
+    GITHUB_CLIENT_SECRET=xxx(github秘钥)
+    GITHUB_CLIENT_REDIRECT=xxx(网站回调地址)
 ##后台使用验证码
 gregwar/captcha
 ##前端使用验证码
