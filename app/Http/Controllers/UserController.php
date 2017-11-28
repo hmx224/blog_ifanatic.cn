@@ -92,7 +92,7 @@ class UserController extends Controller
 
             flash('密码修改成功', 'success');
 
-            return redirect('/users/change_password_form');
+            return redirect('/');
         }
 
         flash('密码修改失败', 'danger');
@@ -102,5 +102,10 @@ class UserController extends Controller
     public function about()
     {
         return view('users.about');
+    }
+
+    public function show()
+    {
+
     }
 }
