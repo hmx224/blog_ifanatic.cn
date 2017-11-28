@@ -36,7 +36,7 @@ class UserRepository
 
     public function createGitHub(array $attribute)
     {
-        return User::createGitHub($attribute);
+        return User::create($attribute);
     }
 
 }
