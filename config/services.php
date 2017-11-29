@@ -42,20 +42,9 @@ return [
     ],
 
     'weibo' => [
-            'client_id' => env('WEIBO_KEY'),
+        'client_id' => env('WEIBO_KEY'),
         'client_secret' => env('WEIBO_CLIENT_SECRET'),
         'redirect' => env('WEIBO_REDIRECT_URI'),
     ],
 
-    'weixin' => [
-        'client_id' => env('WEIXIN_KEY'),
-        'client_secret' => env('WEIXIN_CLIENT_SECRET'),
-        'redirect' => env('WEIXIN_REDIRECT_URI'),
-    ],
-
-    'qq' => [
-        'client_id' => env('QQ_KEY'),
-        'client_secret' => env('QQ_CLIENT_SECRET'),
-        'redirect' => env('QQ_REDIRECT_URI'),
-    ],
 ];

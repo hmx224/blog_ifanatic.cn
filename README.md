@@ -46,6 +46,10 @@
     GITHUB_CLIENT_ID=xxx(github key)
     GITHUB_CLIENT_SECRET=xxx(github秘钥)
     GITHUB_CLIENT_REDIRECT=xxx(网站回调地址)
+##  12. 配置微博
+    WEIBO_KEY=xxx
+    WEIBO_CLIENT_SECRET=xxx
+    WEIBO_REDIRECT_URI=xxx
 ##后台使用验证码
 gregwar/captcha
 ##前端使用验证码

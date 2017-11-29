@@ -66,7 +66,7 @@ class User extends Authenticatable
     ];
 
     const SOURCE_PHONE = 1;
-    const SOURCE_WEIBO = 2;
+    const SOURCE_SINA_WEIBO = 2;
     const SOURCE_WEIXIN = 3;
     const SOURCE_QQ = 4;
     const SOURCE_EMAIL = 5;
@@ -74,7 +74,7 @@ class User extends Authenticatable
 
     const SOURCE = [
         1 => '手机号',
-        2 => '微博',
+        2 => '新浪微博',
         3 => '微信',
         4 => 'QQ',
         5 => '邮箱',

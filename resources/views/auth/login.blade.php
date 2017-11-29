@@ -95,7 +95,8 @@
                                     <strong><a href="{{ url('github/login') }}" target="_blank" title="GitHub授权登录"><i
                                                     class="fa fa-github fa-2x" aria-hidden="true"></i> </a></strong>
                                     <strong><a href="{{url('weibo/login')}}"
-                                               target="_blank"><i class="fa fa-weibo fa-2x" aria-hidden="true"></i> </a></strong>
+                                               target="_blank" title="微博授权登录"><i class="fa fa-weibo fa-2x"
+                                                                                     aria-hidden="true"></i></a></strong>
                                 </div>
                             </div>
                         </form>
