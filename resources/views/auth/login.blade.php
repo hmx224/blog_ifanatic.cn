@@ -96,12 +96,6 @@
                                                     class="fa fa-github fa-2x" aria-hidden="true"></i> </a></strong>
                                     <strong><a href="{{url('weibo/login')}}"
                                                target="_blank"><i class="fa fa-weibo fa-2x" aria-hidden="true"></i> </a></strong>
-                                    <strong><a href="{{url('weixin/login')}}" target="_blank"><i
-                                                    class="fa fa-weixin fa-2x"></i>
-                                        </a></strong>
-                                    <strong><a href="{{url('qq/login')}}" target="_blank"><i
-                                                    class="fa fa-qq fa-2x"></i>
-                                        </a></strong>
                                 </div>
                             </div>
                         </form>

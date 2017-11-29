@@ -82,16 +82,4 @@ class ExtendLoginController extends Controller
     {
 
     }
-
-    public function weixinLogin()
-    {
-
-    }
-
-    public function qqLogin()
-    {
-
-    }
-
-
 }
