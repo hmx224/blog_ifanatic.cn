@@ -84,13 +84,13 @@ class ExtendLoginController extends Controller
         $socialite = new SocialiteManager(config('services'));
 
         $weibo_user = $socialite->driver('weibo')->user();
-
         \Log::info('weibo授权信息:', [$weibo_user]);
 
         $weibo_user_list = $this->user->getUserInfoBy($weibo_user->getUsername());
 
         if (count($weibo_user_list) > 0) {
             $data = [
+                'name' => $weibo_user->getName(),
                 'confirmation_token' => $weibo_user->getAccessToken(),
                 'api_token' => bcrypt(str_random(120))
             ];
@@ -100,7 +100,7 @@ class ExtendLoginController extends Controller
 
         } else {
             $data = [
-                'name' => $weibo_user->getUsername(),
+                'name' => $weibo_user->getName(),
                 'nick_name' => $weibo_user->getNickname(),
                 'email' => !empty($weibo_user->getEmail()) ? $weibo_user->getEmail() : "",
                 'avatar' => $weibo_user->getAvatar(),
