@@ -90,7 +90,6 @@ class ExtendLoginController extends Controller
 
         if (count($weibo_user_list) > 0) {
             $data = [
-                'name' => $weibo_user->getName(),
                 'confirmation_token' => $weibo_user->getAccessToken(),
                 'api_token' => bcrypt(str_random(120))
             ];
