@@ -38,6 +38,8 @@
             // Other service providers...
             Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
         ],
+    5. 配置文件引擎
+    FILESYSTEM_DRIVER=qiniu,区分本地或者云平台.
 ### 9.配置页面sql查询日志
     LOG_SAVE=true ,默认在env中不开启
 ### 10. 配置.env

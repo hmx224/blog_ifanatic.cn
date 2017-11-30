@@ -64,7 +64,7 @@
             var uploadInst = upload.render({
                 elem: '#upload_avatar',
                 method: 'post',
-                data: {'_token': '{{csrf_token()}}', 'type': 'qiniu', 'user_id': '{{ $user->id }}'},
+                data: {'_token': '{{csrf_token()}}', 'user_id': '{{ $user->id }}'},
                 url: '/api/files/upload',
                 before: function (obj) {
                     layer.load(); //上传loading

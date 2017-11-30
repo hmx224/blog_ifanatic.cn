@@ -54,7 +54,7 @@ class FileController extends BaseController
 
         $targetFile = $uploadPath . $filename;
 
-        if (request::get('type') == 'qiniu') {    //存储到七牛上
+        if (env('FILESYSTEM_DRIVER') == 'qiniu') {    //存储到七牛上,本地走local
             $id = request::get('user_id');
             $filename = config('app.env') . '/avatars/' . $id . '/' . $filename;
             \Storage::disk('qiniu')->writeStream($filename, fopen($file->getRealPath(), 'r'));
