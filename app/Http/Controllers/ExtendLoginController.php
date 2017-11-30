@@ -102,7 +102,7 @@ class ExtendLoginController extends Controller
             $data = [
                 'name' => $weibo_user->getUsername(),
                 'nick_name' => $weibo_user->getNickname(),
-                'email' => $weibo_user->getEmail(),
+                'email' => !empty($weibo_user->getEmail()) ? $weibo_user->getEmail() : "",
                 'avatar' => $weibo_user->getAvatar(),
                 'password' => bcrypt('123456'),
                 'is_active' => User::STATUS_ACTIVE,
