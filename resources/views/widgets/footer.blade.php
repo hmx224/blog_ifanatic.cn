@@ -141,7 +141,7 @@
                 <div class="pull-right hidden-xs">
                      2017~2018 | ICP备案证书号:京ICP备16009734-2号
                 </div>
-                <b>Version</b> 1.0.0 <strong>&copy; 2017-2018 <a href="http://blog.ifanatic.cn">爱狂热</a></strong> xiaoHu版权所有.
+                <b>Version</b> 1.0.0 <strong>&copy; 2017-2018 <a href="http://blog.ifanatic.cn">爱狂热</a></strong> huMengXu版权所有.
             </div>
         </div>
     </div>
