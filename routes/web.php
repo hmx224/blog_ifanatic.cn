@@ -21,6 +21,7 @@ Route::get('githubLogin', 'ExtendLoginController@githubLogin'); //callback
 
 Route::get('weibo/login', 'ExtendLoginController@weibo');  //weibo login_url
 Route::get('weiboLogin', 'ExtendLoginController@weiboLogin'); //callback
+Route::get('weiboLogout', 'ExtendLoginController@weiboLogout'); //callback-cancel
 
 //验证码
 Route::get('/captcha/{config?}', function (\Mews\Captcha\Captcha $captcha, $config = 'default') {

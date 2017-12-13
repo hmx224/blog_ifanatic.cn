@@ -55,6 +55,8 @@
     {{--<link href="/plugins/bootstrap-datetimepicker/4.17.42/css/bootstrap-datetimepicker.min.css" rel="stylesheet">--}}
     {{--<script src="/plugins/bootstrap-datetimepicker/4.17.42/js/bootstrap-datetimepicker.min.js"></script>--}}
 
+    <script>var lainframe;</script>
+    <script language="javascript" type="text/javascript" src="//js.users.51.la/19358042.js"></script>
 </head>
 <body style="padding:60px 0 60px 0">
 <div id="app">

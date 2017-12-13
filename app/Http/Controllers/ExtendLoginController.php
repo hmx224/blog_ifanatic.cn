@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Overtrue\Socialite\SocialiteManager;
+use Request;
 
 
 class ExtendLoginController extends Controller
@@ -118,5 +119,11 @@ class ExtendLoginController extends Controller
         }
 
         return redirect('/');
+    }
+
+    public function weiboLogout()
+    {
+        $request = Request::all();
+        dd($request);
     }
 }
