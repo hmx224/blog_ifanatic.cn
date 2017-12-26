@@ -17,7 +17,7 @@
 
                             <div class="form-group">
                                 <label for="avatar" class="col-sm-2 control-label">会员头像<br/><span
-                                            style="color:deeppink;">(注:图片大小不超过2M)</span></label>
+                                            style="color:deeppink;">(注:图片大小不超过2M) <br>提示:上传120x120(1:1比例)的头像效果更佳</span></label>
                                 <div class="col-sm-2">
                                     <img class="img-circle" id="avatar_url" width="100px" height="100px;"
                                          src="{{ $user->avatar }}"

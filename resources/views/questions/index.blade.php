@@ -30,7 +30,7 @@
                                             </span>
                                         </h4>
                                         <h5 class="" style="max-width: 600px">
-                                            <span>{{ isset($question->updated_at)?$question->updated_at:"" }}</span>
+                                            <span>更新于   {{ isset($question->updated_at)?$question->updated_at:"" }}</span>
                                             {{--<span>点击量</span>--}}
                                             <span class="pull-right">{{  isset($question->user->name)?$question->user->name:"" }}</span>
                                         </h5>
