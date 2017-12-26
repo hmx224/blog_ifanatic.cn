@@ -126,24 +126,20 @@
                             @endforeach
                         </ul>
                     </div>
-
                 </div>
+
+                <!--支付宝打赏二维码-->
+                <div class="panel panel-default">
+                    <div class="panel-heading question-follow">
+                        <span>欢迎支付宝打赏</span>
+                        <h2>
+                            <img width="240px" height="240px" src="/images/zhifu/xiaohu-alipay.png" alt="小胡支付宝">
+                        </h2>
+
+                    </div>
+                </div>
+
             </div>
-
-
-            <!--支付宝打赏二维码-->
-            {{--<div class="col-md-4">--}}
-            {{--<div class="panel panel-default">--}}
-            {{--<div class="panel-heading question-follow">--}}
-            {{--<span>欢迎支付宝打赏</span>--}}
-            {{--<h2>--}}
-            {{--<img   width="240px" height="240px" src="/images/zhifu/xiaohu-alipay.png" alt="小胡支付宝">--}}
-            {{--</h2>--}}
-
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-
         </div>
     </div>
 
@@ -178,7 +174,7 @@
 <script>
     layui.use(['carousel', 'form'], function () {
         var carousel = layui.carousel
-            , form = layui.form;
+                , form = layui.form;
 
         //常规轮播
         carousel.render({
@@ -214,8 +210,8 @@
         var $ = layui.$, active = {
             set: function (othis) {
                 var THIS = 'layui-bg-normal'
-                    , key = othis.data('key')
-                    , options = {};
+                        , key = othis.data('key')
+                        , options = {};
 
                 othis.css('background-color', '#5FB878').siblings().removeAttr('style');
                 options[key] = othis.data('value');
@@ -232,7 +228,7 @@
 
         $('.demoSet').on('keyup', function () {
             var value = this.value
-                , options = {};
+                    , options = {};
             if (!/^\d+$/.test(value)) return;
 
             options[this.name] = value;
