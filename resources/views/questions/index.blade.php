@@ -8,7 +8,7 @@
                     <div class="panel-heading">
                         @if($questions_count !=0)
                             @foreach($questions as $question)
-                                <div  style=" border: 10px solid #fff5d4; padding: 10px;">
+                                <div  style=" border: 6px solid #7EC4CC; padding: 10px;">
                                     <div class="media question_page">
 
                                         <div class="media-left">
