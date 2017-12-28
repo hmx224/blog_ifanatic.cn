@@ -7,30 +7,31 @@
                 <div class="panel panel-default ">
                     <div class="panel-heading">
                         @if($questions_count !=0)
-                            @foreach($questions as $question)
-                                <div  style=" border: 6px solid #7EC4CC; padding: 10px;">
-                                    <div class="media question_page">
 
+                            @foreach($questions as $question)
+                                {{--<div style="border: 6px solid #7EC4CC; padding: 10px;">--}}
+                                <div style="border: 6px solid #DAF3F5; padding: 5px; margin:-10px -15px -10px -15px">
+                                    <div class="media question_page">
                                         <div class="media-left">
                                             <a href="">
                                                 <img class="img-circle" width="50px" height="50px"
                                                      src="{{ isset($question->user->avatar) ? $question->user->avatar: ''}}"
                                                      alt="{{ isset($question->user->name) ? $question->user->name: '' }}">
                                             </a>
+                                            <h4 class="media-heading" style="font-family: 华文中宋"></h4>
                                         </div>
 
                                         <div class="media-body">
-                                            <h4 class="media-heading" style="font-family: 华文中宋">
                                             <span style="font-weight: 500; font-size: 1.3em;">
                                                 {{ isset($question->title)?$question->title:"" }}
                                                 <span class="pull-right"
                                                       style="font-size: 20px;">发布于{{ $question->created_at->diffForHumans() }}</span>
                                             </span>
-                                                <hr>
+                                            <hr>
                                                 <span style="display: block">{{ trim(mb_substr(preg_replace("/<[^>]+>/", '', $question->body),0,64,'utf-8')) }}
                                                     <a href="/questions/{{ $question->id }}">...阅读全文</a>
                                             </span>
-                                            </h4>
+
                                             <h5 class="" style="max-width: 600px">
                                                 <span>更新于 {{ isset($question->updated_at)?$question->updated_at:"" }}</span>
                                                 {{--<span>点击量</span>--}}
@@ -177,7 +178,7 @@
 <script>
     layui.use(['carousel', 'form'], function () {
         var carousel = layui.carousel
-            , form = layui.form;
+                , form = layui.form;
 
         //常规轮播
         carousel.render({
@@ -213,8 +214,8 @@
         var $ = layui.$, active = {
             set: function (othis) {
                 var THIS = 'layui-bg-normal'
-                    , key = othis.data('key')
-                    , options = {};
+                        , key = othis.data('key')
+                        , options = {};
 
                 othis.css('background-color', '#5FB878').siblings().removeAttr('style');
                 options[key] = othis.data('value');
@@ -231,7 +232,7 @@
 
         $('.demoSet').on('keyup', function () {
             var value = this.value
-                , options = {};
+                    , options = {};
             if (!/^\d+$/.test(value)) return;
 
             options[this.name] = value;
