@@ -91,9 +91,9 @@
 
             $(".select2").select2({
                 tags: true,
-                placeholder: '搜索选择或自定义相关话题,最大6个字符，回车键或者下拉框选中话题',
+                placeholder: '搜索选择或自定义相关话题,最大10个字符，回车键或者下拉框选中话题',
                 minimumInputLength: 2,
-                maximumInputLength: 6,
+                maximumInputLength: 10,
                 ajax: {
                     url: '/api/topics',
                     dataType: 'json',
