@@ -132,7 +132,6 @@
             <i class="fa fa-2x fa-arrow-up"></i>
     </span>
 </div>
-
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="navbar-inner navbar-content-center">
         <div class="text-muted credit" style="padding: 14px;">
@@ -142,10 +141,10 @@
                 </div>
                 <b>Version</b> 1.0.0 <strong>&copy; 2017-2018 <a href="http://blog.ifanatic.cn">爱狂热</a></strong>
                 huMengXu版权所有.
-                @section('js')
-                    <script>var lainframe;</script>
-                    <script language="javascript" type="text/javascript" src="//js.users.51.la/19358042.js"></script>
-                @endsection
+                {{--<script language="javascript" type="text/javascript" src="//js.users.51.la/19358042.js"></script>--}}
+                <script type="text/javascript" src="//js.users.51.la/19358042.js"></script>
+                {{--<a href="//www.51.la/?19358042" target="_blank"><img alt="网站统计" src="" style="border:none" /></a>--}}
+                {{--<a href="//www.51.la/?19358042" target="_blank"><span>网站统计</span></a>--}}
             </div>
         </div>
     </div>
