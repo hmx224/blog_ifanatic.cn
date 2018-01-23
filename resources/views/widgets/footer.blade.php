@@ -142,9 +142,12 @@
                 <b>Version</b> 1.0.0 <strong>&copy; 2017-2018 <a href="http://blog.ifanatic.cn">爱狂热</a></strong>
                 huMengXu版权所有.
                 {{--<script language="javascript" type="text/javascript" src="//js.users.51.la/19358042.js"></script>--}}
-                <script type="text/javascript" src="//js.users.51.la/19358042.js"></script>
+                {{--<script type="text/javascript" src="//js.users.51.la/19358042.js"></script>--}}
                 {{--<a href="//www.51.la/?19358042" target="_blank"><img alt="网站统计" src="" style="border:none" /></a>--}}
                 {{--<a href="//www.51.la/?19358042" target="_blank"><span>网站统计</span></a>--}}
+
+                <script language="javascript" type="text/javascript" src="//js.users.51.la/19358042.js"></script>
+                <noscript><a href="//www.51.la/?19358042" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="//img.users.51.la/19358042.asp" style="border:none" /></a></noscript>
             </div>
         </div>
     </div>
