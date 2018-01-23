@@ -142,10 +142,11 @@
                 </div>
                 <b>Version</b> 1.0.0 <strong>&copy; 2017-2018 <a href="http://blog.ifanatic.cn">爱狂热</a></strong>
                 huMengXu版权所有.
-                <script>var lainframe;</script>
-                <script language="javascript" type="text/javascript" src="//js.users.51.la/19358042.js"></script>
+                @section('js')
+                    <script>var lainframe;</script>
+                    <script language="javascript" type="text/javascript" src="//js.users.51.la/19358042.js"></script>
+                @endsection
             </div>
         </div>
     </div>
 </nav>
-
