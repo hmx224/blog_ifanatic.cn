@@ -10,7 +10,7 @@ use Response;
 
 class FileController extends BaseController
 {
-    const ALLOW_EXTENSIONS = ['gif', 'jpeg', 'jpg', 'png', 'mp4', 'mpg', 'mpeg', 'avi', 'wav', 'mp3', 'amr', 'caf'];
+    const ALLOW_EXTENSIONS = ['gif', 'jpeg', 'jpg', 'png', 'mp4', 'mpg', 'mpeg', 'avi', 'wav', 'mp3', 'amr', 'caf','pdf'];
 
     //文件上传使用
     public function upload()
@@ -53,6 +53,8 @@ class FileController extends BaseController
         $filename = $time . mt_rand(10000, 99999) . '.' . $extension;
 
         $targetFile = $uploadPath . $filename;
+
+        $file->move($uploadPath, $targetFile); //TODO 存储本地一份
 
         if (env('FILESYSTEM_DRIVER') == 'qiniu') {    //存储到七牛上,本地走local
             $id = request::get('user_id');
