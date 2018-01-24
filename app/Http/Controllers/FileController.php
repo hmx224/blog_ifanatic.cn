@@ -54,10 +54,10 @@ class FileController extends BaseController
             $filename = $time . mt_rand(100, 999) . '.' . $extension;
             $targetFile = $uploadPath . $filename;
 
-//            if (!file_exists($uploadPath)) {
-//                mkdir(rtrim($uploadPath, '/'), 0777, true);
-//                @exec('chmod -R 777 ' . rtrim($uploadPath, '/'));
-//            }
+            if (!file_exists($uploadPath)) {
+                @mkdir(rtrim($uploadPath, '/'), 0777, true);
+                @exec('chmod -R 777 ' . rtrim($uploadPath, '/'));
+            }
 
             $file->move($uploadPath, $targetFile);
 
