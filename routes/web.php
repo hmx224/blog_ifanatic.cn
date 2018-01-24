@@ -23,6 +23,9 @@ Route::get('weibo/login', 'ExtendLoginController@weibo');  //weibo login_url
 Route::get('weiboLogin', 'ExtendLoginController@weiboLogin'); //callback
 Route::get('weiboLogout', 'ExtendLoginController@weiboLogout'); //callback-cancel
 
+Route::get('qq/login', 'ExtendLoginController@qq');  //qq login_url
+Route::get('qqLogin', 'ExtendLoginController@qqLogin'); //callback
+
 //验证码
 Route::get('/captcha/{config?}', function (\Mews\Captcha\Captcha $captcha, $config = 'default') {
     return $captcha->create($config);
@@ -75,6 +78,8 @@ Route::get('inbox', 'InboxController@index');
 Route::get('inbox/{dialogId}', 'InboxController@show');
 Route::post('inbox/{dialogId}/store', 'InboxController@store');
 
+//文件上传
+Route::post('files/upload', 'FileController@upload');
 
 require_once(__DIR__ . '/admin.php');
 
