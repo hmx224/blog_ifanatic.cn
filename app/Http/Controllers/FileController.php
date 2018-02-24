@@ -55,7 +55,8 @@ class FileController extends BaseController
             $targetFile = $uploadPath . $filename;
 
             if (!file_exists($uploadPath)) {
-                @mkdir(rtrim($uploadPath, '/'), 0777, true);
+//                @mkdir(rtrim($uploadPath, '/'), 0777, true);
+                @mkdir($uploadPath, 0777, true);
                 @exec('chmod -R 777 ' . rtrim($uploadPath, '/'));
             }
 
