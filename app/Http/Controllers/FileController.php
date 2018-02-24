@@ -50,15 +50,18 @@ class FileController extends BaseController
             $time = Carbon::now()->format('YmdHis');
 
             $relativePath = Config::get('site.upload.file_path') . '/' . $year . '/' . $month . $day . '/';
+
             $uploadPath = public_path() . $relativePath;
-            $filename = $time . mt_rand(100, 999) . '.' . $extension;
+
+            $filename = $time . mt_rand(10000, 99999) . '.' . $extension;
+
             $targetFile = $uploadPath . $filename;
 
-            if (!file_exists($uploadPath)) {
+//            if (!file_exists($uploadPath)) {
 //                @mkdir(rtrim($uploadPath, '/'), 0777, true);
-                @mkdir($uploadPath, 0777, true);
-                @exec('chmod -R 777 ' . rtrim($uploadPath, '/'));
-            }
+//                @mkdir($uploadPath, 0777, true);
+//                @exec('chmod -R 777 ' . rtrim($uploadPath, '/'));
+//            }
 
             $file->move($uploadPath, $targetFile);
 
