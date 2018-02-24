@@ -30,6 +30,7 @@ return [
     'upload' => [
         'url_prefix' => '',
         'avatar_path' => '/uploads/avatars',
+        'file_path' => '/uploads/files',
         'video_path' => '/uploads/videos',
         'audio_path' => '/uploads/audios',
         'image_path' => '/uploads/images',
